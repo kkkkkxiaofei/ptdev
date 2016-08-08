@@ -1,6 +1,6 @@
 # PT助手
 
-`PT(Pivotal Tracker)`是一个非常优秀的敏捷管理工具，PT助手是一个能够帮助敏捷团队更好的进行`IPM(Iteration Plan Meeting)`的助手工具，它包含了许多功能点，如`Stroy Analysis`, `Stroy Transition`和`Story Categories`等。
+`PT(Pivotal Tracker)`是一个非常优秀的敏捷管理工具，而PT助手是基于PT的一个助手工具，它能够帮助敏捷团队更好的进行`IPM(Iteration Plan Meeting)`。 它包含了许多功能点，如`Stroy Analysis`, `Stroy Transition`和`Story Category`等。
 
 [在线版请戳这里](https://kkkkkxiaofei.github.io/ptpro/)
 
@@ -48,16 +48,28 @@ https://www.pivotaltracker.com/n/projects/${project id}/stories/${story id}
 
 >1.[React](https://facebook.github.io/react/)
 MVVM已成往事，Web Component大行其道的当下，你不得不去看的React。
+
 >2.[Redux](http://redux.js.org)
 为React量身打造，在原版Flux的基础上进行的重构。
+
 >3.[ES6](http://es6.ruanyifeng.com/)
-ES6已经有段时间了，还没尝试过的小伙伴们快看看阮老师的博客吧（此人博客我跪服）
+ES6已经有段时间了，还没尝试过的小伙伴们快看看阮老师的博客吧（此人博客我跪服）。
+
 >4.[Babel](http://babeljs.io/repl/)
 没有它，那还怎么愉快的和ES6玩耍。
+
 >5.[Webpack](http://webpack.github.io/)
-新一代前端打包部署神奇，请忘掉Browserify吧。
+新一代前端打包部署神器，请忘掉Browserify吧。
+
 >6.[Promise](https://developer.mozilla.org/en-US/docs/Mozilla/JavaScript_code_modules/Promise.jsm/Promise)
 ES6原生支持Promise，有了它，地狱回调算神马，Ajax更没听过。
 
+# 贡献
+
+欢迎大家一起开发，请提交`Pull Request`，有问题请建Issue
+
+# License
+
+C1-TW
 
 
