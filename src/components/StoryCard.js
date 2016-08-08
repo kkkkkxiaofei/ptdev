@@ -12,7 +12,7 @@ export default class StoryCard extends React.Component {
     }
     this.handleExpandChange = this.handleExpandChange.bind(this)
     this.handleExpand = this.handleExpand.bind(this)
-    this.analysize = this.analysize.bind(this)
+    this.analyse = this.analyse.bind(this)
     this.assembleTransitions = this.assembleTransitions.bind(this)
   }
 
@@ -24,7 +24,7 @@ export default class StoryCard extends React.Component {
     this.setState({expanded: true})
   }
 
-  analysize() {
+  analyse() {
     const storyId = this.props.story.id
     this.props.fetchStoryTransition(storyId)
   }
@@ -83,7 +83,7 @@ export default class StoryCard extends React.Component {
         </CardText>
         <CardActions>
           <FlatButton label="Expand" onTouchTap={this.handleExpand} />
-          <FlatButton label="Analysize" onTouchTap={this.analysize} />
+          <FlatButton label="Analyse" onTouchTap={this.analyse} />
         </CardActions>
       </Card>
     );
