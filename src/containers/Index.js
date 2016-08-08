@@ -9,6 +9,7 @@ import TextField from 'material-ui/TextField'
 import Progress from '../components/Progress'
 import Search from '../components/Search'
 import StoryTransition from '../components/StoryTransition'
+import Modal from '../components/Modal'
 
 class Index extends React.Component {
 
@@ -19,7 +20,7 @@ class Index extends React.Component {
 	}
 
 	componentWillMount() {
-		this.props.actions.fetchStory()
+		// this.props.actions.fetchStory()
 	}
 
 	search() {
@@ -39,6 +40,7 @@ class Index extends React.Component {
 		return (
 		  <MuiThemeProvider>
 			  <div className="index">
+			  		<Modal />	
 			  		<Progress show={this.props.isStroyFetching}/>
 			  		<div className="searchBox pullRright">
 			  			<TextField
