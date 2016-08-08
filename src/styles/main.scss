@@ -1,0 +1,83 @@
+@mixin col($num) {
+  width: (100%/12)* $num;
+}
+
+body {
+	margin: 0;
+}
+
+.pullLeft {
+	float: left;
+}
+
+.pullRright {
+	float: right;	
+}
+
+.inlineBlock {
+	display: inline-block;
+}
+
+.half {
+	@include col(6);
+}
+
+.blue {
+	color: rgb(0, 188, 212);
+}
+
+.red {
+	color: rgb(255, 64, 129);
+}
+
+.bgBlue {
+	background-color: rgb(0, 188, 212);
+}
+
+.bgRed {
+	background-color: rgb(255, 64, 129);
+}
+
+.index {
+	overflow: hidden;
+	.searchBox {
+		.searchButton {
+	    border: 0;
+	    display: inline-block;
+	    height: 24px;
+	    width: 24px;
+	    color: rgb(0, 188, 212);
+	    &:hover {
+	    	cursor: pointer;
+	    }
+		}
+	}
+	.storyList {
+		clear: both;
+		overflow: hidden;
+		.storyCol {
+			width: 40%;
+			margin: 20px 5%;
+			.count {
+				position: relative;
+		    height: 100px;
+		    width: 100px;
+		    border-radius: 50%;
+		    text-align: center;
+		    font-size: 56px;
+		    line-height: 100px;
+		    color: white;
+		    margin: 30px auto;
+			}
+		}
+	}
+}
+
+.progress {
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	padding-left: calc(50% - 50px);
+	padding-top: 20%;
+	background-color: rgba(0, 0, 0, 0.541176);
+}

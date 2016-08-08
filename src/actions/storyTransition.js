@@ -1,0 +1,16 @@
+import { CALL_API, Schemas } from '../middleware/api'
+
+export const FETCH_STORY_TRANSITION_REQUEST = 'FETCH_STORY_TRANSITION_REQUEST'
+export const FETCH_STORY_TRANSITION_SUCCESS = 'FETCH_STORY_TRANSITION_SUCCESS'
+export const FETCH_STORY_TRANSITION_FAILURE = 'FETCH_STORY_TRANSITION_FAILURE'
+export const STORY_TRANSITION_ENTITY_UPDATE = 'STORY_TRANSITION_ENTITY_UPDATE'
+
+export function fetchStoryTransition(stroyId) {
+  return {
+    [CALL_API]: {
+      types: [ FETCH_STORY_TRANSITION_REQUEST, [FETCH_STORY_TRANSITION_SUCCESS, STORY_TRANSITION_ENTITY_UPDATE], FETCH_STORY_TRANSITION_FAILURE ],
+      endpoint: '/stories/' + stroyId + '/transitions',
+      schema: Schemas.NO_FORMAT_ARRAY
+    }
+  }
+}
