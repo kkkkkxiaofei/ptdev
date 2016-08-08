@@ -32,7 +32,7 @@ export default class Modal extends React.Component {
     return (
       <div>
         <Dialog
-          title="Dialog With Date Picker"
+          title="Setting your security info "
           actions={actions}
           modal={false}
           open={this.state.open}
