@@ -19,10 +19,6 @@ class Index extends React.Component {
 		this.state = {stories: this.props.stories || []}
 	}
 
-	componentWillMount() {
-		// this.props.actions.fetchStory()
-	}
-
 	search() {
 		const input = this.refs.search.input
 		const filteredStories = this.props.stories.filter((story) => {
@@ -40,7 +36,7 @@ class Index extends React.Component {
 		return (
 		  <MuiThemeProvider>
 			  <div className="index">
-			  		<Modal />	
+			  		<Modal fetchStory={this.props.actions.fetchStory}/>	
 			  		<Progress show={this.props.isStroyFetching}/>
 			  		<div className="searchBox pullRright">
 			  			<TextField

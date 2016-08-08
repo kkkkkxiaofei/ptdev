@@ -1,7 +1,6 @@
 import React from 'react'
 import Dialog from 'material-ui/Dialog'
 import FlatButton from 'material-ui/FlatButton'
-import RaisedButton from 'material-ui/RaisedButton'
 import TextField from 'material-ui/TextField'
 
 export default class Modal extends React.Component {
@@ -10,14 +9,14 @@ export default class Modal extends React.Component {
     this.state = {
       open: true
     }
-  }
-
-  handleOpen() {
-    this.setState({open: true});
+    this.handleClose = this.handleClose.bind(this)
   }
 
   handleClose() {
-    this.setState({open: false});
+    const projectId = this.refs.projectId.input.value
+    const token = this.refs.token.input.value
+    this.props.fetchStory(projectId, token)
+    this.setState({open: false})
   }
 
   render() {
@@ -28,11 +27,10 @@ export default class Modal extends React.Component {
         keyboardFocused={true}
         onTouchTap={this.handleClose}
       />,
-    ];
+    ]
 
     return (
       <div>
-        <RaisedButton label="Dialog With Date Picker" onTouchTap={this.handleOpen} />
         <Dialog
           title="Dialog With Date Picker"
           actions={actions}
@@ -41,8 +39,8 @@ export default class Modal extends React.Component {
           onRequestClose={this.handleClose}
         >
           <div>
-            <TextField hintText="project id"/><br />
-            <TextField hintText="token" /><br />
+            <TextField ref="projectId" hintText="project id"/><br />
+            <TextField ref="token" hintText="token" /><br />
           </div>
         </Dialog>
       </div>

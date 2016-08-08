@@ -2,21 +2,21 @@ import { Schema, arrayOf, normalize } from 'normalizr'
 import { camelizeKeys } from 'humps'
 import 'isomorphic-fetch'
 
-const API_ROOT = 'https://www.pivotaltracker.com/services/v5/projects/123456'
+const API_ROOT = 'https://www.pivotaltracker.com/services/v5/projects/'
 
-function createHeaders() {
+function createHeaders(token) {
     const headerOptions = {
-      'X-TrackerToken': ''
+      'X-TrackerToken': token
     }
     return headerOptions
 }
 
 // Fetches an API response and normalizes the result JSON according to schema.
 // This makes every API response have the same shape, regardless of how nested it was.
-function callApi(endpoint, schema) {
-  const fullUrl = API_ROOT + endpoint
+function callApi(endpoint, schema, param) {
+  const fullUrl = API_ROOT + param.projectId + endpoint
   return fetch(fullUrl, {
-    headers: createHeaders() || {},
+    headers: createHeaders(param.token) || {},
     method: 'GET',
     mode: 'cors'
   }).then(response =>
@@ -94,7 +94,9 @@ export default store => next => action => {
   const [ requestType, successType, failureType ] = types
   next(actionWith({ type: requestType }))
 
-  return callApi(endpoint, schema).then(
+  const param = callAPI.param
+
+  return callApi(endpoint, schema, param).then(
       (response) => {
         if (Array.isArray(successType)) {
           successType.forEach(function (type) {
