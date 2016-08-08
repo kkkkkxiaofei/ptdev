@@ -47,22 +47,22 @@ https://www.pivotaltracker.com/n/projects/${project id}/stories/${story id}
 推荐以下参考资料：
 
 >1.[React](https://facebook.github.io/react/)
-MVVM已成往事，Web Component大行其道的当下，你不得不去看的React。
+>MVVM已成往事，Web Component大行其道的当下，你不得不去看的React。
 
 >2.[Redux](http://redux.js.org)
-为React量身打造，在原版Flux的基础上进行的重构。
+>为React量身打造，在原版Flux的基础上进行的重构。
 
 >3.[ES6](http://es6.ruanyifeng.com/)
-ES6已经有段时间了，还没尝试过的小伙伴们快看看阮老师的博客吧（此人博客我跪服）。
+>ES6已经有段时间了，还没尝试过的小伙伴们快看看阮老师的博客吧（此人博客我跪服）。
 
 >4.[Babel](http://babeljs.io/repl/)
-没有它，那还怎么愉快的和ES6玩耍。
+>没有它，那还怎么愉快的和ES6玩耍。
 
 >5.[Webpack](http://webpack.github.io/)
-新一代前端打包部署神器，请忘掉Browserify吧。
+>新一代前端打包部署神器，请忘掉Browserify吧。
 
 >6.[Promise](https://developer.mozilla.org/en-US/docs/Mozilla/JavaScript_code_modules/Promise.jsm/Promise)
-ES6原生支持Promise，有了它，地狱回调算神马，Ajax更没听过。
+>ES6原生支持Promise，有了它，地狱回调算神马，Ajax更没听过。
 
 # 贡献
 
