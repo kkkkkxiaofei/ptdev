@@ -15,7 +15,7 @@ module.exports = {
                 test: /\.js$/,
                 loaders: ['babel'],
                 include: source,
-                presets: ['es2015','react'],
+                presets: ['es2015','react']
 
             },
             { 

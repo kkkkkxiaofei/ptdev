@@ -1,7 +1,7 @@
 {
-  "name": "pt-dev",
+  "name": "ptdev",
   "version": "1.0.0",
-  "description": "pt-dev",
+  "description": "ptdev",
   "main": "bundle.js",
   "dependencies": {
     "classnames": "^2.2.5",
@@ -12,8 +12,6 @@
     "react-d3-components": "^0.6.4",
     "react-dom": "^15.3.0",
     "react-redux": "^4.4.5",
-    "react-router": "2.0.0",
-    "react-router-redux": "^4.0.4",
     "react-tap-event-plugin": "^1.0.0",
     "redux": "^3.2.1",
     "redux-form": "^5.3.1",
@@ -49,12 +47,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/kkkkkxiaofei/pt-dev.git"
+    "url": "git+https://github.com/kkkkkxiaofei/ptdev.git"
   },
   "author": "Pursue",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/kkkkkxiaofei/pt-dev/issues"
+    "url": "https://github.com/kkkkkxiaofei/ptdev/issues"
   },
-  "homepage": "https://github.com/kkkkkxiaofei/pt-dev#readme"
+  "homepage": "https://github.com/kkkkkxiaofei/ptdev#readme"
 }
