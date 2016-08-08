@@ -5,20 +5,16 @@ import { fetchStoryTransition } from '../actions/storyTransition'
 import {Card, CardActions, CardHeader, CardText} from 'material-ui/Card'
 import Story from '../containers/Story'
 import classNames from 'classnames'
+import * as Analyse from '../utils/Analyse'
 
 class StoryList extends React.Component {
 	constructor(props) {
 		super(props)
-		this.filterStoriesByType = this.filterStoriesByType.bind(this)
 		this.renderStoryList = this.renderStoryList.bind(this)
 	}
 
-	filterStoriesByType(type) {
-		return this.props.stories.filter(story => story.story_type == type)
-	}
-
 	renderStoryList(type) {
-		const stories = this.filterStoriesByType(type)
+		const stories = Analyse.filterStoriesByType(this.props.stories, type)
 		return (
 			<div className="storyCol inlineBlock pullLeft">
 				{stories.length ? (<div className={classNames("count", {bgRed: type == 'bug', bgBlue: type == 'feature'})}>{stories.length}</div>) : ''}
@@ -30,7 +26,6 @@ class StoryList extends React.Component {
 	}
 
 	render() {
-		const stories = this.props.stories
 		return (
 			<div>
 				{this.renderStoryList('feature')}
