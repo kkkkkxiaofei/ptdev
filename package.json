@@ -43,7 +43,7 @@
     "webpack-dev-server": "^1.14.1"
   },
   "scripts": {
-    "test": "./node_modules/mocha/bin/mocha $(find src -name '*.spec.js') --compilers js:babel-register",
+    "test": "mocha tests/*/*spec.js --compilers js:babel-register",
     "clean": "rm -rf ./build",
     "dev": "webpack-dev-server --progress --hot --profile --colors",
     "pro": "npm run clean & NODE_ENV=production webpack -p"

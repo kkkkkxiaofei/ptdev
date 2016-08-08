@@ -1,5 +1,5 @@
 import expect from 'expect'
-import * as Analyse from '../../utils/Analyse'
+import * as Analyse from '../../src/utils/Analyse'
 
 describe('Analyse', () => {
 	it('filter stories by type', () => {
