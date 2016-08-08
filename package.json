@@ -28,10 +28,12 @@
     "babel-preset-react": "^6.3.13",
     "babel-preset-react-hmre": "^1.1.1",
     "babel-preset-stage-0": "^6.5.0",
-    "babel-register": "^6.7.2",
+    "babel-register": "^6.11.6",
     "css-loader": "^0.23.1",
+    "expect": "^1.20.2",
     "html-webpack-plugin": "^2.22.0",
     "humps": "^1.1.0",
+    "mocha": "^3.0.2",
     "node-sass": "^3.4.2",
     "normalizr": "^2.2.1",
     "react-transform-hmr": "^1.0.4",
@@ -41,7 +43,7 @@
     "webpack-dev-server": "^1.14.1"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "./node_modules/mocha/bin/mocha $(find src -name '*.spec.js') --compilers js:babel-register",
     "clean": "rm -rf ./build",
     "dev": "webpack-dev-server --progress --hot --profile --colors",
     "pro": "npm run clean & NODE_ENV=production webpack -p"
