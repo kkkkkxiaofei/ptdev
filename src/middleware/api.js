@@ -3,6 +3,7 @@ import { camelizeKeys } from 'humps'
 import 'isomorphic-fetch'
 
 const API_ROOT = 'https://www.pivotaltracker.com/services/v5/projects/'
+let secruityHash = null
 
 function createHeaders(token) {
     const headerOptions = {
@@ -14,9 +15,12 @@ function createHeaders(token) {
 // Fetches an API response and normalizes the result JSON according to schema.
 // This makes every API response have the same shape, regardless of how nested it was.
 function callApi(endpoint, schema, param) {
-  const fullUrl = API_ROOT + param.projectId + endpoint
+  if(!secruityHash) {
+    secruityHash = param
+  }
+  const fullUrl = API_ROOT + secruityHash.projectId + endpoint
   return fetch(fullUrl, {
-    headers: createHeaders(param.token) || {},
+    headers: createHeaders(secruityHash.token) || {},
     method: 'GET',
     mode: 'cors'
   }).then(response =>
