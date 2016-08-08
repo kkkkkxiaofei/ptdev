@@ -42,14 +42,14 @@ body {
 	overflow: hidden;
 	.searchBox {
 		.searchButton {
-	    border: 0;
-	    display: inline-block;
-	    height: 24px;
-	    width: 24px;
-	    color: rgb(0, 188, 212);
-	    &:hover {
-	    	cursor: pointer;
-	    }
+		    border: 0;
+		    display: inline-block;
+		    height: 24px;
+		    width: 24px;
+		    color: rgb(0, 188, 212);
+		    &:hover {
+		    	cursor: pointer;
+		    }
 		}
 	}
 	.storyList {
@@ -79,5 +79,4 @@ body {
 	height: 100%;
 	padding-left: calc(50% - 50px);
 	padding-top: 20%;
-	background-color: rgba(0, 0, 0, 0.541176);
 }
