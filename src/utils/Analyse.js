@@ -2,6 +2,10 @@ const filterStoriesByType = (stories, stroyType) => stories.filter(story => stor
 
 const filterStoriesByLabel = (stories, labelName) => stories.filter(story => {
 	const labels = story.labels
+	const iterationNum = labelName.match(/^\d{2}/)
+	if(iterationNum) {
+		labelName = 'iteration' + iterationNum[0]
+	}
 	return story.labels.some(label => label.name == labelName)
 })
 

@@ -40,7 +40,7 @@ class Index extends React.Component {
 		  			      floatingLabelText="iteration66,release_2b,etc."
 		  			      floatingLabelFixed={false}
 			  			></TextField>
-			  		<Search search={this.search} />
+			  			<Search search={this.search} />
 			  		</div>
 			  		<div className="storyList" >
 					  	<StoryList stories={this.state.stories} />
