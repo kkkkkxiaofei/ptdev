@@ -22,6 +22,12 @@
 4.go to http://127.0.0.1:8080/webpack-dev-server/
 ```
 
+# 测试
+
+```
+npm run test
+```
+
 # 使用
 
 在主界面中，输入自己的`project id`和`API Token`点击确认，即可初始化基本信息，API将会默认请求200个Story作为候选分析集合。
@@ -63,6 +69,9 @@ https://www.pivotaltracker.com/n/projects/${project id}/stories/${story id}
 
 >6.[Promise](https://developer.mozilla.org/en-US/docs/Mozilla/JavaScript_code_modules/Promise.jsm/Promise)
 >ES6原生支持Promise，有了它，地狱回调算神马，Ajax更没听过。
+
+>7.[material-ui](http://www.material-ui.com/#/)
+根据Material UI的设计风格，全力打造的一套适用于React App的UI Components。
 
 # 贡献
 
