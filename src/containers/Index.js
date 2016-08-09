@@ -10,6 +10,7 @@ import Progress from '../components/Progress'
 import Search from '../components/Search'
 import StoryTransition from '../components/StoryTransition'
 import Modal from '../components/Modal'
+import * as Analyse from '../utils/Analyse'
 
 class Index extends React.Component {
 
@@ -21,12 +22,7 @@ class Index extends React.Component {
 
 	search() {
 		const input = this.refs.search.input
-		const filteredStories = this.props.stories.filter((story) => {
-			const labels = story.labels
-			return story.labels.some((label) => {
-				return label.name == input.value
-			})
-		})
+		const filteredStories = Analyse.filterStoriesByLabel(this.props.stories, input.value)
 		this.setState({stories: filteredStories})
 		input.value = ''
 	}
