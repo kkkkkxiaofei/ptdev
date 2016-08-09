@@ -6,8 +6,8 @@ describe('Analyse', () => {
 	beforeEach(() => {
 		stories = [
 			{story_type: 'bug', labels: [{name: 'a'}, {name: 'b'}], name: 'story1'},
-			{story_type: 'bug', labels: [{name: 'a'}, {name: 'c'}], name: 'story2'},
-			{story_type: 'feature', labels: [{name: 'c'}, {name: 'd'}], name: 'story3'}
+			{story_type: 'bug', labels: [{name: 'a'}, {name: 'iteration65'}], name: 'story2'},
+			{story_type: 'feature', labels: [{name: 'iteration65'}, {name: 'd'}], name: 'story3'}
 		]
 	})
 
@@ -19,7 +19,7 @@ describe('Analyse', () => {
 	})
 
 	it('filter stories by label', () => {
-		const filteredStories = Analyse.filterStoriesByLabel(stories, 'c')
+		const filteredStories = Analyse.filterStoriesByLabel(stories, '65')
 
 		expect(filteredStories[0].name).toBe('story2')
 		expect(filteredStories[1].name).toBe('story3')
@@ -35,7 +35,6 @@ describe('Analyse', () => {
 		]
 
 		const transitionData = Analyse.generateStroyCycleTime(transitions, 120348113)
-		
 		expect(transitionData[0].values[0].x).toBe('Finished')
 		expect(transitionData[0].values[0].y).toBe('0.11')
 		expect(transitionData[0].values[1].x).toBe('Delivered')
