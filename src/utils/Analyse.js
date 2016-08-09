@@ -8,7 +8,7 @@ const filterStoriesByLabel = (stories, labelName) => stories.filter(story => {
 function calcDay(currDate, prevDate) {
 	const diff = currDate - prevDate
 	if(typeof diff == 'number') {
-		return diff/1000/3600/24
+		return new Number(diff/1000/3600/24).toFixed(2)
 	}
 	return 0
 }
