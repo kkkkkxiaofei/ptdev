@@ -1,9 +1,6 @@
 import React from 'react'
-import { connect } from 'react-redux'
-import { bindActionCreators } from 'redux'
-import { fetchStoryTransition } from '../actions/storyTransition'
 import {Card, CardActions, CardHeader, CardText} from 'material-ui/Card'
-import Story from '../containers/Story'
+import Story from './Story'
 import classNames from 'classnames'
 import * as Analyse from '../utils/Analyse'
 

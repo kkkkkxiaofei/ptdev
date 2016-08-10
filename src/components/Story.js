@@ -2,7 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import { fetchStoryTransition } from '../actions/storyTransition'
-import StoryCard from '../components/StoryCard'
+import StoryCard from './StoryCard'
 
 class Story extends React.Component {
 	constructor(props) {
