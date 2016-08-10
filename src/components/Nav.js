@@ -2,6 +2,7 @@ import React from 'react'
 import Drawer from 'material-ui/Drawer'
 import MenuItem from 'material-ui/MenuItem'
 import RaisedButton from 'material-ui/RaisedButton'
+import AppBar from 'material-ui/AppBar'
 
 class Nav extends React.Component {
   constructor(props) {
@@ -22,18 +23,14 @@ class Nav extends React.Component {
   render() {
     return (
       <div>
-        <RaisedButton
-          label="Open Drawer"
-          onTouchTap={this.handleToggle}
-        />
+        <AppBar title="PT Helper" onTouchTap={this.handleToggle} />
         <Drawer
           docked={false}
           width={200}
           open={this.state.open}
           onRequestChange={(open) => this.setState({open})}
         >
-          <MenuItem onTouchTap={this.handleClose}>Menu Item</MenuItem>
-          <MenuItem onTouchTap={this.handleClose}>Menu Item 2</MenuItem>
+          <MenuItem onTouchTap={this.handleClose}>Bug Tendency</MenuItem>
         </Drawer>
       </div>
     );

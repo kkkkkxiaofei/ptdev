@@ -9,7 +9,6 @@ import TextField from 'material-ui/TextField'
 import Progress from '../components/Progress'
 import Search from '../components/Search'
 import Modal from '../components/Modal'
-import Header from '../components/Header'
 import Nav from '../components/Nav'
 import * as Analyse from '../utils/Analyse'
 
