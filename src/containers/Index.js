@@ -9,6 +9,8 @@ import TextField from 'material-ui/TextField'
 import Progress from '../components/Progress'
 import Search from '../components/Search'
 import Modal from '../components/Modal'
+import Header from '../components/Header'
+import Nav from '../components/Nav'
 import * as Analyse from '../utils/Analyse'
 
 class Index extends React.Component {
@@ -16,7 +18,11 @@ class Index extends React.Component {
 	constructor(props) {
 		super(props)
 		this.search = this.search.bind(this)
-		this.state = {stories: this.props.stories || []}
+		this.toggle = this.toggle.bind(this)
+		this.state = {
+			stories: this.props.stories || [],
+			toggle: false
+		}
 	}
 
 	search() {
@@ -26,11 +32,16 @@ class Index extends React.Component {
 		input.value = ''
 	}
 
+	toggle() {
+		this.setState({toggle: !this.state.toggle})
+	}
+
 	render() {
 		const stories = this.state.stories
 		return (
 		  <MuiThemeProvider>
 			  <div className="index">
+			  		<Nav />
 			  		<Modal fetchStory={this.props.actions.fetchStory}/>	
 			  		<Progress show={this.props.isStroyFetching}/>
 			  		<div className="searchBox pullRright">
