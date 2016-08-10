@@ -8,12 +8,22 @@ class StoryTransition extends React.Component {
 	}
 
 	render() {
-    const data = this.props.transitionData
+    const transitionData = this.props.transitionData
+    const barCharData = [
+      {
+        label: 'transitions',
+        values: [
+          {x: 'Finished', y: transitionData.finishedDay},
+          {x: 'Delivered', y: transitionData.deliveredDay},
+          {x: 'Accepted', y: transitionData.acceptedDay}
+        ]
+      }
+    ]
 		return data ? 
       (
         <div className="stroyTransition">
     			<BarChart
-            data={data}
+            data={barCharData}
             width={400}
             height={400}
             margin={{top: 10, bottom: 50, left: 50, right: 10}}

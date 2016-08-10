@@ -25,17 +25,12 @@ function reassembleTransitions(transitions) {
   const finishedDay = calcDay(transitionHash['finished'], transitionHash['started']), 
   deliveredDay = calcDay(transitionHash['delivered'], transitionHash['finished']), 
   acceptedDay = calcDay(transitionHash['accepted'], transitionHash['delivered'])
-  const transitionData = [
-    {
-      label: 'transitions',
-      values: [
-        {x: 'Finished', y: finishedDay},
-        {x: 'Delivered', y: deliveredDay},
-        {x: 'Accepted', y: acceptedDay}
-      ]
-    }
-  ]
-  return transitionData
+ 
+  return {
+  	finishedDay: finishedDay,
+  	deliveredDay: deliveredDay,
+  	acceptedDay: acceptedDay
+  }
 }
 
 const generateStroyCycleTime = (transitions, storyId) => {
