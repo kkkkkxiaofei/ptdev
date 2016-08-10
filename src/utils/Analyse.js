@@ -41,8 +41,32 @@ const generateStroyCycleTime = (transitions, storyId) => {
 	}
 }
 
+const generateTendencyByType = (stories, storyType) => {
+	const typeStories = filterStoriesByType(stories, storyType)
+	let dataHash = {}
+	typeStories.forEach(story => {
+		const labels = story.labels
+		const label = labels.find(label => label.name.match(/^iteration/))
+		if(label) {
+			const result = label.name.match(/\d{2}/)
+			if(result) {
+				const iterationNum = result[0]
+				if(dataHash[iterationNum]) {
+					dataHash[iterationNum] += 1
+				} else {
+					dataHash[iterationNum] = 1
+				}
+			}
+		}
+	})
+	const iterationNums = Object.keys(dataHash)
+	let graphData = iterationNums.map(iterationNum => ({x: iterationNum, y: dataHash[iterationNum]}))
+	return [{values: graphData}]
+}
+
 export {
 	filterStoriesByType,
 	filterStoriesByLabel,
-	generateStroyCycleTime
+	generateStroyCycleTime,
+	generateTendencyByType
 }

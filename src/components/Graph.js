@@ -1,6 +1,6 @@
 import React from 'react'
 import classNames from 'classnames'
-import { BarChart } from 'react-d3'
+import { BarChart, LineChart, Brush } from 'react-d3'
 
 class Graph extends React.Component {
   constructor(props) {
@@ -8,7 +8,18 @@ class Graph extends React.Component {
   }
 
   render() {
-    return (<div></div>) 
+    if(this.props.graphData) {
+      return (
+        <div>
+          <LineChart
+            data={this.props.graphData}
+            width={400}
+            height={400}
+            margin={{top: 10, bottom: 50, left: 50, right: 10}}/>
+        </div>
+      ) 
+    }
+    return <div></div>
   }
 }
 

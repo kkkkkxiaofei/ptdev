@@ -1,15 +1,20 @@
 import React from 'react'
 import Drawer from 'material-ui/Drawer'
 import MenuItem from 'material-ui/MenuItem'
-import RaisedButton from 'material-ui/RaisedButton'
 import AppBar from 'material-ui/AppBar'
+import Graph from './Graph'
+import * as Analyse from '../utils/Analyse'
 
 class Nav extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {open: false}
+    this.state = {
+      open: false,
+      graphData: null
+    }
     this.handleToggle = this.handleToggle.bind(this)
     this.handleClose = this.handleClose.bind(this)
+    this.bugTendencyAnalyse = this.bugTendencyAnalyse.bind(this)
   }
 
   handleToggle() {
@@ -18,6 +23,12 @@ class Nav extends React.Component {
 
   handleClose() {
     this.setState({open: false})
+  }
+
+  bugTendencyAnalyse() {
+    const stories = this.props.stories
+    const graphData = Analyse.generateTendencyByType(stories, 'bug')
+    this.setState({graphData: graphData, open: false})
   }
 
   render() {
@@ -30,8 +41,9 @@ class Nav extends React.Component {
           open={this.state.open}
           onRequestChange={(open) => this.setState({open})}
         >
-          <MenuItem onTouchTap={this.handleClose}>Bug Tendency</MenuItem>
+          <MenuItem onTouchTap={this.bugTendencyAnalyse}>Bug Tendency</MenuItem>
         </Drawer>
+        <Graph graphData={this.state.graphData}/>
       </div>
     );
   }

@@ -17,7 +17,6 @@ class Index extends React.Component {
 	constructor(props) {
 		super(props)
 		this.search = this.search.bind(this)
-		this.toggle = this.toggle.bind(this)
 		this.state = {
 			stories: this.props.stories || [],
 			toggle: false
@@ -31,16 +30,12 @@ class Index extends React.Component {
 		input.value = ''
 	}
 
-	toggle() {
-		this.setState({toggle: !this.state.toggle})
-	}
-
 	render() {
 		const stories = this.state.stories
 		return (
 		  <MuiThemeProvider>
 			  <div className="index">
-			  		<Nav />
+			  		<Nav stories={this.state.stories} />
 			  		<Modal fetchStory={this.props.actions.fetchStory}/>	
 			  		<Progress show={this.props.isStroyFetching}/>
 			  		<div className="searchBox pullRright">
