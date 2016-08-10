@@ -3,6 +3,7 @@ import {Card, CardActions, CardHeader, CardMedia, CardTitle, CardText} from 'mat
 import FlatButton from 'material-ui/FlatButton'
 import StoryTransition from './StoryTransition'
 import * as Analyse from '../utils/Analyse'
+import { asynCall, Schemas } from '../middleware/api'
 
 export default class StoryCard extends React.Component {
 
@@ -10,6 +11,7 @@ export default class StoryCard extends React.Component {
     super(props)
     this.state = {
       expanded: false,
+      transitionData: null
     }
     this.handleExpandChange = this.handleExpandChange.bind(this)
     this.handleExpand = this.handleExpand.bind(this)
@@ -26,11 +28,19 @@ export default class StoryCard extends React.Component {
 
   analyse() {
     const storyId = this.props.story.id
-    this.props.fetchStoryTransition(storyId)
+    asynCall(
+      '/stories/' + storyId + '/transitions',
+      Schemas.NO_FORMAT_ARRAY,
+      null, 
+      (response) => {
+        const transitions = Object.values(response)
+        const transitionData = Analyse.generateStroyCycleTime(transitions, storyId)
+        this.setState({expanded: true, transitionData: transitionData})
+      }
+    )
   }
 
   render() {
-    const transitionData = Analyse.generateStroyCycleTime(this.props.transitions, this.props.story.id)
     const story = this.props.story
     const avatar = story.story_type == 'feature' ?
      "https://d3jgo56a5b0my0.cloudfront.net/next/assets/next/483b296b-feature.png"
@@ -45,7 +55,7 @@ export default class StoryCard extends React.Component {
           avatar={avatar}
         />
         <CardText expandable={true}>
-          <StoryTransition transitionData={transitionData}/>
+          <StoryTransition transitionData={this.state.transitionData}/>
         </CardText>
         <CardActions>
           <FlatButton label="Expand" onTouchTap={this.handleExpand} />

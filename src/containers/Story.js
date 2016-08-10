@@ -11,25 +11,12 @@ class Story extends React.Component {
 
 	render() {
 		const story = this.props.story
-		const transitions = this.props.transitions
 		return (
 			<div>
-				<StoryCard story={story} transitions={transitions} fetchStoryTransition={this.props.actions.fetchStoryTransition} />
+				<StoryCard story={story} />
 			</div>
 		)
 	}
 }
 
-const mapStateToProps = (state) => {
-	return {
-		transitions: Object.values(state.storyTransitionReducer)
-	}
-} 
-
-const mapDispatchToProps = (dispatch) => ({ 
-  actions: bindActionCreators({
-    fetchStoryTransition
-  }, dispatch)
-})
-
-export default connect(mapStateToProps, mapDispatchToProps)(Story)
+export default Story
