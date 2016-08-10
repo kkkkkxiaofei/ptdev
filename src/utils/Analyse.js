@@ -11,10 +11,10 @@ const filterStoriesByLabel = (stories, labelName) => stories.filter(story => {
 
 function calcDay(currDate, prevDate) {
 	const diff = currDate - prevDate
-	if(typeof diff == 'number') {
-		return new Number(diff/1000/3600/24).toFixed(2)
+	if(isNaN(diff)) {
+		return 0
 	}
-	return 0
+	return new Number(diff/1000/3600/24).toFixed(2)
 }
 
 function reassembleTransitions(transitions) {

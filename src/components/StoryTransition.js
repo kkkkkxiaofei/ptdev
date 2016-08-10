@@ -9,18 +9,19 @@ class StoryTransition extends React.Component {
 
 	render() {
     const transitionData = this.props.transitionData
-    const barCharData = [
-      {
-        label: 'transitions',
-        values: [
-          {x: 'Finished', y: transitionData.finishedDay},
-          {x: 'Delivered', y: transitionData.deliveredDay},
-          {x: 'Accepted', y: transitionData.acceptedDay}
-        ]
-      }
-    ]
-		return data ? 
-      (
+
+    if(transitionData) {
+      const barCharData = [
+        {
+          label: 'transitions',
+          values: [
+            {x: 'Finished', y: transitionData.finishedDay},
+            {x: 'Delivered', y: transitionData.deliveredDay},
+            {x: 'Accepted', y: transitionData.acceptedDay}
+          ]
+        }
+      ]
+  		return (
         <div className="stroyTransition">
     			<BarChart
             data={barCharData}
@@ -30,8 +31,9 @@ class StoryTransition extends React.Component {
           />
         </div>
 		  )
-      : 
-      (<div></div>)
+    }
+
+    return (<div></div>) 
 	}
 }
 
