@@ -15,7 +15,8 @@ export default class Modal extends React.Component {
   handleClose() {
     const projectId = this.refs.projectId.input.value
     const token = this.refs.token.input.value
-    this.props.fetchStory(projectId, token)
+    const storyLabel = this.refs.label.input.value
+    this.props.fetchStory(projectId, token, storyLabel)
     this.setState({open: false})
   }
 
