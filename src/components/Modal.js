@@ -41,6 +41,7 @@ export default class Modal extends React.Component {
           <div>
             <TextField ref="projectId" hintText="project id"/><br />
             <TextField ref="token" hintText="token" /><br />
+            <TextField ref="label" hintText="story label" value="release_2b" /><br />
           </div>
         </Dialog>
       </div>
