@@ -62,9 +62,35 @@ const generateTendencyByType = (stories, storyType) => {
 	return dataHash
 }
 
+const generateSeverity = (stories) => {
+	let dataHash = {}
+	stories.forEach(story => {
+		const labels = story.labels
+		let key = ''
+		labels.find(label => {
+			const result = label.name.match(/high_priority|medium_priority|low_priority/)
+			if(result) {
+				key = result[0]
+			}
+			return result
+		})
+		if(key) {
+			if(dataHash[key]) {
+				dataHash[key] += 1
+			} else {
+				dataHash[key] = 1
+			}
+		}
+	})
+	return dataHash
+}
+
+
+
 export {
 	filterStoriesByType,
 	filterStoriesByLabel,
 	generateStroyCycleTime,
-	generateTendencyByType
+	generateTendencyByType,
+	generateSeverity
 }

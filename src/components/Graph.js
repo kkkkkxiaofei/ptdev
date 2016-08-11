@@ -1,6 +1,6 @@
 import React from 'react'
 import classNames from 'classnames'
-import { BarChart, LineChart, Brush } from 'react-d3'
+import { LineChart, PieChart } from 'react-d3'
 
 class Graph extends React.Component {
   constructor(props) {
@@ -8,11 +8,11 @@ class Graph extends React.Component {
     this.state = {
       'bugTendencyAnalyse': {
         func: this.drawLineChart.bind(this),
-        name: 'Bug Tendency In Iterations'
+        name: 'Bug Tendency'
       },
       'bugSeverityAnalyse': {
-        func: this.drawLineChart.bind(this),
-        name: 'Bug Tendency In Iterations'
+        func: this.drawPieChart.bind(this),
+        name: 'Bug Severity'
       }
     }
   }
@@ -34,6 +34,25 @@ class Graph extends React.Component {
             margin={{top: 10, bottom: 50, left: 50, right: 10}}
             yAxisLabel="Bug Count"
             xAxisLabel="Iteration Number" />
+        </div>
+      ) 
+    }
+  }
+
+  drawPieChart(graphData) {
+    const keys = Object.keys(graphData)
+    if(keys.length > 1) {
+      let data = keys.map(key => ({label: key, value: graphData[key]}))
+      return (
+        <div>
+          <PieChart
+            data={data}
+            width={600}
+            height={600}
+            radius={200}
+            innerRadius={20}
+            sectorBorderColor="white"
+          />
         </div>
       ) 
     }

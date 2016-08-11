@@ -16,6 +16,7 @@ class Nav extends React.Component {
     this.handleToggle = this.handleToggle.bind(this)
     this.handleClose = this.handleClose.bind(this)
     this.bugTendencyAnalyse = this.bugTendencyAnalyse.bind(this)
+    this.bugSeverityAnalyse = this.bugSeverityAnalyse.bind(this)
   }
 
   handleToggle() {
@@ -36,6 +37,16 @@ class Nav extends React.Component {
     })
   }
 
+  bugSeverityAnalyse() {
+    const stories = this.props.stories
+    const graphData = Analyse.generateSeverity(stories)
+    this.setState({
+      graphData: graphData,
+      graphType: 'bugSeverityAnalyse',
+      open: false
+    })
+  }
+
   render() {
     return (
       <div>
@@ -47,6 +58,7 @@ class Nav extends React.Component {
           onRequestChange={(open) => this.setState({open})}
         >
           <MenuItem onTouchTap={this.bugTendencyAnalyse}>Bug Tendency</MenuItem>
+          <MenuItem onTouchTap={this.bugSeverityAnalyse}>Bug Severity</MenuItem>
         </Drawer>
         <Graph graphData={this.state.graphData} graphType={this.state.graphType} />
       </div>
