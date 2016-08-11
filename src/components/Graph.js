@@ -8,11 +8,20 @@ class Graph extends React.Component {
   }
 
   render() {
-    if(this.props.graphData) {
+    
+    const graphData = this.props.graphData
+    const iterationNums = Object.keys(graphData)
+
+    if(iterationNums.length > 1) {
+      let data = [
+        {
+          values: iterationNums.map(iterationNum => ({x: iterationNum, y: graphData[iterationNum]}))
+        }
+      ]
       return (
         <div>
           <LineChart
-            data={this.props.graphData}
+            data={data}
             width={400}
             height={400}
             margin={{top: 10, bottom: 50, left: 50, right: 10}}/>

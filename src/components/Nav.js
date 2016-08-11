@@ -10,7 +10,7 @@ class Nav extends React.Component {
     super(props);
     this.state = {
       open: false,
-      graphData: null
+      graphData: {}
     }
     this.handleToggle = this.handleToggle.bind(this)
     this.handleClose = this.handleClose.bind(this)

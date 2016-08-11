@@ -59,9 +59,7 @@ const generateTendencyByType = (stories, storyType) => {
 			}
 		}
 	})
-	const iterationNums = Object.keys(dataHash)
-	let graphData = iterationNums.map(iterationNum => ({x: iterationNum, y: dataHash[iterationNum]}))
-	return [{values: graphData}]
+	return dataHash
 }
 
 export {
