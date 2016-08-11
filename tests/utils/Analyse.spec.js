@@ -5,9 +5,34 @@ describe('Analyse', () => {
 	let stories = []
 	beforeEach(() => {
 		stories = [
-			{story_type: 'bug', labels: [{name: 'a'}, {name: 'b'}, {name: 'iteration64'}], name: 'story1'},
-			{story_type: 'bug', labels: [{name: 'a'}, {name: 'iteration65'}], name: 'story2'},
-			{story_type: 'feature', labels: [{name: 'iteration65'}, {name: 'd'}], name: 'story3'}
+			{
+				story_type: 'bug', 
+				labels: [
+					{name: 'a'},
+					{name: 'b'}, 
+					{name: 'iteration64'},
+					{name: 'high_priority'}
+				],
+				name: 'story1'
+			},
+			{
+				story_type: 'bug',
+				labels: [
+					{name: 'a'}, 
+					{name: 'iteration65'},
+					{name: 'medium_priority'}
+				], 
+				name: 'story2'
+			},
+			{
+				story_type: 'feature',
+				labels: [
+					{name: 'iteration65'},
+					{name: 'd'},
+					{name: 'low_priority'}
+				],
+				name: 'story3'
+			}
 		]
 	})
 
@@ -35,17 +60,25 @@ describe('Analyse', () => {
 		]
 
 		const transitionData = Analyse.generateStroyCycleTime(transitions, 120348113)
-		
+
 		expect(transitionData.finishedDay).toBe('0.11')
 		expect(transitionData.deliveredDay).toBe('0.05')
 		expect(transitionData.acceptedDay).toBe('0.39')
 	})
 	
-	it('', () => {
+	it('generate story tendency', () => {
 		const dataHash = Analyse.generateTendencyByType(stories, 'bug')
 
 		expect(dataHash["64"]).toBe(1)
 		expect(dataHash["65"]).toBe(1)
+	})
+
+	it('generate story severity', () => {
+		const dataHash = Analyse.generateSeverity(stories)
+
+		expect(dataHash["high_priority"]).toBe(1)
+		expect(dataHash["medium_priority"]).toBe(1)
+		expect(dataHash["low_priority"]).toBe(1)
 	})
 	
 })
