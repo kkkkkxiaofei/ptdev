@@ -41,6 +41,9 @@ body {
 .index {
 	overflow: hidden;
 	.searchBox {
+		position: absolute;
+	    top: 80px;
+	    right: 0;
 		.searchButton {
 		    border: 0;
 		    display: inline-block;
@@ -55,6 +58,7 @@ body {
 	.storyList {
 		clear: both;
 		overflow: hidden;
+		margin-top: 60px;
 		.storyCol {
 			width: 40%;
 			margin: 20px 5%;
@@ -70,6 +74,15 @@ body {
 		    margin: 30px auto;
 			}
 		}
+	}
+	.graphBox {
+		margin: 100px auto;
+    width: 1000px;
+    padding: 10px;
+    text-align: center;
+    box-shadow: rgba(0, 0, 0, 0.117647) 0px 1px 6px, rgba(0, 0, 0, 0.117647) 0px 1px 4px;
+    border-radius: 2px;
+    background-color: white;
 	}
 }
 

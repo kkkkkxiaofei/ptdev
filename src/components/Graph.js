@@ -6,7 +6,10 @@ class Graph extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      'bugTendencyAnalyse': this.drawLineChart.bind(this)
+      'bugTendencyAnalyse': {
+        func: this.drawLineChart.bind(this),
+        name: 'Bug Tendency In Iterations'
+      }
     }
   }
 
@@ -22,7 +25,7 @@ class Graph extends React.Component {
         <div>
           <LineChart
             data={data}
-            width={400}
+            width={800}
             height={400}
             margin={{top: 10, bottom: 50, left: 50, right: 10}} />
         </div>
@@ -34,9 +37,14 @@ class Graph extends React.Component {
     const graphType = this.props.graphType
     const graphData = this.props.graphData
     const handler = this.state[graphType]
-    const result = handler && handler(graphData)
+    const result = handler && handler["func"](graphData)
     if(result) {
-      return result
+      return (
+        <div className="graphBox">
+          <h3>{handler["name"]}</h3>
+          <div>{result}</div>
+        </div>
+      )
     }
     return <div></div>
   }
