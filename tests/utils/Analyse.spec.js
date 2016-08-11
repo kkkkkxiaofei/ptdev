@@ -5,7 +5,7 @@ describe('Analyse', () => {
 	let stories = []
 	beforeEach(() => {
 		stories = [
-			{story_type: 'bug', labels: [{name: 'a'}, {name: 'b'}], name: 'story1'},
+			{story_type: 'bug', labels: [{name: 'a'}, {name: 'b'}, {name: 'iteration64'}], name: 'story1'},
 			{story_type: 'bug', labels: [{name: 'a'}, {name: 'iteration65'}], name: 'story2'},
 			{story_type: 'feature', labels: [{name: 'iteration65'}, {name: 'd'}], name: 'story3'}
 		]
@@ -35,8 +35,17 @@ describe('Analyse', () => {
 		]
 
 		const transitionData = Analyse.generateStroyCycleTime(transitions, 120348113)
+		
 		expect(transitionData.finishedDay).toBe('0.11')
 		expect(transitionData.deliveredDay).toBe('0.05')
 		expect(transitionData.acceptedDay).toBe('0.39')
 	})
+	
+	it('', () => {
+		const dataHash = Analyse.generateTendencyByType(stories, 'bug')
+
+		expect(dataHash["64"]).toBe(1)
+		expect(dataHash["65"]).toBe(1)
+	})
+	
 })
