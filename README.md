@@ -79,9 +79,8 @@ https://www.pivotaltracker.com/n/projects/${project id}/stories/${story id}
 >7.[material-ui](http://www.material-ui.com/#/)
 根据Material UI的设计风格，全力打造的一套适用于React App的UI Components。
 
->8.[react-d3-components](https://github.com/codesuki/react-d3-components#examples)
-
-适用于React的d3 components，支持各种图表。
+>8.[react-d3](https://reactiva.github.io/react-d3-website/)
+适用于react-d3比react-d3-components更方便快捷，支持各种图表。
 
 
 # 贡献
