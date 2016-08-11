@@ -10,7 +10,8 @@ class Nav extends React.Component {
     super(props);
     this.state = {
       open: false,
-      graphData: {}
+      graphData: {},
+      graphType: ''
     }
     this.handleToggle = this.handleToggle.bind(this)
     this.handleClose = this.handleClose.bind(this)
@@ -28,7 +29,11 @@ class Nav extends React.Component {
   bugTendencyAnalyse() {
     const stories = this.props.stories
     const graphData = Analyse.generateTendencyByType(stories, 'bug')
-    this.setState({graphData: graphData, open: false})
+    this.setState({
+      graphData: graphData,
+      graphType: 'bugTendencyAnalyse',
+      open: false
+    })
   }
 
   render() {
@@ -43,7 +48,7 @@ class Nav extends React.Component {
         >
           <MenuItem onTouchTap={this.bugTendencyAnalyse}>Bug Tendency</MenuItem>
         </Drawer>
-        <Graph graphData={this.state.graphData}/>
+        <Graph graphData={this.state.graphData} graphType={this.state.graphType} />
       </div>
     );
   }
