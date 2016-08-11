@@ -9,6 +9,10 @@ class Graph extends React.Component {
       'bugTendencyAnalyse': {
         func: this.drawLineChart.bind(this),
         name: 'Bug Tendency In Iterations'
+      },
+      'bugSeverityAnalyse': {
+        func: this.drawLineChart.bind(this),
+        name: 'Bug Tendency In Iterations'
       }
     }
   }
@@ -27,7 +31,9 @@ class Graph extends React.Component {
             data={data}
             width={800}
             height={400}
-            margin={{top: 10, bottom: 50, left: 50, right: 10}} />
+            margin={{top: 10, bottom: 50, left: 50, right: 10}}
+            yAxisLabel="Bug Count"
+            xAxisLabel="Iteration Number" />
         </div>
       ) 
     }
