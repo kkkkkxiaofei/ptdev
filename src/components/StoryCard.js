@@ -58,7 +58,6 @@ export default class StoryCard extends React.Component {
           <StoryTransition transitionData={this.state.transitionData}/>
         </CardText>
         <CardActions>
-          <FlatButton label="Expand" onTouchTap={this.handleExpand} />
           <FlatButton label="Analyse" onTouchTap={this.analyse} />
         </CardActions>
       </Card>

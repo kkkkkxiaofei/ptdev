@@ -18,7 +18,21 @@ function calcDay(currDate, prevDate) {
 	const decimials = (result % 1)
 	const integer = result - decimials
 	const day = integer + (decimials > 0.5 ? 1 : .5)
-	return day
+	const weekIndex = currDate.getDay()
+	let offsetDay = 0
+	let counter = weekIndex
+	for(let start = weekIndex;start <= weekIndex + day;start++) {
+		if(counter == 7) {
+			offsetDay++
+		} else {
+			if(counter > 7) {
+				counter = 1
+			}
+		}
+		counter++
+	}
+	
+	return day - offsetDay
 }
 
 function reassembleTransitions(transitions) {
