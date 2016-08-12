@@ -61,9 +61,9 @@ describe('Analyse', () => {
 
 		const transitionData = Analyse.generateStroyCycleTime(transitions, 120348113)
 
-		expect(transitionData.finishedDay).toBe('0.11')
-		expect(transitionData.deliveredDay).toBe('0.05')
-		expect(transitionData.acceptedDay).toBe('0.39')
+		expect(transitionData.finishedDay).toBe(0.5)
+		expect(transitionData.deliveredDay).toBe(0.5)
+		expect(transitionData.acceptedDay).toBe(0.5)
 	})
 	
 	it('generate story tendency', () => {
