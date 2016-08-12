@@ -1,6 +1,6 @@
 import React from 'react'
 import classNames from 'classnames'
-import { BarChart } from 'react-d3'
+import { BarChart } from 'react-d3-components'
 
 class StoryTransition extends React.Component {
 	constructor(props) {
@@ -11,16 +11,14 @@ class StoryTransition extends React.Component {
     const transitionData = this.props.transitionData
 
     if(transitionData) {
-      const barCharData = [
-        {
-          label: 'transitions',
+      var barCharData = [{
+          label: 'somethingA',
           values: [
             {x: 'Finished', y: transitionData.finishedDay},
             {x: 'Delivered', y: transitionData.deliveredDay},
             {x: 'Accepted', y: transitionData.acceptedDay}
           ]
-        }
-      ]
+      }];
   		return (
         <div className="stroyTransition">
     			<BarChart

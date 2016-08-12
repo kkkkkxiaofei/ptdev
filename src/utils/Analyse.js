@@ -14,7 +14,11 @@ function calcDay(currDate, prevDate) {
 	if(isNaN(diff)) {
 		return 0
 	}
-	return new Number(diff/1000/3600/24).toFixed(2)
+	const result = diff/1000/3600/24
+	const decimials = (result % 1)
+	const integer = result - decimials
+	const day = integer + (decimials > 0.5 ? 1 : .5)
+	return day
 }
 
 function reassembleTransitions(transitions) {
@@ -25,7 +29,6 @@ function reassembleTransitions(transitions) {
   const finishedDay = calcDay(transitionHash['finished'], transitionHash['started']), 
   deliveredDay = calcDay(transitionHash['delivered'], transitionHash['finished']), 
   acceptedDay = calcDay(transitionHash['accepted'], transitionHash['delivered'])
- 
   return {
   	finishedDay: finishedDay,
   	deliveredDay: deliveredDay,

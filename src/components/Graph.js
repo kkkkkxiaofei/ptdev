@@ -1,6 +1,6 @@
 import React from 'react'
 import classNames from 'classnames'
-import { LineChart, PieChart } from 'react-d3'
+import { LineChart, PieChart } from 'react-d3-components'
 
 class Graph extends React.Component {
   constructor(props) {
@@ -32,8 +32,8 @@ class Graph extends React.Component {
             width={800}
             height={400}
             margin={{top: 10, bottom: 50, left: 50, right: 10}}
-            yAxisLabel="Bug Count"
-            xAxisLabel="Iteration Number" />
+            yAxis={{label: "Bug Count"}}
+            xAxis={{label: "Iteration Number"}} />
         </div>
       ) 
     }
@@ -42,16 +42,16 @@ class Graph extends React.Component {
   drawPieChart(graphData) {
     const keys = Object.keys(graphData)
     if(keys.length > 1) {
-      let data = keys.map(key => ({label: key, value: graphData[key]}))
+      let data = {
+        values: keys.map(key => ({x: key, y: graphData[key]}))
+      }
       return (
         <div>
           <PieChart
             data={data}
             width={600}
-            height={600}
-            radius={200}
-            innerRadius={20}
-            sectorBorderColor="white"
+            height={400}
+            margin={{top: 10, bottom: 10, left: 100, right: 100}}
           />
         </div>
       ) 
