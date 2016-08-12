@@ -8,7 +8,6 @@
     "isomorphic-fetch": "^2.2.1",
     "material-ui": "^0.15.2",
     "react": "^15.3.0",
-    "react-d3": "^0.4.0",
     "react-d3-components": "^0.6.4",
     "react-dom": "^15.3.0",
     "react-redux": "^4.4.5",

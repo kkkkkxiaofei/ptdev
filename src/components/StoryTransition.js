@@ -12,7 +12,6 @@ class StoryTransition extends React.Component {
 
     if(transitionData) {
       var barCharData = [{
-          label: 'somethingA',
           values: [
             {x: 'Finished', y: transitionData.finishedDay},
             {x: 'Delivered', y: transitionData.deliveredDay},
