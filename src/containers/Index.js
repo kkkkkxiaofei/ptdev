@@ -12,7 +12,7 @@ import Modal from '../components/Modal'
 import Nav from '../components/Nav'
 import Graph from '../components/Graph'
 import * as Analyse from '../utils/Analyse'
-import { asynCall, Schemas } from '../middleware/api'
+import { asynCall, Schemas, getLimit } from '../middleware/api'
 
 class Index extends React.Component {
 
@@ -47,14 +47,15 @@ class Index extends React.Component {
   }
 
 	search() {
+		this.setState({isStroyFetching: true})
+		const limit = getLimit()
 		let labelName = this.refs.search.input.value
 		const iterationNum = labelName.match(/^\d{2}/)
 		if(iterationNum) {
 			labelName = 'iteration' + iterationNum[0]
 		}
-		this.setState({isStroyFetching: true})
 		asynCall(
-		  '/stories/?limit=200&with_label=' + labelName,
+		  '/stories/?with_label=' + labelName + '&limit=' + limit,
 		  Schemas.NO_FORMAT_ARRAY,
 		  null, 
 		  (response) => {
@@ -75,7 +76,7 @@ class Index extends React.Component {
 			  		<div className="searchBox pullRright">
 			  			<TextField
 			  					ref="search"
-		  			      floatingLabelText="iteration66,release_2b,etc."
+		  			      floatingLabelText="Enter a label name"
 		  			      floatingLabelFixed={false}
 			  			></TextField>
 			  			<Search search={this.search} />

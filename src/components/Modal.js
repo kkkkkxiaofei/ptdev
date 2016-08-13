@@ -17,9 +17,15 @@ export default class Modal extends React.Component {
   handleClose() {
     const projectId = this.refs.projectId.input.value
     const token = this.refs.token.input.value
-    const storyLabel = this.refs.label.input.value
-    this.props.fetchStory(projectId, token, storyLabel)
-    this.setState({open: false})
+    const limit = parseInt(this.refs.limit.input.value)
+    if(projectId && token && (limit > 0)) {
+      setSecurityInfo({
+        projectId: projectId,
+        token: token,
+        limit: limit
+      })
+      this.setState({open: false})
+    }
   }
 
   render() {
@@ -44,7 +50,7 @@ export default class Modal extends React.Component {
           <div>
             <TextField ref="projectId" hintText="project id"/><br />
             <TextField ref="token" hintText="token" /><br />
-            <TextField ref="label" hintText="story label" defaultValue="release_2b" /><br />
+            <TextField ref="limit" hintText="limit count" defaultValue="200" /><br />
           </div>
         </Dialog>
       </div>
