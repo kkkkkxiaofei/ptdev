@@ -10,6 +10,7 @@ import Progress from '../components/Progress'
 import Search from '../components/Search'
 import Modal from '../components/Modal'
 import Nav from '../components/Nav'
+import Graph from '../components/Graph'
 import * as Analyse from '../utils/Analyse'
 import { asynCall, Schemas } from '../middleware/api'
 
@@ -17,13 +18,33 @@ class Index extends React.Component {
 
 	constructor(props) {
 		super(props)
-		this.search = this.search.bind(this)
 		this.state = {
 			stories: this.props.stories || [],
 			toggle: false,
 			isStroyFetching: false
 		}
+		this.search = this.search.bind(this)
+		this.bugTendencyAnalyse = this.bugTendencyAnalyse.bind(this)
+    this.bugSeverityAnalyse = this.bugSeverityAnalyse.bind(this)
 	}
+
+	bugTendencyAnalyse() {
+    const stories = this.state.stories
+    const graphData = Analyse.generateTendencyByType(stories, 'bug')
+    return {
+      graphData: graphData,
+      graphType: 'bugTendencyAnalyse'
+    }
+  }
+
+  bugSeverityAnalyse() {
+    const stories = this.state.stories
+    const graphData = Analyse.generateSeverity(stories)
+    return {
+      graphData: graphData,
+      graphType: 'bugSeverityAnalyse'
+    }
+  }
 
 	search() {
 		const input = this.refs.search.input
@@ -54,6 +75,13 @@ class Index extends React.Component {
 		  			      floatingLabelFixed={false}
 			  			></TextField>
 			  			<Search search={this.search} />
+			  		</div>
+			  		<div className="graphList">
+			  			{[this.bugTendencyAnalyse, this.bugSeverityAnalyse].map(method => {
+			  				return (
+			  					<Graph {...method()} />
+			  				)
+			  			})}
 			  		</div>
 			  		<div className="storyList" >
 					  	<StoryList stories={this.state.stories} />

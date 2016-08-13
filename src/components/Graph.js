@@ -59,8 +59,7 @@ class Graph extends React.Component {
   }
 
   render() {
-    const graphType = this.props.graphType
-    const graphData = this.props.graphData
+    const {graphType, graphData} = this.props
     const handler = this.state[graphType]
     const result = handler && handler["func"](graphData)
     if(result) {
