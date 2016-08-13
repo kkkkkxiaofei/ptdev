@@ -47,15 +47,19 @@ class Index extends React.Component {
   }
 
 	search() {
-		const input = this.refs.search.input
+		let labelName = this.refs.search.input.value
+		const iterationNum = labelName.match(/^\d{2}/)
+		if(iterationNum) {
+			labelName = 'iteration' + iterationNum[0]
+		}
 		this.setState({isStroyFetching: true})
 		asynCall(
-		  '/stories/?limit=200&with_label=' + input.value,
+		  '/stories/?limit=200&with_label=' + labelName,
 		  Schemas.NO_FORMAT_ARRAY,
 		  null, 
 		  (response) => {
 		    const stories = Object.values(response)
-			this.setState({stories: stories, isStroyFetching: false})
+				this.setState({stories: stories, isStroyFetching: false})
 		  }
 		)
 	}
