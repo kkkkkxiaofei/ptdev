@@ -19,7 +19,7 @@ class StoryTransition extends React.Component {
           ]
       }];
   		return (
-        <div className="stroyTransition">
+        <div className="storyTransition">
     			<BarChart
             data={barCharData}
             width={400}

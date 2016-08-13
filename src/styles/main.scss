@@ -87,6 +87,15 @@ body {
 	.storyTransition {
 		margin-top: 20px;
 	}
+	.storyCard {
+		overflow: hidden;
+		.cycleTime {
+			float: right;
+			button {
+				min-width: 0 !important;
+			}
+		}
+	}
 }
 
 .progress {

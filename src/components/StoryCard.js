@@ -1,10 +1,13 @@
 import React from 'react';
 import {Card, CardActions, CardHeader, CardMedia, CardTitle, CardText} from 'material-ui/Card'
 import FlatButton from 'material-ui/FlatButton'
+import FontIcon from 'material-ui/FontIcon'
 import Avatar from 'material-ui/Avatar'
 import Chip from 'material-ui/Chip'
 import {
-  lime400,lime300,lime200, lime100,
+  blue500,
+  lime200,
+  grey400,grey300,grey200, grey100, grey50,
   cyanA200, greenA200, indigoA200, blueA200
 } from 'material-ui/styles/colors'
 import StoryTransition from './StoryTransition'
@@ -14,10 +17,7 @@ import { asynCall, Schemas } from '../middleware/api'
 
 const styles = {
   chipBackGroundColors: [
-    lime400,lime300,lime200,lime100
-  ],
-  avatars: [
-    cyanA200, greenA200, indigoA200, blueA200
+    grey400,grey300,grey200,grey100, grey50
   ],
   chip: {
     margin: 4,
@@ -66,34 +66,36 @@ export default class StoryCard extends React.Component {
   render() {
     const story = this.props.story
     const avatar = story.story_type == 'feature' ?
-     "https://d3jgo56a5b0my0.cloudfront.net/next/assets/next/483b296b-feature.png"
+      "https://d3jgo56a5b0my0.cloudfront.net/next/assets/next/483b296b-feature.png"
      : "https://d3jgo56a5b0my0.cloudfront.net/next/assets/next/e95cc022-bug.png"
     return (
-      <Card expanded={this.state.expanded} onExpandChange={this.handleExpandChange}>
-        <CardHeader
-          title={story.name}
-          subtitle={story.story_type + '(' + story.estimate + ')'}
-          actAsExpander={true}
-          showExpandableButton={true}
-          avatar={avatar}
-        />
-        <CardText expandable={true}>
-          <div style={styles.wrapper}>
-            {story.labels.map((label, index) => {
-              return (
-                <Chip backgroundColor={styles.chipBackGroundColors[index % styles.chipBackGroundColors.length]} style={styles.chip} >
-                  <Avatar color={styles.avatars[index % styles.avatars.length]} size={32}>{label.name.substr(0,1).toUpperCase()}</Avatar>
-                  {label.name}
-                </Chip>
-              )
-            })}
-          </div>
-          <StoryTransition transitionData={this.state.transitionData}/>
-        </CardText>
-        <CardActions>
-          <FlatButton label="Analyse" onTouchTap={this.analyse} />
-        </CardActions>
-      </Card>
+      <div >
+        <Card className="storyCard" expanded={this.state.expanded} onExpandChange={this.handleExpandChange}>
+          <CardHeader
+            title={story.name}
+            subtitle={story.story_type + '(' + story.estimate + ')'}
+            actAsExpander={true}
+            showExpandableButton={true}
+            avatar={avatar}
+          />
+          <CardText expandable={true}>
+            <div style={styles.wrapper}>
+              {story.labels.map((label, index) => {
+                return (
+                  <Chip backgroundColor={styles.chipBackGroundColors[index % styles.chipBackGroundColors.length]} style={styles.chip} >
+                    <Avatar size={32}>{label.name.substr(0,1).toUpperCase()}</Avatar>
+                    {label.name}
+                  </Chip>
+                )
+              })}
+            </div>
+            <StoryTransition transitionData={this.state.transitionData}/>
+          </CardText>
+          <CardActions className="cycleTime">
+            <FlatButton icon={<FontIcon className="material-icons" color={story.story_type == 'feature' ? 'rgb(0, 188, 212)' : 'rgb(255, 64, 129)'}>equalizer</FontIcon>} onTouchTap={this.analyse} />
+          </CardActions>
+        </Card>
+      </div>
     );
   }
 }
