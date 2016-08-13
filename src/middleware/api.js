@@ -5,6 +5,8 @@ import 'isomorphic-fetch'
 const API_ROOT = 'https://www.pivotaltracker.com/services/v5/projects/'
 let securityHash = null
 
+export const setSecurityInfo = securityParam => securityHash = securityParam
+
 function createHeaders(token) {
     const headerOptions = {
       'X-TrackerToken': token

@@ -11,6 +11,7 @@ import Search from '../components/Search'
 import Modal from '../components/Modal'
 import Nav from '../components/Nav'
 import * as Analyse from '../utils/Analyse'
+import { asynCall, Schemas } from '../middleware/api'
 
 class Index extends React.Component {
 
@@ -25,9 +26,15 @@ class Index extends React.Component {
 
 	search() {
 		const input = this.refs.search.input
-		const filteredStories = Analyse.filterStoriesByLabel(this.props.stories, input.value)
-		this.setState({stories: filteredStories})
-		input.value = ''
+		asynCall(
+		  '/stories/?limit=200&with_label=' + input.value,
+		  Schemas.NO_FORMAT_ARRAY,
+		  null, 
+		  (response) => {
+		    const stories = Object.values(response)
+			this.setState({stories: stories})
+		  }
+		)
 	}
 
 	render() {
@@ -36,7 +43,7 @@ class Index extends React.Component {
 		  <MuiThemeProvider>
 			  <div className="index">
 			  		<Nav stories={this.state.stories} />
-			  		<Modal fetchStory={this.props.actions.fetchStory}/>	
+			  		<Modal />	
 			  		<Progress show={this.props.isStroyFetching}/>
 			  		<div className="searchBox pullRright">
 			  			<TextField

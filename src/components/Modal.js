@@ -2,6 +2,8 @@ import React from 'react'
 import Dialog from 'material-ui/Dialog'
 import FlatButton from 'material-ui/FlatButton'
 import TextField from 'material-ui/TextField'
+import { setSecurityInfo } from '../middleware/api'
+
 
 export default class Modal extends React.Component {
   constructor(props) {
