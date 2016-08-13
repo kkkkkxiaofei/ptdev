@@ -1,9 +1,23 @@
 import React from 'react';
 import {Card, CardActions, CardHeader, CardMedia, CardTitle, CardText} from 'material-ui/Card'
 import FlatButton from 'material-ui/FlatButton'
+import Avatar from 'material-ui/Avatar'
+import Chip from 'material-ui/Chip'
+import {blue300, indigo900} from 'material-ui/styles/colors';
 import StoryTransition from './StoryTransition'
 import * as Analyse from '../utils/Analyse'
 import { asynCall, Schemas } from '../middleware/api'
+
+
+const styles = {
+  chip: {
+    margin: 4,
+  },
+  wrapper: {
+    display: 'flex',
+    flexWrap: 'wrap',
+  }
+}
 
 export default class StoryCard extends React.Component {
 
@@ -55,6 +69,16 @@ export default class StoryCard extends React.Component {
           avatar={avatar}
         />
         <CardText expandable={true}>
+          <div style={styles.wrapper}>
+            {story.labels.map(label => {
+              return (
+                <Chip backgroundColor={blue300} style={styles.chip} >
+                  <Avatar size={32}>{label.name.substr(0,1).toUpperCase()}</Avatar>
+                  {label.name}
+                </Chip>
+              )
+            })}
+          </div>
           <StoryTransition transitionData={this.state.transitionData}/>
         </CardText>
         <CardActions>
