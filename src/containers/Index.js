@@ -20,19 +20,21 @@ class Index extends React.Component {
 		this.search = this.search.bind(this)
 		this.state = {
 			stories: this.props.stories || [],
-			toggle: false
+			toggle: false,
+			isStroyFetching: false
 		}
 	}
 
 	search() {
 		const input = this.refs.search.input
+		this.setState({isStroyFetching: true})
 		asynCall(
 		  '/stories/?limit=200&with_label=' + input.value,
 		  Schemas.NO_FORMAT_ARRAY,
 		  null, 
 		  (response) => {
 		    const stories = Object.values(response)
-			this.setState({stories: stories})
+			this.setState({stories: stories, isStroyFetching: false})
 		  }
 		)
 	}
@@ -44,7 +46,7 @@ class Index extends React.Component {
 			  <div className="index">
 			  		<Nav stories={this.state.stories} />
 			  		<Modal />	
-			  		<Progress show={this.props.isStroyFetching}/>
+			  		<Progress show={this.state.isStroyFetching}/>
 			  		<div className="searchBox pullRright">
 			  			<TextField
 			  					ref="search"
