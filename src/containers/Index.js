@@ -73,7 +73,7 @@ class Index extends React.Component {
 			  		<Nav stories={this.state.stories} />
 			  		<Modal />	
 			  		<Progress show={this.state.isStroyFetching}/>
-			  		<div className="searchBox pullRright">
+			  		<div className="searchBox pullRight">
 			  			<TextField
 			  					ref="search"
 		  			      floatingLabelText="Enter a label name"

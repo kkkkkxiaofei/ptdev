@@ -8,16 +8,18 @@ class Graph extends React.Component {
     this.state = {
       'bugTendencyAnalyse': {
         func: this.drawLineChart.bind(this),
-        name: 'Bug Tendency'
+        name: 'Bug Tendency',
+        hoverEvent: (x, y) => y
       },
       'bugSeverityAnalyse': {
         func: this.drawPieChart.bind(this),
-        name: 'Bug Severity'
+        name: 'Bug Severity',
+        hoverEvent: (x, y) => y
       }
     }
   }
 
-  drawLineChart(graphData) {
+  drawLineChart(graphData, hoverEvent) {
     const iterationNums = Object.keys(graphData)
     if(iterationNums.length > 1) {
       let data = [
@@ -33,17 +35,19 @@ class Graph extends React.Component {
             height={400}
             margin={{top: 10, bottom: 50, left: 50, right: 10}}
             yAxis={{label: "Bug Count"}}
-            xAxis={{label: "Iteration Number"}} />
+            xAxis={{label: "Iteration Number"}}
+            tooltipHtml={hoverEvent}
+          />
         </div>
       ) 
     }
   }
 
-  drawPieChart(graphData) {
+  drawPieChart(graphData, hoverEvent) {
     const keys = Object.keys(graphData)
     if(keys.length > 1) {
       let data = {
-        values: keys.map(key => ({x: key, y: graphData[key]}))
+        values: keys.map(key => ({x: key + '(' + graphData[key] + ')', y: graphData[key]}))
       }
       return (
         <div>
@@ -52,6 +56,7 @@ class Graph extends React.Component {
             width={600}
             height={400}
             margin={{top: 10, bottom: 10, left: 100, right: 100}}
+            tooltipHtml={hoverEvent}
           />
         </div>
       ) 
@@ -61,7 +66,7 @@ class Graph extends React.Component {
   render() {
     const {graphType, graphData} = this.props
     const handler = this.state[graphType]
-    const result = handler && handler["func"](graphData)
+    const result = handler && handler["func"](graphData, handler["hoverEvent"])
     if(result) {
       return (
         <div className="graphBox">
