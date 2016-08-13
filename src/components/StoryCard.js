@@ -3,13 +3,22 @@ import {Card, CardActions, CardHeader, CardMedia, CardTitle, CardText} from 'mat
 import FlatButton from 'material-ui/FlatButton'
 import Avatar from 'material-ui/Avatar'
 import Chip from 'material-ui/Chip'
-import {blue300, indigo900} from 'material-ui/styles/colors';
+import {
+  lime400,lime300,lime200, lime100,
+  cyanA200, greenA200, indigoA200, blueA200
+} from 'material-ui/styles/colors'
 import StoryTransition from './StoryTransition'
 import * as Analyse from '../utils/Analyse'
 import { asynCall, Schemas } from '../middleware/api'
 
 
 const styles = {
+  chipBackGroundColors: [
+    lime400,lime300,lime200,lime100
+  ],
+  avatars: [
+    cyanA200, greenA200, indigoA200, blueA200
+  ],
   chip: {
     margin: 4,
   },
@@ -70,10 +79,10 @@ export default class StoryCard extends React.Component {
         />
         <CardText expandable={true}>
           <div style={styles.wrapper}>
-            {story.labels.map(label => {
+            {story.labels.map((label, index) => {
               return (
-                <Chip backgroundColor={blue300} style={styles.chip} >
-                  <Avatar size={32}>{label.name.substr(0,1).toUpperCase()}</Avatar>
+                <Chip backgroundColor={styles.chipBackGroundColors[index % styles.chipBackGroundColors.length]} style={styles.chip} >
+                  <Avatar color={styles.avatars[index % styles.avatars.length]} size={32}>{label.name.substr(0,1).toUpperCase()}</Avatar>
                   {label.name}
                 </Chip>
               )
