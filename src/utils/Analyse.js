@@ -14,16 +14,13 @@ function calcDay(currDate, prevDate) {
 	if(isNaN(diff)) {
 		return 0
 	}
-	const result = diff/1000/3600/24
-	const decimials = (result % 1)
-	const integer = result - decimials
-	const day = integer + (decimials > 0.5 ? 1 : .5)
-	const weekIndex = currDate.getDay()
+	const day = diff/1000/3600/24
+	const weekIndex = prevDate.getDay()
 	let offsetDay = 0
 	let counter = weekIndex
 	for(let start = weekIndex;start <= weekIndex + day;start++) {
 		if(counter == 7) {
-			offsetDay++
+			offsetDay += 2
 		} else {
 			if(counter > 7) {
 				counter = 1
@@ -31,15 +28,22 @@ function calcDay(currDate, prevDate) {
 		}
 		counter++
 	}
-	
-	return day - offsetDay
+	const actualDay = day - offsetDay
+	let decimalDay = (actualDay % 1)
+	const integerDay = actualDay - decimalDay
+	if(decimalDay <= .5) {
+		decimalDay = .5
+	} else {
+		decimalDay = 1
+	}
+	return integerDay + decimalDay
 }
 
 function reassembleTransitions(transitions) {
   let transitionHash = {}
   transitions.forEach(transition => {
     transitionHash[transition.state] = new Date(transition.occurred_at)
-  }) 
+  })
   const finishedDay = calcDay(transitionHash['finished'], transitionHash['started']), 
   deliveredDay = calcDay(transitionHash['delivered'], transitionHash['finished']), 
   acceptedDay = calcDay(transitionHash['accepted'], transitionHash['delivered'])
