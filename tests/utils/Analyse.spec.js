@@ -61,7 +61,7 @@ describe('Analyse', () => {
 
 		const transitionData = Analyse.generateStroyCycleTime(transitions, 120348113)
 
-		expect(transitionData.finishedDay).toBe(12.5)
+		expect(transitionData.finishedDay).toBe(10.5)
 		expect(transitionData.deliveredDay).toBe(0.5)
 		expect(transitionData.acceptedDay).toBe(0.5)
 	})
