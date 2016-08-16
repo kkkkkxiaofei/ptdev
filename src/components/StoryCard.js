@@ -87,7 +87,7 @@ export default class StoryCard extends React.Component {
         <Card className="storyCard" expanded={this.state.expanded} onExpandChange={this.handleExpandChange}>
           <CardHeader
             title={story.name}
-            subtitle={story.story_type + '(' + story.estimate + ')' + ' | ' + this.getOwners(story.owner_ids)}
+            subtitle={story.story_type + '(' + story.estimate + ')' + ' | ' + this.getOwners(story.owner_ids) + ' | ' + story.current_state}
             actAsExpander={true}
             showExpandableButton={true}
             avatar={avatar}
