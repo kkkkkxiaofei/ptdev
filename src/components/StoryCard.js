@@ -39,6 +39,7 @@ export default class StoryCard extends React.Component {
     this.handleExpandChange = this.handleExpandChange.bind(this)
     this.handleExpand = this.handleExpand.bind(this)
     this.analyse = this.analyse.bind(this)
+    this.getOwners = this.getOwners.bind(this)
   }
 
   handleExpandChange() {
@@ -63,6 +64,19 @@ export default class StoryCard extends React.Component {
     )
   }
 
+  getOwners(ownerIds) {
+    const owner = {
+      '1899170': 'JS',
+      '2023503': 'DX',
+      '2023503': 'YC',
+      '1462606': 'ZZ',
+      '1657956': 'XF',
+      '1462614': 'JY'
+    }
+    const owners = ownerIds.map(ownerId => owner[ownerId] || 'Unknow' )
+    return owners.join('&')
+  }
+
   render() {
     const story = this.props.story
     const avatar = story.story_type == 'feature' ?
@@ -73,7 +87,7 @@ export default class StoryCard extends React.Component {
         <Card className="storyCard" expanded={this.state.expanded} onExpandChange={this.handleExpandChange}>
           <CardHeader
             title={story.name}
-            subtitle={story.story_type + '(' + story.estimate + ')'}
+            subtitle={story.story_type + '(' + story.estimate + ')' + ' | ' + this.getOwners(story.owner_ids)}
             actAsExpander={true}
             showExpandableButton={true}
             avatar={avatar}
