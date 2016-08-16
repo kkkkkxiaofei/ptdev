@@ -5,7 +5,8 @@ import FontIcon from 'material-ui/FontIcon'
 import Avatar from 'material-ui/Avatar'
 import Chip from 'material-ui/Chip'
 import {
-  blue500,
+  pink500, pink200,
+  blue500, blue200,
   lime200,
   grey400,grey300,grey200, grey100, grey50,
   cyanA200, greenA200, indigoA200, blueA200
@@ -87,7 +88,6 @@ export default class StoryCard extends React.Component {
         <Card className="storyCard" expanded={this.state.expanded} onExpandChange={this.handleExpandChange}>
           <CardHeader
             title={story.name}
-            subtitle={story.story_type + '(' + story.estimate + ')' + ' | ' + this.getOwners(story.owner_ids) + ' | ' + story.current_state}
             actAsExpander={true}
             showExpandableButton={true}
             avatar={avatar}
@@ -106,6 +106,19 @@ export default class StoryCard extends React.Component {
             <StoryTransition transitionData={this.state.transitionData}/>
           </CardText>
           <CardActions className="cycleTime">
+            <div className="pullLeft" style={styles.wrapper}>
+              <Chip backgroundColor={pink200} style={styles.chip} >
+                <Avatar size={16} color={pink500}>{story.estimate}</Avatar>
+                {"points"}
+              </Chip>
+              <Chip backgroundColor={lime200} style={styles.chip} >
+                <Avatar size={32} color={blue500}>{story.current_state.substr(0,1).toUpperCase()}</Avatar>
+                {story.current_state.substr(1)}
+              </Chip>
+              <Chip backgroundColor={blue200} style={styles.chip} >
+                {this.getOwners(story.owner_ids)}
+              </Chip>
+            </div>
             <FlatButton icon={<FontIcon className="material-icons" color={story.story_type == 'feature' ? 'rgb(0, 188, 212)' : 'rgb(255, 64, 129)'}>equalizer</FontIcon>} onTouchTap={this.analyse} />
           </CardActions>
         </Card>

@@ -90,8 +90,9 @@ body {
 	.storyCard {
 		overflow: hidden;
 		.cycleTime {
-			float: right;
+			overflow: hidden;
 			button {
+				float: right;
 				min-width: 0 !important;
 			}
 		}

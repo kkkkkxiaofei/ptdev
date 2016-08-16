@@ -29,7 +29,7 @@ function calcDay(currDate, prevDate) {
 		counter++
 	}
 	const actualDay = day - offsetDay
-	let decimalDay = (actualDay % 1)
+	let decimalDay = actualDay % 1
 	const integerDay = actualDay - decimalDay
 	if(decimalDay <= .5) {
 		decimalDay = .5
