@@ -113,7 +113,7 @@ export default class StoryCard extends React.Component {
               </Chip>
               <Chip backgroundColor={lime200} style={styles.chip} >
                 <Avatar size={32} color={blue500}>{story.current_state.substr(0,1).toUpperCase()}</Avatar>
-                {story.current_state.substr(1)}
+                {story.current_state}
               </Chip>
               <Chip backgroundColor={blue200} style={styles.chip} >
                 {this.getOwners(story.owner_ids)}
