@@ -53,7 +53,7 @@ class Graph extends React.Component {
         <div>
           <PieChart
             data={data}
-            width={600}
+            width={800}
             height={400}
             margin={{top: 10, bottom: 10, left: 100, right: 100}}
             tooltipHtml={hoverEvent}
