@@ -16,9 +16,9 @@ class Graph extends React.Component {
         name: 'Bug Severity',
         hoverEvent: (x, y) => y
       },
-      'bugCountAnalyse': {
+      'bugCategoryAnalyse': {
         func: this.drawBarChart.bind(this),
-        name: 'Bug Type Count ',
+        name: 'Bug Category',
         hoverEvent: (x, y0, y) => y
 
       }

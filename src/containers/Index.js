@@ -26,7 +26,7 @@ class Index extends React.Component {
 		this.search = this.search.bind(this)
 		this.bugTendencyAnalyse = this.bugTendencyAnalyse.bind(this)
 	    this.bugSeverityAnalyse = this.bugSeverityAnalyse.bind(this)
-	    this.bugCountAnalyse = this.bugCountAnalyse.bind(this)
+	    this.bugCategoryAnalyse = this.bugCategoryAnalyse.bind(this)
 	}
 
 	bugTendencyAnalyse() {
@@ -47,13 +47,13 @@ class Index extends React.Component {
     }
   }
 
-  bugCountAnalyse() {
+  bugCategoryAnalyse() {
     const stories = this.state.stories
-    const graphData = Analyse.generateBugCount(stories, 'bug')
+    const graphData = Analyse.generateBugCategory(stories, 'bug')
     
     return {
       graphData: graphData,
-      graphType: 'bugCountAnalyse'
+      graphType: 'bugCategoryAnalyse'
     }
   }
 
@@ -93,7 +93,7 @@ class Index extends React.Component {
 			  			<Search search={this.search} />
 			  		</div>
 			  		<div className="graphList">
-			  			{[this.bugTendencyAnalyse, this.bugSeverityAnalyse, this.bugCountAnalyse].map(method => {
+			  			{[this.bugTendencyAnalyse, this.bugSeverityAnalyse, this.bugCategoryAnalyse].map(method => {
 			  				return (
 			  					<Graph {...method()} />
 			  				)

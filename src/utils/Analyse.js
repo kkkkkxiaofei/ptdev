@@ -106,7 +106,7 @@ const generateSeverity = (stories) => {
 	return dataHash
 }
 
-const generateBugCount = (stories, storyType) => {
+const generateBugCategory = (stories, storyType) => {
 	const typeStories = filterStoriesByType(stories, storyType)
 	let dataHash = {}
 	stories.forEach(story => {
@@ -149,5 +149,5 @@ export {
 	generateStroyCycleTime,
 	generateTendencyByType,
 	generateSeverity,
-	generateBugCount
+	generateBugCategory
 }
