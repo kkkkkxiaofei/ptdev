@@ -129,6 +129,14 @@ const generateBugCategory = (stories, storyType) => {
 	})
 	return dataHash
 }
+function getAllPoints(stories, type) {
+	var allPoints = 0;
+	const featureStories = filterStoriesByType(stories, type)
+	featureStories.forEach(story => {
+		allPoints += story.estimate
+	});
+	return allPoints
+}
 
 function filterBugTypeByLabelName(labelName) {
 	if(labelName.includes("bug_function-data")){
@@ -149,5 +157,6 @@ export {
 	generateStroyCycleTime,
 	generateTendencyByType,
 	generateSeverity,
-	generateBugCategory
+	generateBugCategory,
+	getAllPoints
 }
