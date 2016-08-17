@@ -1,6 +1,6 @@
 import React from 'react'
 import classNames from 'classnames'
-import { LineChart, PieChart } from 'react-d3-components'
+import { LineChart, PieChart, BarChart} from 'react-d3-components'
 
 class Graph extends React.Component {
   constructor(props) {
@@ -15,6 +15,12 @@ class Graph extends React.Component {
         func: this.drawPieChart.bind(this),
         name: 'Bug Severity',
         hoverEvent: (x, y) => y
+      },
+      'bugCountAnalyse': {
+        func: this.drawBarChart.bind(this),
+        name: 'Bug Type Count ',
+        hoverEvent: (x, y0, y) => y
+
       }
     }
   }
@@ -56,6 +62,26 @@ class Graph extends React.Component {
             width={800}
             height={400}
             margin={{top: 10, bottom: 10, left: 100, right: 100}}
+            tooltipHtml={hoverEvent}
+          />
+        </div>
+      ) 
+    }
+  }
+
+  drawBarChart(graphData, hoverEvent) {
+    const results = Object.keys(graphData)
+    if(results.length > 1) {
+      let data = {
+        values: results.map(formatType => ({x: formatType, y: graphData[formatType]}))
+      }
+      return (
+        <div>
+          <BarChart
+            data= {data}
+            width={700}
+            height={400}
+            margin={{top: 10, bottom: 50, left: 50, right: 10}}
             tooltipHtml={hoverEvent}
           />
         </div>

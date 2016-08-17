@@ -32,6 +32,71 @@ describe('Analyse', () => {
 					{name: 'low_priority'}
 				],
 				name: 'story3'
+			},
+			{
+				story_type: 'bug',
+				labels: [
+					{name: 'iteration66'},
+					{name: 'd'},
+					{name: 'bug_function-data_rubric'}
+				],
+				name: 'story4'
+			},
+			{
+				story_type: 'bug',
+				labels: [
+					{name: 'iteration66'},
+					{name: 'd'},
+					{name: 'bug_function-logic_af'}
+				],
+				name: 'story5'
+			},
+			{
+				story_type: 'bug',
+				labels: [
+					{name: 'iteration66'},
+					{name: 'd'},
+					{name: 'bug_performance_report'}
+				],
+				name: 'story6'
+			},
+			{
+				story_type: 'bug',
+				labels: [
+					{name: 'iteration66'},
+					{name: 'd'},
+					{name: 'bug_ui_goal'}
+				],
+				name: 'story7'
+			},
+			{
+				story_type: 'bug',
+				labels: [
+					{name: 'iteration66'},
+					{name: 'd'},
+					{name: 'bug_function-causedbyotherstory_af'}
+				],
+				name: 'story8'
+			},
+			{
+				story_type: 'bug',
+				labels: [
+					{name: 'iteration66'},
+					{name: 'd'},
+					{name: 'bug_function-causedbyotherstory_al'}
+				],
+				name: 'story9'
+			},
+			{
+				story_type: 'bug',
+				labels: [
+					{name: 'iteration66'},
+					{name: 'd'},
+					{name: 'bug_function-logic_alf'},
+					{name: 'bug_function-logic_outcome'},
+					{name: 'bug_function-data_al'}
+				],
+				name: 'story10'
 			}
 		]
 	})
@@ -79,6 +144,16 @@ describe('Analyse', () => {
 		expect(dataHash["high_priority"]).toBe(1)
 		expect(dataHash["medium_priority"]).toBe(1)
 		expect(dataHash["low_priority"]).toBe(1)
+	})
+
+	it('generate bug type count', () => {
+		const dataHash = Analyse.generateBugCount(stories)
+
+		expect(dataHash["Function Data"]).toBe(2)
+		expect(dataHash["Function Logic"]).toBe(3)
+		expect(dataHash["UI"]).toBe(1)
+		expect(dataHash["Performance"]).toBe(1)
+		expect(dataHash["Caused By Other Story"]).toBe(2)
 	})
 	
 })

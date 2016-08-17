@@ -36,6 +36,7 @@ class Nav extends React.Component {
         >
           <MenuItem onTouchTap={this.bugTendencyAnalyse}>Bug Tendency</MenuItem>
           <MenuItem onTouchTap={this.bugSeverityAnalyse}>Bug Severity</MenuItem>
+          <MenuItem onTouchTap={this.bugCountAnalyse}>Bug Type Count</MenuItem>
         </Drawer>
       </div>
     );

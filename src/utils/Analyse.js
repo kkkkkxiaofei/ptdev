@@ -106,12 +106,48 @@ const generateSeverity = (stories) => {
 	return dataHash
 }
 
+const generateBugCount = (stories, storyType) => {
+	const typeStories = filterStoriesByType(stories, storyType)
+	let dataHash = {}
+	stories.forEach(story => {
+		const labels = story.labels
+		let bugType = ''
+		labels.forEach(function(label){
+			const result = label.name.match(/^bug_function-data|^bug_function-logic|^bug_ui|^bug_performance|^bug_function-causedbyotherstory/)
+			if(result) {
+				bugType = result[0]
+				if(bugType){
+					var formatType = filterBugTypeByLabelName(bugType)
+					if(dataHash[formatType]) {
+						dataHash[formatType] += 1
+					} else {
+						dataHash[formatType] = 1
+					}
+				}
+			}
+		});
+	})
+	return dataHash
+}
 
-
+function filterBugTypeByLabelName(labelName) {
+	if(labelName.includes("bug_function-data")){
+		return "Function Data"
+	} else if(labelName.includes("bug_function-logic")){
+		return "Function Logic"
+	}else if((labelName.includes("bug_ui"))){
+		return "UI"
+	} else if(labelName.includes("bug_performance")){
+		return "Performance"
+	}else if(labelName.includes("bug_function-causedbyotherstory")){
+		return "Caused By Other Story"
+	}
+}
 export {
 	filterStoriesByType,
 	filterStoriesByLabel,
 	generateStroyCycleTime,
 	generateTendencyByType,
-	generateSeverity
+	generateSeverity,
+	generateBugCount
 }
