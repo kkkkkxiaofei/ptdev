@@ -147,7 +147,7 @@ describe('Analyse', () => {
 	})
 
 	it('generate bug type count', () => {
-		const dataHash = Analyse.generateBugCount(stories)
+		const dataHash = Analyse.generateBugCategory(stories)
 
 		expect(dataHash["Function Data"]).toBe(2)
 		expect(dataHash["Function Logic"]).toBe(3)

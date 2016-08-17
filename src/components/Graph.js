@@ -75,6 +75,7 @@ class Graph extends React.Component {
       let data = {
         values: results.map(formatType => ({x: formatType, y: graphData[formatType]}))
       }
+      data.values.sort((prev, next) => next.y - prev.y)
       return (
         <div>
           <BarChart
