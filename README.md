@@ -86,6 +86,8 @@ https://www.pivotaltracker.com/n/projects/${project id}/stories/${story id}
 # 贡献
 
 欢迎大家一起开发，请提交`Pull Request`，有问题请建Issue
+请大家统一commit的格式：
+example: [xf] #issue-num 'do something'
 
 # License
 
