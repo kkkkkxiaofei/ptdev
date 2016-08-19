@@ -36,7 +36,7 @@ npm run test
 
 # 使用
 
-在主界面中，输入自己的`project id`和`API Token`和一个`global label`点击确认，即可初始化基本信息，API将会默认请求200个带有`global label`的Story作为候选分析集合。
+在主界面中，输入自己的`project id`和`API Token`和一个`limit count`点击确认，即可初始化基本信息。（`limit count`为最大API请求数据量）
 
 ## 如何获取project id
 
