@@ -8,8 +8,9 @@ import { setSecurityInfo } from '../middleware/api'
 export default class Modal extends React.Component {
   constructor(props) {
     super(props)
+    const hasInfo = this.enterDirectly();
     this.state = {
-      open: true
+      open: !hasInfo
     }
     this.handleClose = this.handleClose.bind(this)
   }
@@ -26,6 +27,24 @@ export default class Modal extends React.Component {
       })
       this.setState({open: false})
     }
+  }
+
+  enterDirectly () {
+    const limit = 200
+    const parameter = window.location.search
+    const projectId = parameter.match(/p=([0-9]+)/)
+    const token = parameter.match(/t=([0-9a-z]+)/)
+    const hasProjectId = projectId && projectId.length > 1;
+    const hasToken = token && token.length > 1;
+    const hasInfo = hasProjectId && hasToken;
+    if (hasInfo) {
+      setSecurityInfo({
+        projectId: projectId[1],
+        token: token[1],
+        limit: limit
+      })
+    }
+    return hasInfo;
   }
 
   render() {
