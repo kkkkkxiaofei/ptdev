@@ -38,6 +38,12 @@ npm run test
 
 在主界面中，输入自己的`project id`和`API Token`和一个`limit count`点击确认，即可初始化基本信息。（`limit count`为最大API请求数据量）
 
+或利用url进行自动配置：
+
+```
+http://127.0.0.1:8080/?p={project id}&t={token}&l={limit count}
+```
+
 ## 如何获取project id
 
 进入自己的PT，url中即可找到对应的project id，如：
