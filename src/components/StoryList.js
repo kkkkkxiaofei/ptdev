@@ -9,12 +9,6 @@ import {green50, green100,green800} from 'material-ui/styles/colors'
 import {Table, TableBody, TableHeader, TableHeaderColumn, TableRow, TableRowColumn} from 'material-ui/Table'
 
 
-const styles = {
-  chip: {
-    margin:8,
-  },
-}
-
 class StoryList extends React.Component {
 	constructor(props) {
 		super(props)
@@ -33,7 +27,7 @@ class StoryList extends React.Component {
 		}
 		return (
 			<div>
-				{stories.length ? (<div className={classNames("count", {bgRed: type == 'bug', bgBlue: type == 'feature'})}>{stories.length}</div>) : ''}
+				<div className={classNames("count", {bgRed: type == 'bug', bgBlue: type == 'feature'})}>{stories.length}</div>
 				<Table {...tableSettings}>
 				  <TableHeader {...tableHeaderSettings}>
 				    <TableRow>
@@ -53,9 +47,10 @@ class StoryList extends React.Component {
 	}
 
 	render() {
+		const storyType = this.props.storyType
 		return (
 			<div>
-				{this.renderStoryList('feature')}
+				{this.renderStoryList(storyType)}
 			</div>
 		)
 	}

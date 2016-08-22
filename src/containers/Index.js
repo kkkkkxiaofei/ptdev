@@ -100,7 +100,7 @@ class Index extends React.Component {
 			  			})}
 			  		</div>
 			  		<div className="storyList" >
-					  	<StoryList stories={this.state.stories} />
+					  	{this.state.stories.length ? (<StoryList stories={this.state.stories} storyType="feature"/>) : ''}
 			  		</div>
 			  </div>
 		  </MuiThemeProvider>
