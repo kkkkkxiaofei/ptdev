@@ -24,20 +24,19 @@ class StoryList extends React.Component {
 	renderStoryList(type) {
 		const stories = Analyse.filterStoriesByType(this.props.stories, type)
 		const points = Analyse.getAllPoints(this.props.stories, type)
+		const tableHeaderSettings = {
+			adjustForCheckbox: false,
+			displaySelectAll: false
+		}
 		return (
-			<div className="storyCol inlineBlock pullLeft">
+			<div>
 				{stories.length ? (<div className={classNames("count", {bgRed: type == 'bug', bgBlue: type == 'feature'})}>{stories.length}</div>) : ''}
-				{stories.length ? (<Chip backgroundColor={green100} style={styles.chip}>
-                <Avatar size={32} backgroundColor={green50} color={green800}>{type.substr(0,1).toUpperCase()}</Avatar>
-					{points} Points </Chip>) : ''}
-				<div>
-					{stories.map(story => (<Story key={story.id} story={story} />))}
-				</div>
 				<Table>
-				  <TableHeader>
+				  <TableHeader {...tableHeaderSettings}>
 				    <TableRow>
-				      <TableHeaderColumn>ID</TableHeaderColumn>
 				      <TableHeaderColumn>Name</TableHeaderColumn>
+				      <TableHeaderColumn>Pairs</TableHeaderColumn>
+				      <TableHeaderColumn>Points</TableHeaderColumn>
 				      <TableHeaderColumn>Status</TableHeaderColumn>
 				    </TableRow>
 				  </TableHeader>
@@ -53,7 +52,6 @@ class StoryList extends React.Component {
 		return (
 			<div>
 				{this.renderStoryList('feature')}
-				{this.renderStoryList('bug')}
 			</div>
 		)
 	}
