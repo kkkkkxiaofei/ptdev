@@ -26,15 +26,14 @@ class Story extends React.Component {
 
 	render() {
 		const story = this.props.story
-		const settings = {
-			allRowsSelected: false
-		}
+		
 		return (
-			<TableRow {...settings}>
-			  <TableRowColumn>{story.name}</TableRowColumn>
-			  <TableRowColumn>{this.getOwners(story.owner_ids)}</TableRowColumn>
-			  <TableRowColumn>{story.estimate}</TableRowColumn>
-			  <TableRowColumn>{story.current_state}</TableRowColumn>
+			<TableRow>
+			  <TableRowColumn style={{width: "300px"}}>{story.name}</TableRowColumn>
+			  <TableRowColumn style={{width: "100px"}}>{this.getOwners(story.owner_ids)}</TableRowColumn>
+			  <TableRowColumn style={{width: "100px"}}>{story.estimate}</TableRowColumn>
+			  <TableRowColumn style={{width: "100px"}}>{story.current_state}</TableRowColumn>
+			  <TableRowColumn>cycle time</TableRowColumn>
 			</TableRow>
 		)
 	}

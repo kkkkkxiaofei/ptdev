@@ -28,16 +28,20 @@ class StoryList extends React.Component {
 			adjustForCheckbox: false,
 			displaySelectAll: false
 		}
+		const tableSettings = {
+			fixedHeader: true
+		}
 		return (
 			<div>
 				{stories.length ? (<div className={classNames("count", {bgRed: type == 'bug', bgBlue: type == 'feature'})}>{stories.length}</div>) : ''}
-				<Table>
+				<Table {...tableSettings}>
 				  <TableHeader {...tableHeaderSettings}>
 				    <TableRow>
-				      <TableHeaderColumn>Name</TableHeaderColumn>
-				      <TableHeaderColumn>Pairs</TableHeaderColumn>
-				      <TableHeaderColumn>Points</TableHeaderColumn>
-				      <TableHeaderColumn>Status</TableHeaderColumn>
+				      <TableHeaderColumn style={{width: "300px"}}>Name</TableHeaderColumn>
+				      <TableHeaderColumn style={{width: "100px"}}>Pairs</TableHeaderColumn>
+				      <TableHeaderColumn style={{width: "100px"}}>Points</TableHeaderColumn>
+				      <TableHeaderColumn style={{width: "100px"}}>Status</TableHeaderColumn>
+				      <TableHeaderColumn>Cycle Time</TableHeaderColumn>
 				    </TableRow>
 				  </TableHeader>
 				  <TableBody>
