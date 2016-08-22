@@ -1,31 +1,35 @@
 import React from 'react'
 import classNames from 'classnames'
 import { BarChart } from 'react-d3-components'
+import {
+  pink200,
+  blue200,
+  lime200,
+  grey200,
+  green200
+} from 'material-ui/styles/colors'
 
 class StoryTransition extends React.Component {
 	constructor(props) {
 		super(props)
 	}
 
+  drawProgress(color, total, currentCost) {
+    if(currentCost) {
+      const width = (currentCost/total*450) + "px"
+      return (<span className={classNames("transition", color)} style={{width: width}}>{currentCost}</span>)
+    }
+  }
+
 	render() {
     const transitionData = this.props.transitionData
-
     if(transitionData) {
-      var barCharData = [{
-          values: [
-            {x: 'Finished', y: transitionData.finishedDay},
-            {x: 'Delivered', y: transitionData.deliveredDay},
-            {x: 'Accepted', y: transitionData.acceptedDay}
-          ]
-      }];
+      const total = transitionData.finishedDay + transitionData.deliveredDay + transitionData.acceptedDay
   		return (
         <div className="storyTransition">
-    			<BarChart
-            data={barCharData}
-            width={400}
-            height={400}
-            margin={{top: 10, bottom: 50, left: 50, right: 10}}
-          />
+          {this.drawProgress("bgGreen", total, transitionData.finishedDay)}
+          {this.drawProgress("bgLime", total, transitionData.deliveredDay)}
+          {this.drawProgress("bgBlue", total, transitionData.acceptedDay)}
         </div>
 		  )
     }

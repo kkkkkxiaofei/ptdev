@@ -4,11 +4,34 @@ import { bindActionCreators } from 'redux'
 import { fetchStoryTransition } from '../actions/storyTransition'
 import StoryCard from './StoryCard'
 import {TableHeaderColumn, TableRow, TableRowColumn} from 'material-ui/Table';
-
+import * as Analyse from '../utils/Analyse'
+import { asynCall, Schemas } from '../middleware/api'
+import StoryTransition from './StoryTransition'
 
 class Story extends React.Component {
 	constructor(props) {
 		super(props)
+		this.analyse = this.analyse.bind(this)
+		this.state = {
+			transitionData: null
+		}
+	}
+
+	componentDidMount() {
+		this.analyse(this.props.story.id)
+	}
+
+	analyse(storyId) {
+	  asynCall(
+	    '/stories/' + storyId + '/transitions',
+	    Schemas.NO_FORMAT_ARRAY,
+	    null, 
+	    (response) => {
+	      const transitions = Object.values(response)
+	      const transitionData = Analyse.generateStroyCycleTime(transitions, storyId)
+	      this.setState({transitionData: transitionData})
+	    }
+	  )
 	}
 
 	getOwners(ownerIds) {
@@ -33,7 +56,9 @@ class Story extends React.Component {
 			  <TableRowColumn style={{width: "100px"}}>{this.getOwners(story.owner_ids)}</TableRowColumn>
 			  <TableRowColumn style={{width: "100px"}}>{story.estimate}</TableRowColumn>
 			  <TableRowColumn style={{width: "100px"}}>{story.current_state}</TableRowColumn>
-			  <TableRowColumn>cycle time</TableRowColumn>
+			  <TableRowColumn>
+			  	<StoryTransition transitionData={this.state.transitionData} />
+			  </TableRowColumn>
 			</TableRow>
 		)
 	}

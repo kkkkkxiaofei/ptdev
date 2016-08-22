@@ -86,9 +86,9 @@ class Index extends React.Component {
 			  		<Progress show={this.state.isStroyFetching}/>
 			  		<div className="searchBox pullRight">
 			  			<TextField
-			  					ref="search"
-		  			      floatingLabelText="Enter a label name"
-		  			      floatingLabelFixed={false}
+		  					ref="search"
+	  			      floatingLabelText="Enter a label name"
+	  			      floatingLabelFixed={false}
 			  			></TextField>
 			  			<Search search={this.search} />
 			  		</div>

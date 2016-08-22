@@ -30,6 +30,22 @@ body {
 	color: rgb(255, 64, 129);
 }
 
+.bgGrey {
+	background-color: #EEEEEE;
+}
+
+.bgLime {
+	background-color: #E6EE9C;
+}
+
+.bgPink {
+	background-color: #F48FB1;
+}
+
+.bgGreen {
+	background-color: #A5D6A7;
+}
+
 .bgBlue {
 	background-color: rgb(0, 188, 212);
 }
@@ -69,19 +85,6 @@ body {
     border-radius: 2px;
     background-color: white;
 	}
-	.storyTransition {
-		margin-top: 20px;
-	}
-	.storyCard {
-		overflow: hidden;
-		.cycleTime {
-			overflow: hidden;
-			button {
-				float: right;
-				min-width: 0 !important;
-			}
-		}
-	}
 }
 
 .progress {
@@ -104,4 +107,11 @@ body {
   line-height: 100px;
   color: white;
   margin: 30px auto;
+}
+
+.transition {
+	display: inline-block;
+	height: 20px;
+	line-height: 20px;
+	text-align: center;
 }
