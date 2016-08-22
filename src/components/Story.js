@@ -57,7 +57,7 @@ class Story extends React.Component {
 			  <TableRowColumn style={{width: "100px"}}>{story.estimate}</TableRowColumn>
 			  <TableRowColumn style={{width: "100px"}}>{story.current_state}</TableRowColumn>
 			  <TableRowColumn>
-			  	<StoryTransition transitionData={this.state.transitionData} />
+			  	<StoryTransition transitionData={this.state.transitionData} storyStatus={story.current_state} />
 			  </TableRowColumn>
 			</TableRow>
 		)

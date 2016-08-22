@@ -12,11 +12,17 @@ import {
 class StoryTransition extends React.Component {
 	constructor(props) {
 		super(props)
+    this.drawProgress = this.drawProgress.bind(this)
 	}
 
-  drawProgress(color, total, currentCost) {
+  drawProgress(color, total, transitionData, progress) {
+    const currentCost = transitionData[progress]
     if(currentCost) {
       const width = (currentCost/total*450) + "px"
+      const storyStatus = this.props.storyStatus
+      if(progress == "finishedDay" && storyStatus=="started") {
+        color = "bgGrey"
+      }
       return (<span className={classNames("transition", color)} style={{width: width}}>{currentCost}</span>)
     }
   }
@@ -27,12 +33,12 @@ class StoryTransition extends React.Component {
       const total = transitionData.finishedDay + transitionData.deliveredDay + transitionData.acceptedDay
   		return (
         <div className="storyTransition">
-          {this.drawProgress("bgGreen", total, transitionData.finishedDay)}
-          {this.drawProgress("bgLime", total, transitionData.deliveredDay)}
-          {this.drawProgress("bgBlue", total, transitionData.acceptedDay)}
+          {this.drawProgress("bgGreen", total, transitionData, "finishedDay")}
+          {this.drawProgress("bgLime", total, transitionData, "deliveredDay")}
+          {this.drawProgress("bgBlue", total, transitionData, "acceptedDay")}
         </div>
 		  )
-    }
+    } 
 
     return (<div></div>) 
 	}

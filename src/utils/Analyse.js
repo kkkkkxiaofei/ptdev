@@ -48,7 +48,7 @@ function reassembleTransitions(transitions) {
   deliveredDay = calcDay(transitionHash['delivered'], transitionHash['finished']), 
   acceptedDay = calcDay(transitionHash['accepted'], transitionHash['delivered'])
   return {
-  	finishedDay: finishedDay,
+  	finishedDay: finishedDay || calcDay(new Date(), transitionHash['started']),
   	deliveredDay: deliveredDay,
   	acceptedDay: acceptedDay
   }
