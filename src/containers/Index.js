@@ -1,7 +1,4 @@
 import React from 'react'
-import { connect } from 'react-redux'
-import { bindActionCreators } from 'redux'
-import { fetchStory } from '../actions/story'
 import StoryList from '../components/StoryList'
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
 import RaisedButton from 'material-ui/RaisedButton'
@@ -25,8 +22,8 @@ class Index extends React.Component {
 		}
 		this.search = this.search.bind(this)
 		this.bugTendencyAnalyse = this.bugTendencyAnalyse.bind(this)
-	    this.bugSeverityAnalyse = this.bugSeverityAnalyse.bind(this)
-	    this.bugCategoryAnalyse = this.bugCategoryAnalyse.bind(this)
+    this.bugSeverityAnalyse = this.bugSeverityAnalyse.bind(this)
+    this.bugCategoryAnalyse = this.bugCategoryAnalyse.bind(this)
 	}
 
 	bugTendencyAnalyse() {
@@ -108,18 +105,4 @@ class Index extends React.Component {
 	}
 }
 
-const mapStateToProps = (state) => {
-	return {
-		stories: Object.values(state.storyReducer),
-		isStroyFetching: state.storyUIReducer.isFetching
-	}
-} 
-
-const mapDispatchToProps = (dispatch) => ({ 
-  actions: bindActionCreators({
-    fetchStory
-  }, dispatch)
-})
-
-
-export default connect(mapStateToProps, mapDispatchToProps)(Index)
+export default Index
