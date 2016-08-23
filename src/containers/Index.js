@@ -45,34 +45,6 @@ class Index extends React.Component {
 		this.switchPage("bugPage")
 	}
 
-	bugTendencyAnalyse() {
-    const stories = this.state.stories
-    const graphData = Analyse.generateTendencyByType(stories, 'bug')
-    return {
-      graphData: graphData,
-      graphType: 'bugTendencyAnalyse'
-    }
-  }
-
-  bugSeverityAnalyse() {
-    const stories = this.state.stories
-    const graphData = Analyse.generateSeverity(stories)
-    return {
-      graphData: graphData,
-      graphType: 'bugSeverityAnalyse'
-    }
-  }
-
-  bugCategoryAnalyse() {
-    const stories = this.state.stories
-    const graphData = Analyse.generateBugCategory(stories, 'bug')
-    
-    return {
-      graphData: graphData,
-      graphType: 'bugCategoryAnalyse'
-    }
-  }
-
 	search() {
 		this.setState({isStroyFetching: true})
 		const limit = getLimit()
