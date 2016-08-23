@@ -28,6 +28,10 @@ class Index extends React.Component {
     this.switchPage = this.switchPage.bind(this)
 	}
 
+	componentWillMount() {
+		this.switchPage("storyPage")
+	}
+
 	switchPage(page) {
 		const toggleHash = {
 			bugPage: false,
