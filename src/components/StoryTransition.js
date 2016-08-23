@@ -33,7 +33,7 @@ class StoryTransition extends React.Component {
       const story = this.props.story
       const total = transitionData.finishedDay + transitionData.deliveredDay + transitionData.acceptedDay
   		return (
-        <div className={classNames("storyTransition", {warning: transitionData["finishedDay"] > story.estimate})}>
+        <div className="storyTransition">
           {this.drawProgress("bgGreen", total, transitionData, "finishedDay")}
           {this.drawProgress("bgLime", total, transitionData, "deliveredDay")}
           {this.drawProgress("bgBlue", total, transitionData, "acceptedDay")}

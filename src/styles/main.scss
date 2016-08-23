@@ -116,7 +116,11 @@ body {
 	text-align: center;
 }
 
-.warning {
-	border: 3px solid #F48FB1;
+.notification{
+	width: 24px;
+	height: 24px;
+	position: absolute;
+	margin-left: -25px;
+	margin-top: -5px;
 }
 
