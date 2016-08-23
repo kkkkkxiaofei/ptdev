@@ -12,7 +12,7 @@ export default class StoryPage extends React.Component {
 	    return (
 	      <div className="storyPage">
   	  		<div className="storyList" >
-  			  	{stories.length ? (<StoryList stories={stories} storyType="feature"/>) : ''}
+  			  	{stories.length ? (<StoryList stories={stories} storyType="feature" />) : ''}
   	  		</div>
 	      </div>
 	    )

@@ -1,5 +1,6 @@
 import React from 'react'
 import Graph from '../components/Graph'
+import StoryList from '../components/StoryList'
 import * as Analyse from '../utils/Analyse'
 
 export default class BugPage extends React.Component {
@@ -51,6 +52,9 @@ export default class BugPage extends React.Component {
 			  				)
 			  			})}
 	      		</div>
+		  		</div>
+		  		<div className="storyList" >
+				  	{stories.length ? (<StoryList stories={stories} storyType="bug" />) : ''}
 		  		</div>
 	      </div>
 	    )
