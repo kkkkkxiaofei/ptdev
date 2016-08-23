@@ -7,13 +7,14 @@ import {TableHeaderColumn, TableRow, TableRowColumn} from 'material-ui/Table';
 import * as Analyse from '../utils/Analyse'
 import { asynCall, Schemas } from '../middleware/api'
 import StoryTransition from './StoryTransition'
+import classNames from 'classnames'
 
 class Story extends React.Component {
 	constructor(props) {
 		super(props)
 		this.analyse = this.analyse.bind(this)
 		this.state = {
-			transitionData: null
+			transitionData: {}
 		}
 	}
 
@@ -49,7 +50,7 @@ class Story extends React.Component {
 
 	render() {
 		const story = this.props.story
-		
+		const transitionData = this.state.transitionData
 		return (
 			<TableRow>
 			  <TableRowColumn style={{width: "300px"}}>{story.name}</TableRowColumn>
@@ -57,7 +58,7 @@ class Story extends React.Component {
 			  <TableRowColumn style={{width: "100px"}}>{story.estimate}</TableRowColumn>
 			  <TableRowColumn style={{width: "100px"}}>{story.current_state}</TableRowColumn>
 			  <TableRowColumn>
-			  	<StoryTransition transitionData={this.state.transitionData} storyStatus={story.current_state} />
+			  	<StoryTransition transitionData={transitionData} story={story} />
 			  </TableRowColumn>
 			</TableRow>
 		)
