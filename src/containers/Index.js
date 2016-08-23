@@ -108,8 +108,8 @@ class Index extends React.Component {
 			  			></TextField>
 			  			<Search search={this.search} />
 			  		</div>
-			  		<StoryPage storyPage={this.state.storyPage} />
-			  		<BugPage bugPage={this.state.bugPage} />
+			  		<StoryPage storyPage={this.state.storyPage} stories={stories} />
+			  		<BugPage bugPage={this.state.bugPage} stories={stories} />
 			  </div>
 		  </MuiThemeProvider>
 		)
