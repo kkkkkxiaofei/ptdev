@@ -14,7 +14,7 @@ export default class Modal extends React.Component {
     this.handleClose = this.handleClose.bind(this)
   }
 
-  componentDidMount() {
+  componentWillMount() {
     const securityInfo = this.getSecurityInfo();
     if(securityInfo) {
       setSecurityInfo(securityInfo)
