@@ -76,14 +76,25 @@ body {
 		overflow: hidden;
 		margin: 100px 5% 0 5%;
 	}
-	.graphBox {
-		margin: 100px auto;
-    width: 1000px;
-    padding: 10px;
-    text-align: center;
-    box-shadow: rgba(0, 0, 0, 0.117647) 0px 1px 6px, rgba(0, 0, 0, 0.117647) 0px 1px 4px;
-    border-radius: 2px;
-    background-color: white;
+	
+}
+
+.graphList {
+	margin: 100px auto;
+	max-width: 1020px;
+	max-height: 460px;
+	overflow-x: scroll;
+	overflow-y: hidden;
+	border-radius: 10px;
+	border: solid 3px #EEEEEE;
+	.graphListContainer {
+		width: 400%;
+		.graphBox {
+	    width: 1000px;
+	    display: inline-block;
+	    padding: 10px;
+	    text-align: center;
+		}
 	}
 }
 

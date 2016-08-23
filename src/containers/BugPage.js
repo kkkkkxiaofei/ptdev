@@ -44,11 +44,13 @@ export default class BugPage extends React.Component {
 	    return (
 	      <div className="storyPage">
 	      	<div className="graphList">
-		  			{[this.bugTendencyAnalyse, this.bugSeverityAnalyse, this.bugCategoryAnalyse].map(method => {
-		  				return (
-		  					<Graph {...method()} />
-		  				)
-		  			})}
+	      		<div className="graphListContainer">
+			  			{[this.bugTendencyAnalyse, this.bugSeverityAnalyse, this.bugCategoryAnalyse].map(method => {
+			  				return (
+			  					<Graph {...method()} />
+			  				)
+			  			})}
+	      		</div>
 		  		</div>
 	      </div>
 	    )
