@@ -78,7 +78,7 @@ class Index extends React.Component {
 		return (
 		  <MuiThemeProvider>
 			  <div className="index">
-			  		<Nav stories={this.state.stories} />
+			  		<Nav />
 			  		<Modal />	
 			  		<Progress show={this.state.isStroyFetching}/>
 			  		<div className="searchBox pullRight">
