@@ -8,12 +8,12 @@ class Nav extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      open: false,
-      graphData: {},
-      graphType: ''
+      open: this.props.open
     }
     this.handleToggle = this.handleToggle.bind(this)
     this.handleClose = this.handleClose.bind(this)
+    this.showStoryPage = this.showStoryPage.bind(this)
+    this.showBugPage = this.showBugPage.bind(this)
   }
 
   handleToggle() {
@@ -24,6 +24,16 @@ class Nav extends React.Component {
     this.setState({open: false})
   }
   
+  showStoryPage() {
+    this.props.switchPage("storyPage")
+    this.handleClose()
+  }
+
+  showBugPage() {
+    this.props.switchPage("bugPage")
+    this.handleClose()
+  }
+
   render() {
     return (
       <div>
@@ -34,9 +44,8 @@ class Nav extends React.Component {
           open={this.state.open}
           onRequestChange={(open) => this.setState({open})}
         >
-          <MenuItem onTouchTap={this.bugTendencyAnalyse}>Bug Tendency</MenuItem>
-          <MenuItem onTouchTap={this.bugSeverityAnalyse}>Bug Severity</MenuItem>
-          <MenuItem onTouchTap={this.bugCountAnalyse}>Bug Type Count</MenuItem>
+          <MenuItem onTouchTap={this.showStoryPage}>Story Page</MenuItem>
+          <MenuItem onTouchTap={this.showBugPage}>Bug Page</MenuItem>
         </Drawer>
       </div>
     );

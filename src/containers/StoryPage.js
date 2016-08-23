@@ -6,9 +6,12 @@ export default class StoryPage extends React.Component {
   }
 
   render() {
-    return (
-      <div className="storyPage">Welcome to story page</div>
-    )
+  	if(this.props.storyPage) {
+	    return (
+	      <div className="storyPage">Welcome to story page</div>
+	    )
+  	}
+  	return (<div></div>)
   }
 }
 

@@ -6,10 +6,11 @@ export default class BugPage extends React.Component {
   }
 
   render() {
-    return (
-      <div className="storyPage">Welcome to story page</div>
-    )
+  	if(this.props.bugPage) {
+	    return (
+	      <div className="storyPage">Welcome to bug page</div>
+	    )
+  	}
+  	return (<div></div>)
   }
 }
-
-  

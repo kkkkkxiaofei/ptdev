@@ -10,6 +10,8 @@ import Nav from '../components/Nav'
 import Graph from '../components/Graph'
 import * as Analyse from '../utils/Analyse'
 import { asynCall, Schemas, getLimit } from '../middleware/api'
+import StoryPage from './StoryPage'
+import BugPage from './BugPage'
 
 class Index extends React.Component {
 
@@ -18,12 +20,29 @@ class Index extends React.Component {
 		this.state = {
 			stories: this.props.stories || [],
 			toggle: false,
-			isStroyFetching: false
+			isStroyFetching: false,
 		}
 		this.search = this.search.bind(this)
-		this.bugTendencyAnalyse = this.bugTendencyAnalyse.bind(this)
-    this.bugSeverityAnalyse = this.bugSeverityAnalyse.bind(this)
-    this.bugCategoryAnalyse = this.bugCategoryAnalyse.bind(this)
+		this.showStoryPage = this.showStoryPage.bind(this)
+    this.showBugPage = this.showBugPage.bind(this)
+    this.switchPage = this.switchPage.bind(this)
+	}
+
+	switchPage(page) {
+		const toggleHash = {
+			bugPage: false,
+			storyPage: false
+		}
+		toggleHash[page] = true
+		this.setState(toggleHash)
+	}
+
+	showStoryPage() {
+		this.switchPage("storyPage")
+	}
+
+	showBugPage() {
+		this.switchPage("bugPage")
 	}
 
 	bugTendencyAnalyse() {
@@ -78,7 +97,7 @@ class Index extends React.Component {
 		return (
 		  <MuiThemeProvider>
 			  <div className="index">
-			  		<Nav />
+			  		<Nav switchPage={this.switchPage} open={false} />
 			  		<Modal />	
 			  		<Progress show={this.state.isStroyFetching}/>
 			  		<div className="searchBox pullRight">
@@ -89,16 +108,8 @@ class Index extends React.Component {
 			  			></TextField>
 			  			<Search search={this.search} />
 			  		</div>
-			  		<div className="graphList">
-			  			{[this.bugTendencyAnalyse, this.bugSeverityAnalyse, this.bugCategoryAnalyse].map(method => {
-			  				return (
-			  					<Graph {...method()} />
-			  				)
-			  			})}
-			  		</div>
-			  		<div className="storyList" >
-					  	{this.state.stories.length ? (<StoryList stories={this.state.stories} storyType="feature"/>) : ''}
-			  		</div>
+			  		<StoryPage storyPage={this.state.storyPage} />
+			  		<BugPage bugPage={this.state.bugPage} />
 			  </div>
 		  </MuiThemeProvider>
 		)
