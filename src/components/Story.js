@@ -32,7 +32,7 @@ class Story extends React.Component {
 	    null, 
 	    (response) => {
 	      const transitions = Object.values(response)
-	      const transitionData = Analyse.generateStroyCycleTime(transitions, storyId)
+	      const transitionData = Analyse.generateStroyCycleTime(transitions, storyId) || {}
 	      this.setState({transitionData: transitionData})
 	    }
 	  )
