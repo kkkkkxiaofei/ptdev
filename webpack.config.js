@@ -26,7 +26,7 @@ module.exports = {
     },
     plugins: [
         new HtmlWebpackPlugin({
-        title: 'pt-dev',
+        title: 'Dashboard',
         template: path.resolve(__dirname, 'index.html'),
         filename: '../index.html'
       })
