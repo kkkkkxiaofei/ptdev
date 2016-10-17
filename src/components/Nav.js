@@ -38,6 +38,7 @@ class Nav extends React.Component {
           open={this.state.open}
           onRequestChange={(open) => this.setState({open})}
         >
+          <MenuItem onTouchTap={() => this.showPage('homePage')}>Home Page</MenuItem>
           <MenuItem onTouchTap={() => this.showPage('storyPage')}>Story Page</MenuItem>
           <MenuItem onTouchTap={() => this.showPage('bugPage')}>Bug Page</MenuItem>
         </Drawer>

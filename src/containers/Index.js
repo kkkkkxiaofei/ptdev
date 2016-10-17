@@ -10,6 +10,7 @@ import Nav from '../components/Nav'
 import Graph from '../components/Graph'
 import * as Analyse from '../utils/Analyse'
 import { asynCall, Schemas, getLimit } from '../middleware/api'
+import HomePage from './HomePage'
 import StoryPage from './StoryPage'
 import BugPage from './BugPage'
 
@@ -27,11 +28,12 @@ class Index extends React.Component {
 	}
 
 	componentWillMount() {
-		this.switchPage("storyPage")
+		this.switchPage('homePage')
 	}
 
 	switchPage(page) {
 		const toggleHash = {
+			homePage: false,
 			bugPage: false,
 			storyPage: false
 		}
@@ -74,6 +76,7 @@ class Index extends React.Component {
 			  			></TextField>
 			  			<Search search={this.search} />
 			  		</div>
+			  		<HomePage homePage={this.state.homePage} />
 			  		<StoryPage storyPage={this.state.storyPage} stories={stories} />
 			  		<BugPage bugPage={this.state.bugPage} stories={stories} />
 			  </div>
