@@ -13,7 +13,7 @@ import { asynCall, Schemas, getLimit } from '../middleware/api'
 import HomePage from './HomePage'
 import StoryPage from './StoryPage'
 import BugPage from './BugPage'
-import SessionPage from './SessionPage'
+import SimplePage from './SimplePage'
 import RetroPage from './RetroPage'
 import TechBookletPage from './TechBookletPage'
 import BookPage from './BookPage'
@@ -87,7 +87,7 @@ class Index extends React.Component {
 			  		<HomePage homePage={this.state.homePage} />
 			  		<StoryPage storyPage={this.state.storyPage} stories={stories} />
 			  		<BugPage bugPage={this.state.bugPage} stories={stories} />
-			  		<SessionPage sessionPage={this.state.sessionPage} />
+			  		<SimplePage sessionPage={this.state.sessionPage} fileName="session.html" />
 			  		<RetroPage retroPage={this.state.retroPage} />
 					<TechBookletPage TechBookletPage={this.state.TechBookletPage} />
 					<BookPage BookPage={this.state.BookPage} />

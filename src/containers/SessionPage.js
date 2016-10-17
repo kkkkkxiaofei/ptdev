@@ -10,7 +10,7 @@ export default class SessionPage extends React.Component {
       if(sessionPage) {
         return (
           <div className="sessionPage">
-            session list
+            <iframe src="../src/md/views/session.html" />
           </div>
         )
       }
