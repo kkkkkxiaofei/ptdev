@@ -13,6 +13,7 @@ import { asynCall, Schemas, getLimit } from '../middleware/api'
 import HomePage from './HomePage'
 import StoryPage from './StoryPage'
 import BugPage from './BugPage'
+import SessionPage from './SessionPage'
 
 class Index extends React.Component {
 
@@ -79,6 +80,7 @@ class Index extends React.Component {
 			  		<HomePage homePage={this.state.homePage} />
 			  		<StoryPage storyPage={this.state.storyPage} stories={stories} />
 			  		<BugPage bugPage={this.state.bugPage} stories={stories} />
+			  		<SessionPage sessionPage={this.state.sessionPage} />
 			  </div>
 		  </MuiThemeProvider>
 		)
