@@ -7,64 +7,7 @@
 <body>
 	<h1 id="pt">PT助手</h1>
 
-<p><code>PT(Pivotal Tracker)</code>是一个非常优秀的敏捷管理工具，而PT助手是基于PT的一个助手工具，它能够帮助敏捷团队更好的进行<code>IPM(Iteration Plan Meeting)</code>。 它包含了许多功能点，如<code>Stroy Analysis</code>, <code>Stroy Transition</code>和<code>Story Category</code>等。</p>
 
-<p><a href="http://www.flypursue.com/ptpro">在线版请戳这里</a></p>
-
-<h1 id="pivotaltrackerapi">Pivotal Tracker API</h1>
-
-<p><a href="https://www.pivotaltracker.com/help/api">API Document</a></p>
-
-<p>在这里，你可以查询PT提供的API。</p>
-
-<h1 id="">安装</h1>
-
-<pre><code>1.git clone git@github.com:kkkkkxiaofei/ptdev.git &amp; cd ptdev
-</code></pre>
-
-<pre><code>2.npm install
-</code></pre>
-
-<pre><code>3.npm run dev
-</code></pre>
-
-<pre><code>4.go to http://127.0.0.1:8080/webpack-dev-server/
-</code></pre>
-
-<h1 id="-1">测试</h1>
-
-<pre><code>npm run test
-</code></pre>
-
-<h1 id="-2">使用</h1>
-
-<p>在主界面中，输入自己的<code>project id</code>和<code>API Token</code>和一个<code>limit count</code>点击确认，即可初始化基本信息。（<code>limit count</code>为最大API请求数据量）</p>
-
-<p>或利用url进行自动配置：</p>
-
-<pre><code>http://127.0.0.1:8080/?p={project id}&amp;t={token}&amp;l={limit count}
-</code></pre>
-
-<h2 id="projectid">如何获取project id</h2>
-
-<p>进入自己的PT，url中即可找到对应的project id，如：</p>
-
-<pre><code>https://www.pivotaltracker.com/n/projects/${project id}/stories/${story id}
-</code></pre>
-
-<h2 id="apitoken">如何获取API Token</h2>
-
-<p>进入自己PT的profie，页面的最下方，即可看到自己的API Token</p>
-
-<blockquote>
-  <p><strong>⚠注意：Token信息等同于自己的账号密码，请妥善保管，请勿上传</strong></p>
-</blockquote>
-
-<h1 id="-3">技术栈</h1>
-
-<p>这个工具是用<code>React</code>+<code>Redux</code>进行开发，利用<code>Webpack</code>进行打包，使用<code>Babel</code>编译<code>ES6</code>，最终利用<code>Github Page</code>发布在线版本，因此发布版是一个没有路由的纯前端的单页面App。</p>
-
-<p>推荐以下参考资料：</p>
 
 <blockquote>
   <p>1.<a href="https://facebook.github.io/react/">React</a>

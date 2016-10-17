@@ -40,8 +40,8 @@ class Index extends React.Component {
 			storyPage: false,
 			sessionPage: false,
 			retroPage: false,
-			TechBookletPage: false,
-			BookPage: false,
+			techBookletPage: false,
+			bookPage: false,
 		}
 		toggleHash[page] = true
 		this.setState(toggleHash)
@@ -90,10 +90,13 @@ class Index extends React.Component {
 			  		<Modal />	
 			  		<Progress show={this.state.isStroyFetching}/>
 			  		{this.getSearchBox()}
-			  		<HomePage homePage={this.state.homePage} />
-			  		<StoryPage storyPage={this.state.storyPage} stories={stories} />
-			  		<BugPage bugPage={this.state.bugPage} stories={stories} />
-			  		<SimplePage sessionPage={this.state.sessionPage} fileName="session.html" />
+			  		<HomePage visible={this.state.homePage} />
+			  		<StoryPage visible={this.state.storyPage} stories={stories} />
+			  		<BugPage visible={this.state.bugPage} stories={stories} />
+			  		<SimplePage visible={this.state.sessionPage} fileName="session.html" />
+			  		<SimplePage visible={this.state.retroPage} fileName="" />
+			  		<SimplePage visible={this.state.techBookletPage} fileName="" />
+			  		<SimplePage visible={this.state.bookPage} fileName="" />
 			  </div>
 		  </MuiThemeProvider>
 		)

@@ -40,8 +40,8 @@ export default class BugPage extends React.Component {
   }
 
   render() {
-  	const {bugPage, stories} = this.props
-  	if(bugPage) {
+  	const {visible, stories} = this.props
+  	if(visible) {
 	    return (
 	      <div className="storyPage">
 	      	<div className="graphList">

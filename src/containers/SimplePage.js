@@ -6,8 +6,8 @@ export default class SimplePage extends React.Component {
   }
 
   render() {
-      const {sessionPage, fileName} = this.props
-      if(sessionPage) {
+      const {visible, fileName} = this.props
+      if(visible) {
         var src = "../src/md/views/" + fileName
         return (
           <div className="simplePage">
