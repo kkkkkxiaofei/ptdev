@@ -14,9 +14,6 @@ import HomePage from './HomePage'
 import StoryPage from './StoryPage'
 import BugPage from './BugPage'
 import SimplePage from './SimplePage'
-import RetroPage from './RetroPage'
-import TechBookletPage from './TechBookletPage'
-import BookPage from './BookPage'
 
 class Index extends React.Component {
 
@@ -97,9 +94,6 @@ class Index extends React.Component {
 			  		<StoryPage storyPage={this.state.storyPage} stories={stories} />
 			  		<BugPage bugPage={this.state.bugPage} stories={stories} />
 			  		<SimplePage sessionPage={this.state.sessionPage} fileName="session.html" />
-			  		<RetroPage retroPage={this.state.retroPage} />
-					<TechBookletPage TechBookletPage={this.state.TechBookletPage} />
-					<BookPage BookPage={this.state.BookPage} />
 			  </div>
 		  </MuiThemeProvider>
 		)
