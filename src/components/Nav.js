@@ -43,6 +43,8 @@ class Nav extends React.Component {
           <MenuItem onTouchTap={() => this.showPage('bugPage')}>Bug Page</MenuItem>
           <MenuItem onTouchTap={() => this.showPage('sessionPage')}>Sessions</MenuItem>
           <MenuItem onTouchTap={() => this.showPage('retroPage')}>Retros</MenuItem>
+          <MenuItem>Tech Booklet</MenuItem>
+          <MenuItem>Books</MenuItem>
         </Drawer>
       </div>
     );
