@@ -23,8 +23,6 @@ class Index extends React.Component {
 			isStroyFetching: false,
 		}
 		this.search = this.search.bind(this)
-		this.showStoryPage = this.showStoryPage.bind(this)
-    this.showBugPage = this.showBugPage.bind(this)
     this.switchPage = this.switchPage.bind(this)
 	}
 
@@ -39,14 +37,6 @@ class Index extends React.Component {
 		}
 		toggleHash[page] = true
 		this.setState(toggleHash)
-	}
-
-	showStoryPage() {
-		this.switchPage("storyPage")
-	}
-
-	showBugPage() {
-		this.switchPage("bugPage")
 	}
 
 	search() {

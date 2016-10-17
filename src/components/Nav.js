@@ -12,8 +12,7 @@ class Nav extends React.Component {
     }
     this.handleToggle = this.handleToggle.bind(this)
     this.handleClose = this.handleClose.bind(this)
-    this.showStoryPage = this.showStoryPage.bind(this)
-    this.showBugPage = this.showBugPage.bind(this)
+    this.showPage = this.showPage.bind(this)
   }
 
   handleToggle() {
@@ -24,28 +23,23 @@ class Nav extends React.Component {
     this.setState({open: false})
   }
   
-  showStoryPage() {
-    this.props.switchPage("storyPage")
-    this.handleClose()
-  }
-
-  showBugPage() {
-    this.props.switchPage("bugPage")
+  showPage(pageName) {
+    this.props.switchPage(pageName);
     this.handleClose()
   }
 
   render() {
     return (
       <div>
-        <AppBar title="PT Helper" onTouchTap={this.handleToggle} />
+        <AppBar title="Dashboard" onTouchTap={this.handleToggle} />
         <Drawer
           docked={false}
           width={200}
           open={this.state.open}
           onRequestChange={(open) => this.setState({open})}
         >
-          <MenuItem onTouchTap={this.showStoryPage}>Story Page</MenuItem>
-          <MenuItem onTouchTap={this.showBugPage}>Bug Page</MenuItem>
+          <MenuItem onTouchTap={() => this.showPage('storyPage')}>Story Page</MenuItem>
+          <MenuItem onTouchTap={() => this.showPage('bugPage')}>Bug Page</MenuItem>
         </Drawer>
       </div>
     );
