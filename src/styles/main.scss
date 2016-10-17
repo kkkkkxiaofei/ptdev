@@ -137,9 +137,10 @@ body {
 }
 
 .simplePage {
+	height: 100%;
 	iframe {
 		width: 100%;
-		height: calc(100% + 64px);
+		height: 100%;
 		border: none;
 	}
 }
