@@ -18,11 +18,11 @@ export default class Search extends React.Component {
 	}
 
 	render() {
-
+		const visible = this.props.visible
 		return (
 			<div className="searchButton" onClick={this.props.search}>
   				<i className="material-icons">search</i>
   			</div>
-		)  
+  		)
 	}
 }

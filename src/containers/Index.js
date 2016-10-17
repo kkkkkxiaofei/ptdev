@@ -29,6 +29,7 @@ class Index extends React.Component {
 		}
 		this.search = this.search.bind(this)
     this.switchPage = this.switchPage.bind(this)
+    this.getSearchBox = this.getSearchBox.bind(this)
 	}
 
 	componentWillMount() {
@@ -68,6 +69,21 @@ class Index extends React.Component {
 		)
 	}
 
+	getSearchBox() {
+		if(this.state.storyPage || this.state.bugPage) {
+			return (
+	  		<div className="searchBox pullRight">
+	  			<TextField
+  					ref="search"
+			      floatingLabelText="Enter a label name"
+			      floatingLabelFixed={false}
+	  			></TextField>
+	  			<Search search={this.search} />
+	  		</div>
+			)
+		}
+	}
+
 	render() {
 		const stories = this.state.stories
 		return (
@@ -76,14 +92,7 @@ class Index extends React.Component {
 			  		<Nav switchPage={this.switchPage} open={false} />
 			  		<Modal />	
 			  		<Progress show={this.state.isStroyFetching}/>
-			  		<div className="searchBox pullRight">
-			  			<TextField
-		  					ref="search"
-	  			      floatingLabelText="Enter a label name"
-	  			      floatingLabelFixed={false}
-			  			></TextField>
-			  			<Search search={this.search} />
-			  		</div>
+			  		{this.getSearchBox()}
 			  		<HomePage homePage={this.state.homePage} />
 			  		<StoryPage storyPage={this.state.storyPage} stories={stories} />
 			  		<BugPage bugPage={this.state.bugPage} stories={stories} />
