@@ -16,6 +16,7 @@ import BugPage from './BugPage'
 import SessionPage from './SessionPage'
 import RetroPage from './RetroPage'
 import TechBookletPage from './TechBookletPage'
+import BookPage from './BookPage'
 
 class Index extends React.Component {
 
@@ -42,6 +43,7 @@ class Index extends React.Component {
 			sessionPage: false,
 			retroPage: false,
 			TechBookletPage: false,
+			BookPage: false,
 		}
 		toggleHash[page] = true
 		this.setState(toggleHash)
@@ -88,6 +90,7 @@ class Index extends React.Component {
 			  		<SessionPage sessionPage={this.state.sessionPage} />
 			  		<RetroPage retroPage={this.state.retroPage} />
 					<TechBookletPage TechBookletPage={this.state.TechBookletPage} />
+					<BookPage BookPage={this.state.BookPage} />
 			  </div>
 		  </MuiThemeProvider>
 		)
