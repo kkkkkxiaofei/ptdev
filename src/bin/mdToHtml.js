@@ -7,6 +7,7 @@ var showdown  = require('showdown'),
 
 // var stats = fs.statSync('/md');
 var dir = '../md';
+var viewsDir = '../md/views/';
 var files = fs.readdirSync(dir);
 
 for(var i in files) {
@@ -14,11 +15,13 @@ for(var i in files) {
 	var path = dir + '/' + fileName;
 	var stat = fs.statSync(path);
 	if(stat.isFile()) {
-		var content = fs.readFileSync(path).toString();
-		var html = converter.makeHtml(content);
-		fs.writeFile('../md/views/' + fileName + '.html', html, function(err) {
+		var mdContent = fs.readFileSync(path).toString();
+		var html = converter.makeHtml(mdContent);
+		var wrapper = fs.readFileSync(viewsDir + 'wrapper.html').toString();
+		var result = wrapper.replace('{$content}', html).replace('{$title}', fileName);
+		console.log(result);
+		fs.writeFile(viewsDir + fileName + '.html', result, function(err) {
 			if(err) return console.log(err)
 		});
-		// console.log(html);
 	}
 }
