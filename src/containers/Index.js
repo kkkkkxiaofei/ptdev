@@ -14,6 +14,7 @@ import HomePage from './HomePage'
 import StoryPage from './StoryPage'
 import BugPage from './BugPage'
 import SessionPage from './SessionPage'
+import RetroPage from './RetroPage'
 
 class Index extends React.Component {
 
@@ -36,7 +37,9 @@ class Index extends React.Component {
 		const toggleHash = {
 			homePage: false,
 			bugPage: false,
-			storyPage: false
+			storyPage: false,
+			sessionPage: false,
+			retroPage: false,
 		}
 		toggleHash[page] = true
 		this.setState(toggleHash)
@@ -81,6 +84,7 @@ class Index extends React.Component {
 			  		<StoryPage storyPage={this.state.storyPage} stories={stories} />
 			  		<BugPage bugPage={this.state.bugPage} stories={stories} />
 			  		<SessionPage sessionPage={this.state.sessionPage} />
+			  		<RetroPage retroPage={this.state.retroPage} />
 			  </div>
 		  </MuiThemeProvider>
 		)
