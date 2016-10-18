@@ -1,4 +1,3 @@
-console.log('Converting ...');
 (function() {
 	var showdown  = require('showdown'),
 		fs = require('fs'),
@@ -24,4 +23,4 @@ console.log('Converting ...');
 		}
 	}
 })()
-console.log('Done!')
+console.log('Converting Done ...');

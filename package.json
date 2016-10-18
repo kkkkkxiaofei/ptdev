@@ -45,8 +45,9 @@
   "scripts": {
     "test": "mocha tests/*/*spec.js --compilers js:babel-register",
     "clean": "rm -rf ./build",
-    "dev": "node bin/md2html & webpack-dev-server --progress --hot --profile --colors",
-    "pro": "npm run clean & NODE_ENV=production webpack -p"
+    "dev": "npm run md & webpack-dev-server --progress --hot --profile --colors",
+    "pro": "npm run clean & NODE_ENV=production webpack -p",
+    "md": "node bin/md2html" 
   },
   "repository": {
     "type": "git",

@@ -1,6 +1,6 @@
-# PT助手
+# Dashboard
 
-`PT(Pivotal Tracker)`是一个非常优秀的敏捷管理工具，而PT助手是基于PT的一个助手工具，它能够帮助敏捷团队更好的进行`IPM(Iteration Plan Meeting)`。 它包含了许多功能点，如`Stroy Analysis`, `Stroy Transition`和`Story Category`等。
+`Dashboard`是由C1团队一起构思并开发的一款看板管理工具，其中合成了 `PT(Pivotal Tracker)`的部分功能，它能够帮助敏捷团队更好的进行`IPM(Iteration Plan Meeting)`，`Retrospection`，`Tech Sharing`。 它包含了许多功能点，如`Stroy Analysis`, `Stroy Transition`和`Story Category`等。
 
 [在线版请戳这里](http://www.flypursue.com/ptpro)
 
@@ -92,10 +92,20 @@ https://www.pivotaltracker.com/n/projects/${project id}/stories/${story id}
 # 贡献
 
 欢迎大家一起开发，请提交`Pull Request`，有问题请建Issue。另外，请大家统一commit的格式。
+
 **example:**
 ``` 
 [xf] #issue-num 'do something'
 ```
+
+对于`Session列表`，`Retro结果`，`技术手册`等需要编辑的页面，可以利用markdown编辑器编写后转成html再挂在到页面上。
+例如，我现在要做Session列表页面，首先在/src/md/下建立名为`session.md`的文件，编写好后在项目路径下执行：
+
+```
+$  node bin/md2html
+```
+
+即可看到在/src/md/views/下生成了session.html的页面。
 
 # License
 

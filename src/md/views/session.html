@@ -7,9 +7,9 @@
 
 </head>
 <body class="markdown-body">
-	<h1 id="pt">PT助手</h1>
+	<h1 id="dashboard">Dashboard</h1>
 
-<p><code>PT(Pivotal Tracker)</code>是一个非常优秀的敏捷管理工具，而PT助手是基于PT的一个助手工具，它能够帮助敏捷团队更好的进行<code>IPM(Iteration Plan Meeting)</code>。 它包含了许多功能点，如<code>Stroy Analysis</code>, <code>Stroy Transition</code>和<code>Story Category</code>等。</p>
+<p><code>Dashboard</code>是由C1团队一起构思并开发的一款看板管理工具，其中合成了 <code>PT(Pivotal Tracker)</code>的部分功能，它能够帮助敏捷团队更好的进行<code>IPM(Iteration Plan Meeting)</code>，<code>Retrospection</code>，<code>Tech Sharing</code>。 它包含了许多功能点，如<code>Stroy Analysis</code>, <code>Stroy Transition</code>和<code>Story Category</code>等。</p>
 
 <p><a href="http://www.flypursue.com/ptpro">在线版请戳这里</a></p>
 
@@ -96,11 +96,20 @@
 
 <h1 id="-4">贡献</h1>
 
-<p>欢迎大家一起开发，请提交<code>Pull Request</code>，有问题请建Issue。另外，请大家统一commit的格式。
-<strong>example:</strong></p>
+<p>欢迎大家一起开发，请提交<code>Pull Request</code>，有问题请建Issue。另外，请大家统一commit的格式。</p>
+
+<p><strong>example:</strong></p>
 
 <pre><code class="  language- ">[xf] #issue-num 'do something'
 </code></pre>
+
+<p>对于<code>Session列表</code>，<code>Retro结果</code>，<code>技术手册</code>等需要编辑的页面，可以利用markdown编辑器编写后转成html再挂在到页面上。
+例如，我现在要做Session列表页面，首先在/src/md/下建立名为<code>session.md</code>的文件，编写好后在项目路径下执行：</p>
+
+<pre><code>$  node bin/md2html
+</code></pre>
+
+<p>即可看到在/src/md/views/下生成了session.html的页面。</p>
 
 <h1 id="license">License</h1>
 
