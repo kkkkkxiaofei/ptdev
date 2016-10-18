@@ -99,13 +99,13 @@ https://www.pivotaltracker.com/n/projects/${project id}/stories/${story id}
 ```
 
 对于`Session列表`，`Retro结果`，`技术手册`等需要编辑的页面，可以利用markdown编辑器编写后转成html再挂在到页面上。
-例如，我现在要做Session列表页面，首先在/src/md/下建立名为`session.md`的文件，编写好后在项目路径下执行：
+例如，我现在要做添加10月份的Session列表，首先在/src/md/session文件夹下建立名为`xxx.md`的文件，编写好后在项目路径下执行：
 
 ```
 $  node bin/md2html
 ```
 
-即可看到在/src/md/views/下生成了session.html的页面。
+即可看到在/src/views/session下生成了xxx.html的页面。
 
 # License
 
