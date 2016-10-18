@@ -6,9 +6,9 @@ export default class SimplePage extends React.Component {
   }
 
   render() {
-      const {visible, fileName} = this.props
+      const {visible, type} = this.props
       if(visible) {
-        var src = "../src/md/views/" + fileName
+        var src = "../src/md/views/" + type
         return (
           <div className="simplePage">
             <iframe id="framePage" src={src}></iframe>
