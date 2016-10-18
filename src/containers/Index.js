@@ -93,10 +93,7 @@ class Index extends React.Component {
 			  		<HomePage visible={this.state.homePage} />
 			  		<StoryPage visible={this.state.storyPage} stories={stories} />
 			  		<BugPage visible={this.state.bugPage} stories={stories} />
-			  		<SimplePage visible={this.state.sessionPage} fileName="session.html" />
-			  		<SimplePage visible={this.state.retroPage} fileName="" />
-			  		<SimplePage visible={this.state.techBookletPage} fileName="" />
-			  		<SimplePage visible={this.state.bookPage} fileName="" />
+			  		{this.state.sessionPage ? (<SimplePage type="session" />) : (<div></div>)}
 			  </div>
 		  </MuiThemeProvider>
 		)
