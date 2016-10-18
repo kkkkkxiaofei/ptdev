@@ -102,7 +102,7 @@ https://www.pivotaltracker.com/n/projects/${project id}/stories/${story id}
 例如，我现在要做添加10月份的Session列表，首先在/src/md/session文件夹下建立名为`xxx.md`的文件，编写好后在项目路径下执行：
 
 ```
-$  node bin/md2html
+$  npm run html
 ```
 
 即可看到在/src/views/session下生成了xxx.html的页面。
