@@ -1,6 +1,6 @@
-# PT助手
+# Dashboard
 
-`PT(Pivotal Tracker)`是一个非常优秀的敏捷管理工具，而PT助手是基于PT的一个助手工具，它能够帮助敏捷团队更好的进行`IPM(Iteration Plan Meeting)`。 它包含了许多功能点，如`Stroy Analysis`, `Stroy Transition`和`Story Category`等。
+`Dashboard`是由C1团队一起构思并开发的一款看板管理工具，其中合成了 `PT(Pivotal Tracker)`的部分功能，它能够帮助敏捷团队更好的进行`IPM(Iteration Plan Meeting)`，`Retrospection`，`Tech Sharing`。 它包含了许多功能点，如`Stroy Analysis`, `Stroy Transition`和`Story Category`等。
 
 [在线版请戳这里](http://www.flypursue.com/ptpro)
 
