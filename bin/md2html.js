@@ -1,3 +1,4 @@
+console.log('Converting Start ...');
 (function() {
 	
 	var showdown  = require('showdown'),
@@ -20,6 +21,7 @@
 				var newFileName = fileName.replace('.md', '');
 				var result = wrapper.replace('{$content}', html).replace('{$title}', newFileName);
 				var viewPath = viewDir + '/' + type + '/' + newFileName + '.html';
+				console.log(viewPath);
 				fs.writeFile(viewPath, result, function(err) {
 					if(err) return console.log(err)
 				});
@@ -36,7 +38,6 @@
 
 	function toJson(mdStructure) {
 		var json = JSON.stringify(mdStructure);
-		console.log(json);
 		fs.writeFile('md.json', json, function(err) {
 			if(err) return console.log(err)
 		});
