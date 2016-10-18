@@ -92,10 +92,20 @@ https://www.pivotaltracker.com/n/projects/${project id}/stories/${story id}
 # 贡献
 
 欢迎大家一起开发，请提交`Pull Request`，有问题请建Issue。另外，请大家统一commit的格式。
+
 **example:**
 ``` 
 [xf] #issue-num 'do something'
 ```
+
+对于`Session列表`，`Retro结果`，`技术手册`等需要编辑的页面，可以利用markdown编辑器编写后转成html再挂在到页面上。
+例如，我现在要做Session列表页面，首先在/src/md/下建立名为`session.md`的文件，编写好后在项目路径下执行：
+
+```
+$  node bin/md2html
+```
+
+即可看到在/src/md/views/下生成了session.html的页面。
 
 # License
 
