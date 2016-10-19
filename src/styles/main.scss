@@ -54,7 +54,7 @@ body {
 	background-color: rgb(255, 64, 129);
 }
 
-.index {
+.storyPage, .bugPage {
 	overflow: hidden;
 	.searchBox {
 		position: absolute;
@@ -101,12 +101,14 @@ body {
 .progress {
 	position: fixed;
 	top: 0;
-  width: 100%;
-  height: 100%;
-  padding-left: calc(50% - 100px);
-  padding-top: 20%;
-  z-index: 9999;
-  background-color: rgba(0, 0, 0, 0.541176);
+	left: 0;
+	width: 100vw;
+	height: 100vh;
+	margin-left: 0;
+	padding-left: calc(50% - 100px);
+	padding-top: 30%;
+	z-index: 9999;
+	background-color: rgba(0, 0, 0, 0.541176);
 }
 
 .count {

@@ -1,4 +1,5 @@
 import React from 'react'
+import Progress from './Progress'
 import TextField from 'material-ui/TextField'
 import * as Analyse from '../utils/Analyse'
 import { asynCall, Schemas, getLimit } from '../middleware/api'
@@ -7,6 +8,7 @@ export default class Search extends React.Component {
 	constructor(props) {
 		super(props)
 		this.handler = this.handler.bind(this)
+		this.state = {isStroyFetching: false}
 	}
 
 	componentDidMount() {
@@ -42,7 +44,6 @@ export default class Search extends React.Component {
 	}
 
 	render() {
-		const visible = this.props.visible
 		return (
 	  		<div className="searchBox pullRight">
 		  			<TextField
@@ -50,9 +51,10 @@ export default class Search extends React.Component {
 				      floatingLabelText="Enter a label name"
 				      floatingLabelFixed={false}
 		  			></TextField>
-						<div className="searchButton" onClick={this.props.search}>
+						<div className="searchButton" onClick={this.search}>
 		  				<i className="material-icons">search</i>
 		  			</div>
+            <Progress show={this.state.isStroyFetching} />
 	  		</div>
   		)
 	}

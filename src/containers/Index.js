@@ -88,7 +88,6 @@ class Index extends React.Component {
 			  <div className="index">
 			  		<Nav switchPage={this.switchPage} open={false} />
 			  		<Modal />	
-			  		<Progress show={this.state.isStroyFetching}/>
 			  </div>
 		  </MuiThemeProvider>
 		)
