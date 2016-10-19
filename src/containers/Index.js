@@ -14,6 +14,7 @@ import HomePage from './HomePage'
 import StoryPage from './StoryPage'
 import BugPage from './BugPage'
 import SimplePage from './SimplePage'
+import { browserHistory } from 'react-router'
 
 class Index extends React.Component {
 
@@ -30,7 +31,7 @@ class Index extends React.Component {
 	}
 
 	componentWillMount() {
-		this.switchPage('homePage')
+		browserHistory.push('/home')
 	}
 
 	switchPage(page) {

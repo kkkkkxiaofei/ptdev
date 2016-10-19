@@ -9,15 +9,25 @@ class Nav extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      open: this.props.open
+      open: this.props.open,
+      indexPath: true
     }
     this.handleToggle = this.handleToggle.bind(this)
     this.handleClose = this.handleClose.bind(this)
     this.showPage = this.showPage.bind(this)
   }
-
+  componentWillMount() {
+    browserHistory.listen((location) => {
+      const isIndexPath = location.pathname == "/"
+      this.setState({indexPath: isIndexPath})
+    })
+  }
   handleToggle() {
-    this.setState({open: !this.state.open})
+    if(this.state.indexPath) {
+      this.setState({open: !this.state.open})
+    } else {
+      browserHistory.push('/')
+    }
   }
 
   handleClose() {
@@ -25,7 +35,7 @@ class Nav extends React.Component {
   }
   
   showPage(pageName) {
-    browserHistory.replace('/views/'+pageName)
+    browserHistory.push('/views/'+pageName)
     this.handleClose()
   }
 
