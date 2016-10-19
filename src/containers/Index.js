@@ -2,7 +2,6 @@ import React from 'react'
 import StoryList from '../components/StoryList'
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
 import RaisedButton from 'material-ui/RaisedButton'
-import TextField from 'material-ui/TextField'
 import Progress from '../components/Progress'
 import Search from '../components/Search'
 import Modal from '../components/Modal'
@@ -68,18 +67,18 @@ class Index extends React.Component {
 	}
 
 	getSearchBox() {
-		if(this.state.storyPage || this.state.bugPage) {
-			return (
-	  		<div className="searchBox pullRight">
-	  			<TextField
-  					ref="search"
-			      floatingLabelText="Enter a label name"
-			      floatingLabelFixed={false}
-	  			></TextField>
-	  			<Search search={this.search} />
-	  		</div>
-			)
-		}
+		// if(this.state.storyPage || this.state.bugPage) {
+		// 	return (
+	 //  		<div className="searchBox pullRight">
+	 //  			<TextField
+  // 					ref="search"
+		// 	      floatingLabelText="Enter a label name"
+		// 	      floatingLabelFixed={false}
+	 //  			></TextField>
+	 //  			<Search search={this.search} />
+	 //  		</div>
+		// 	)
+		// }
 	}
 
 	render() {
