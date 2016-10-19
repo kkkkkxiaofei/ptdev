@@ -7,17 +7,14 @@ export default class StoryPage extends React.Component {
   }
 
   render() {
-  	const {storyPage, stories} = this.props
-  	if(storyPage) {
-	    return (
-	      <div className="storyPage">
-  	  		<div className="storyList" >
-  			  	{stories.length ? (<StoryList stories={stories} storyType="feature" />) : ''}
-  	  		</div>
-	      </div>
-	    )
-  	}
-  	return (<div></div>)
+  	const {stories} = this.props
+    return (
+      <div className="storyPage">
+	  		<div className="storyList" >
+			  	{stories.length ? (<StoryList stories={stories} storyType="feature" />) : ''}
+	  		</div>
+      </div>
+    )
   }
 }
 

@@ -6,15 +6,11 @@ export default class HomePage extends React.Component {
   }
 
   render() {
-      const {visible} = this.props
-      if(visible) {
-        return (
-          <div className="homePage">
-            home page
-          </div>
-        )
-      }
-      return (<div></div>)
+    return (
+      <div className="homePage">
+        home page
+      </div>
+    )
   }
 
 }

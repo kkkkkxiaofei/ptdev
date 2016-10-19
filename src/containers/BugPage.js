@@ -40,25 +40,22 @@ export default class BugPage extends React.Component {
   }
 
   render() {
-  	const {visible, stories} = this.props
-  	if(visible) {
-	    return (
-	      <div className="storyPage">
-	      	<div className="graphList">
-	      		<div className="graphListContainer">
-			  			{[this.bugTendencyAnalyse, this.bugSeverityAnalyse, this.bugCategoryAnalyse].map(method => {
-			  				return (
-			  					<Graph {...method()} />
-			  				)
-			  			})}
-	      		</div>
-		  		</div>
-		  		<div className="storyList" >
-				  	{stories.length ? (<StoryList stories={stories} storyType="bug" />) : ''}
-		  		</div>
-	      </div>
-	    )
-  	}
-  	return (<div></div>)
+  	const {stories} = this.props
+    return (
+      <div className="storyPage">
+      	<div className="graphList">
+      		<div className="graphListContainer">
+		  			{[this.bugTendencyAnalyse, this.bugSeverityAnalyse, this.bugCategoryAnalyse].map(method => {
+		  				return (
+		  					<Graph {...method()} />
+		  				)
+		  			})}
+      		</div>
+	  		</div>
+	  		<div className="storyList" >
+			  	{stories.length ? (<StoryList stories={stories} storyType="bug" />) : ''}
+	  		</div>
+      </div>
+    )
   }
 }

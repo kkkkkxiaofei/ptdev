@@ -34,8 +34,8 @@ class Nav extends React.Component {
     this.setState({open: false})
   }
   
-  showPage(pageName) {
-    browserHistory.push('/views/'+pageName)
+  showPage(pagePath) {
+    browserHistory.push(pagePath)
     this.handleClose()
   }
 
@@ -49,13 +49,13 @@ class Nav extends React.Component {
           open={this.state.open}
           onRequestChange={(open) => this.setState({open})}
         >
-          <MenuItem onTouchTap={() => this.showPage('home')}>Home Page</MenuItem>
-          <MenuItem onTouchTap={() => this.showPage('story')}>Story Page</MenuItem>
-          <MenuItem onTouchTap={() => this.showPage('bug')}>Bug Page</MenuItem>
-          <MenuItem onTouchTap={() => this.showPage('session')}>Sessions</MenuItem>
-          <MenuItem onTouchTap={() => this.showPage('retro')}>Retros</MenuItem>
-          <MenuItem onTouchTap={() => this.showPage('tech')}>Tech Booklet</MenuItem>
-          <MenuItem onTouchTap={() => this.showPage('book')}>Books</MenuItem>
+          <MenuItem onTouchTap={() => this.showPage('/home')}>Home Page</MenuItem>
+          <MenuItem onTouchTap={() => this.showPage('/story')}>Story Page</MenuItem>
+          <MenuItem onTouchTap={() => this.showPage('/bug')}>Bug Page</MenuItem>
+          <MenuItem onTouchTap={() => this.showPage('/views/session')}>Sessions</MenuItem>
+          <MenuItem onTouchTap={() => this.showPage('/views/retro')}>Retros</MenuItem>
+          <MenuItem onTouchTap={() => this.showPage('/views/tech')}>Tech Booklet</MenuItem>
+          <MenuItem onTouchTap={() => this.showPage('/views/book')}>Books</MenuItem>
         </Drawer>
         <div className="logo">C1 Dashboard</div>
       </div>
