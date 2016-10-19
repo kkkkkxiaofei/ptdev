@@ -87,7 +87,7 @@ class Index extends React.Component {
 		  <MuiThemeProvider>
 			  <div className="index">
 			  		<Nav switchPage={this.switchPage} open={false} />
-			  		<Modal />	
+			  		<Modal />
 			  </div>
 		  </MuiThemeProvider>
 		)

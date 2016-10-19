@@ -4,6 +4,7 @@ import MenuItem from 'material-ui/MenuItem'
 import AppBar from 'material-ui/AppBar'
 import * as Analyse from '../utils/Analyse'
 import { browserHistory} from 'react-router'
+import CircleMenu from './CircleMenu'
 
 class Nav extends React.Component {
   constructor(props) {
@@ -57,7 +58,7 @@ class Nav extends React.Component {
           <MenuItem onTouchTap={() => this.showPage('/views/tech')}>Tech Booklet</MenuItem>
           <MenuItem onTouchTap={() => this.showPage('/views/book')}>Books</MenuItem>
         </Drawer>
-        <div className="logo">C1 Dashboard</div>
+        <CircleMenu />
       </div>
     );
   }

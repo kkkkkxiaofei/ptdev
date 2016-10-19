@@ -160,3 +160,39 @@ body {
 	margin-top: 25vw;
 	position: absolute;
 }
+
+.circleMenu {
+	height: 100vh;
+	width: 100vw;
+	ul li {
+		position: absolute;
+    top: 50%;
+    left: 50%;
+    overflow: hidden;
+    margin-top: -1.3em;
+    margin-left: -10em;
+    width: 10em;
+    height: 10em;
+    font-size: 1.5em;
+    a {
+    	position: absolute;
+    	right: -7.25em;
+    	bottom: -7.25em;
+    	display: block;
+    	width: 14.5em;
+    	height: 14.5em;
+    	border-radius: 50%;
+    	text-align: center;
+    	text-decoration: none;
+    	font-size: 1.2em;
+    	line-height: 2;
+    	-webkit-transform: skew(-60deg) rotate(-75deg) scale(1);
+    	-moz-transform: skew(-60deg) rotate(-75deg) scale(1);
+    	-ms-transform: skew(-60deg) rotate(-75deg) scale(1);
+    	transform: skew(-60deg) rotate(-75deg) 
+    }
+	}
+	ul li:first-child {
+		transform: rotate(-20deg) skew(60deg);
+	}
+}
