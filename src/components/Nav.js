@@ -26,7 +26,8 @@ class Nav extends React.Component {
   
   showPage(pageName) {
     // this.props.switchPage(pageName);
-    browserHistory.push('/views/session')
+    browserHistory.push('views/session')
+    // this.context.router.transitionTo('src/views/session');
     this.handleClose()
   }
 

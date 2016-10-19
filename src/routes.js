@@ -6,7 +6,6 @@ import SimplePage from './containers/SimplePage'
 
 export default (
   <Route path="/" component={App}>
-    <IndexRoute component={Index}/>
-    <Route path="views/:type" component={SimplePage} />
+      <Route path="views/:type" component={SimplePage} />
   </Route>
 )
