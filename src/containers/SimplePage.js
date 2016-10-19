@@ -29,7 +29,7 @@ export default class SimplePage extends React.Component {
           mds.map(
             md => (
               <div>
-                <a href={md.src}>{md.title}</a>
+                <a href={'/' + md.src}>{md.title}</a>
               </div>
             )
           )
