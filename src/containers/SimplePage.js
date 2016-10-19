@@ -1,5 +1,6 @@
 import React from 'react'
 import 'isomorphic-fetch'
+import { browserHistory } from 'react-router'
 
 export default class SimplePage extends React.Component {
   constructor(props) {
@@ -21,19 +22,27 @@ export default class SimplePage extends React.Component {
     })
   }
 
+  goBack() {
+    debugger
+    browserHistory.goBack()
+  }
+
   render() {
     const mds = this.state.mds || []
     return (
       <div className="simplePage">
-        {
-          mds.map(
-            md => (
-              <div>
-                <a href={'/' + md.src}>{md.title}</a>
-              </div>
+        <Link to="/">go back</Link>
+        <div>
+          {
+            mds.map(
+              md => (
+                <div>
+                  <a href={'/' + md.src}>{md.title}</a>
+                </div>
+              )
             )
-          )
-        }
+          }
+        </div>
       </div>
     )
   }

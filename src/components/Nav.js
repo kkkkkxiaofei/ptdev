@@ -3,7 +3,7 @@ import Drawer from 'material-ui/Drawer'
 import MenuItem from 'material-ui/MenuItem'
 import AppBar from 'material-ui/AppBar'
 import * as Analyse from '../utils/Analyse'
-import { browserHistory } from 'react-router'
+import { browserHistory} from 'react-router'
 
 class Nav extends React.Component {
   constructor(props) {
@@ -25,9 +25,7 @@ class Nav extends React.Component {
   }
   
   showPage(pageName) {
-    // this.props.switchPage(pageName);
-    browserHistory.push('views/session')
-    // this.context.router.transitionTo('src/views/session');
+    browserHistory.replace('/views/'+pageName)
     this.handleClose()
   }
 
@@ -41,13 +39,13 @@ class Nav extends React.Component {
           open={this.state.open}
           onRequestChange={(open) => this.setState({open})}
         >
-          <MenuItem onTouchTap={() => this.showPage('homePage')}>Home Page</MenuItem>
-          <MenuItem onTouchTap={() => this.showPage('storyPage')}>Story Page</MenuItem>
-          <MenuItem onTouchTap={() => this.showPage('bugPage')}>Bug Page</MenuItem>
-          <MenuItem onTouchTap={() => this.showPage('sessionPage')}>Sessions</MenuItem>
-          <MenuItem onTouchTap={() => this.showPage('retroPage')}>Retros</MenuItem>
-          <MenuItem onTouchTap={() => this.showPage('techBookletPage')}>Tech Booklet</MenuItem>
-          <MenuItem onTouchTap={() => this.showPage('bookPage')}>Books</MenuItem>
+          <MenuItem onTouchTap={() => this.showPage('home')}>Home Page</MenuItem>
+          <MenuItem onTouchTap={() => this.showPage('story')}>Story Page</MenuItem>
+          <MenuItem onTouchTap={() => this.showPage('bug')}>Bug Page</MenuItem>
+          <MenuItem onTouchTap={() => this.showPage('session')}>Sessions</MenuItem>
+          <MenuItem onTouchTap={() => this.showPage('retro')}>Retros</MenuItem>
+          <MenuItem onTouchTap={() => this.showPage('tech')}>Tech Booklet</MenuItem>
+          <MenuItem onTouchTap={() => this.showPage('book')}>Books</MenuItem>
         </Drawer>
       </div>
     );
