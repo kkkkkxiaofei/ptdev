@@ -32,7 +32,7 @@ class Nav extends React.Component {
   render() {
     return (
       <div>
-        <AppBar title="Dashboard" onTouchTap={this.handleToggle} />
+        <AppBar title="C1 Dashboard" onTouchTap={this.handleToggle} />
         <Drawer
           docked={false}
           width={200}
@@ -47,6 +47,7 @@ class Nav extends React.Component {
           <MenuItem onTouchTap={() => this.showPage('tech')}>Tech Booklet</MenuItem>
           <MenuItem onTouchTap={() => this.showPage('book')}>Books</MenuItem>
         </Drawer>
+        <div className="logo">C1 Dashboard</div>
       </div>
     );
   }
