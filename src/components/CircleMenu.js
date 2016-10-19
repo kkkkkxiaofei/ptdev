@@ -1,6 +1,6 @@
 import React from 'react'
 import '../styles/circle-menu.css'
-
+import { Link } from 'react-router'
 export default class CircleMenu extends React.Component {
 	
 	render() {
@@ -10,13 +10,13 @@ export default class CircleMenu extends React.Component {
 						<button className="cn-button" id="cn-button">Menu</button>
 						<div className="cn-wrapper opened-nav" id="cn-wrapper">
 							<ul>
-								<li><a href="#"><span>Home</span></a></li>
-								<li><a href="#"><span>Story</span></a></li>
-								<li><a href="#"><span>Bug</span></a></li>
-								<li><a href="#"><span>Sessions</span></a></li>
-								<li><a href="#"><span>Retros</span></a></li>
-								<li><a href="#"><span>Tech Booklet</span></a></li>
-								<li><a href="#"><span>Books</span></a></li>
+								<li><Link to="/home"><span>Home</span></Link></li>
+								<li><Link to="/story"><span>Story</span></Link></li>
+								<li><Link to="/bug"><span>Bug</span></Link></li>
+								<li><Link to="/views/session"><span>Sessions</span></Link></li>
+								<li><Link to="/views/retro"><span>Retros</span></Link></li>
+								<li><Link to="/views/tech"><span>Techs</span></Link></li>
+								<li><Link to="/views/book"><span>Books</span></Link></li>
 							 </ul>
 						</div>
 					</div>

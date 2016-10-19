@@ -44,21 +44,7 @@ class Nav extends React.Component {
     return (
       <div>
         <AppBar title="C1 Dashboard" onTouchTap={this.handleToggle} />
-        <Drawer
-          docked={false}
-          width={200}
-          open={this.state.open}
-          onRequestChange={(open) => this.setState({open})}
-        >
-          <MenuItem onTouchTap={() => this.showPage('/home')}>Home Page</MenuItem>
-          <MenuItem onTouchTap={() => this.showPage('/story')}>Story Page</MenuItem>
-          <MenuItem onTouchTap={() => this.showPage('/bug')}>Bug Page</MenuItem>
-          <MenuItem onTouchTap={() => this.showPage('/views/session')}>Sessions</MenuItem>
-          <MenuItem onTouchTap={() => this.showPage('/views/retro')}>Retros</MenuItem>
-          <MenuItem onTouchTap={() => this.showPage('/views/tech')}>Tech Booklet</MenuItem>
-          <MenuItem onTouchTap={() => this.showPage('/views/book')}>Books</MenuItem>
-        </Drawer>
-        <CircleMenu />
+        {this.state.indexPath ? (<CircleMenu />) : (<div></div>)}
       </div>
     );
   }
