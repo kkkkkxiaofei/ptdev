@@ -89,11 +89,6 @@ class Index extends React.Component {
 			  		<Nav switchPage={this.switchPage} open={false} />
 			  		<Modal />	
 			  		<Progress show={this.state.isStroyFetching}/>
-			  		{this.getSearchBox()}
-			  		<HomePage visible={this.state.homePage} />
-			  		<StoryPage visible={this.state.storyPage} stories={stories} />
-			  		<BugPage visible={this.state.bugPage} stories={stories} />
-			  		{this.state.sessionPage ? (<SimplePage type="session" />) : (<div></div>)}
 			  </div>
 		  </MuiThemeProvider>
 		)
@@ -101,3 +96,4 @@ class Index extends React.Component {
 }
 
 export default Index
+

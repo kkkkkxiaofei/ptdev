@@ -16,7 +16,8 @@ export default class SimplePage extends React.Component {
         return Promise.reject(json)
       }
       var mdStructure = Object.assign({}, json)
-      this.setState({mds: mdStructure[this.props.type]})
+      var type = this.props.params.type
+      this.setState({mds: mdStructure[type]})
     })
   }
 

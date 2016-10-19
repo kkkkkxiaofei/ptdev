@@ -3,6 +3,7 @@ import Drawer from 'material-ui/Drawer'
 import MenuItem from 'material-ui/MenuItem'
 import AppBar from 'material-ui/AppBar'
 import * as Analyse from '../utils/Analyse'
+import { browserHistory } from 'react-router'
 
 class Nav extends React.Component {
   constructor(props) {
@@ -24,7 +25,8 @@ class Nav extends React.Component {
   }
   
   showPage(pageName) {
-    this.props.switchPage(pageName);
+    // this.props.switchPage(pageName);
+    browserHistory.push('/views/session')
     this.handleClose()
   }
 
