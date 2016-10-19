@@ -8,7 +8,6 @@ export default class SimplePage extends React.Component {
   }
 
   componentWillMount() {
-    console.log('will mount')
     return fetch('/md.json').then(response =>
       response.json().then(json => ({ json, response }))
     ).then(({ json, response }) => {
@@ -22,7 +21,6 @@ export default class SimplePage extends React.Component {
   }
 
   render() {
-    console.log(123);
     const mds = this.state.mds || []
     return (
       <div className="simplePage">

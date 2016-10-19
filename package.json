@@ -11,6 +11,8 @@
     "react-d3-components": "^0.6.4",
     "react-dom": "^15.3.0",
     "react-redux": "^4.4.5",
+    "react-router": "^2.8.1",
+    "react-router-redux": "^4.0.6",
     "react-tap-event-plugin": "^1.0.0",
     "redux": "^3.2.1",
     "redux-form": "^5.3.1",
@@ -47,7 +49,7 @@
     "clean": "rm -rf ./build",
     "dev": "npm run html & webpack-dev-server --progress --hot --profile --colors",
     "pro": "npm run clean & NODE_ENV=production webpack -p",
-    "html": "node bin/md2html" 
+    "html": "node bin/md2html"
   },
   "repository": {
     "type": "git",
