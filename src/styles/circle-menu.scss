@@ -1,3 +1,15 @@
+$grey100: #F5F5F5;
+$grey200: #EEEEEE;
+$grey300: #E0E0E0;
+$grey400: #BDBDBD;
+$grey500: #9E9E9E;
+$grey600: #757575;
+$grey700: #616161;
+$grey800: #424242;
+
+$blue100: #B2EBF2;
+$blue300: #4DD0E1;
+$blueGrey100: #455A64;
 
 * {
 	position: relative;
@@ -8,10 +20,8 @@
 	list-style: none;
 }
 
-
-
 .component {
-	top: 150px;
+	top: 50%;
     width: 80%;
     margin: auto;
     position: relative;
@@ -48,14 +58,15 @@
 	border: none;
 	border-radius: 50%;
 	background: none;
-	background-color: #fff;
-	/*color: #52be7f;*/
+	background-color: $grey400;
+	color: white;
 	text-align: center;
 	font-weight: 700;
 	font-size: 1.5em;
 	text-transform: uppercase;
 	cursor: pointer;
 	-webkit-backface-visibility: hidden;
+	opacity: .8;
 }
 
 .csstransforms .cn-wrapper {
@@ -189,25 +200,15 @@
 	background: radial-gradient(transparent $transparentPercent, $color $colorPercent);
 }
 
-$grey100: #F5F5F5;
-$grey200: #EEEEEE;
-$grey300: #E0E0E0;
-$grey400: #BDBDBD;
-$grey500: #9E9E9E;
-$grey600: #757575;
-$grey700: #616161;
-$grey800: #424242;
-
-
 .csstransforms .opened-nav li:first-child {
 	-webkit-transform: rotate(-20deg) skew(60deg);
 	-moz-transform: rotate(-20deg) skew(60deg);
 	-ms-transform: rotate(-20deg) skew(60deg);
 	transform: rotate(-20deg) skew(60deg);
 	a {
-		@include bgColor($grey500, 5%, 35%);
+		@include bgColor($blue100, 5%, 35%);
 		&:hover {
-			@include bgColor($grey600, 48%, 35%);
+			@include bgColor($blue300, 48%, 35%);
 		}
 	}
 }
@@ -218,9 +219,9 @@ $grey800: #424242;
 	-ms-transform: rotate(12deg) skew(60deg);
 	transform: rotate(12deg) skew(60deg);
 	a {
-		@include bgColor($grey500, 5%, 35%);
+		@include bgColor($blue100, 5%, 35%);
 		&:hover {
-			@include bgColor($grey600, 48%, 35%);
+			@include bgColor($blue300, 48%, 35%);
 		}
 	}
 }
@@ -231,9 +232,9 @@ $grey800: #424242;
 	-ms-transform: rotate(44deg) skew(60deg);
 	transform: rotate(44deg) skew(60deg);
 	a {
-		@include bgColor($grey500, 5%, 35%);
+		@include bgColor($blue100, 5%, 35%);
 		&:hover {
-			@include bgColor($grey600, 48%, 35%);
+			@include bgColor($blue300, 48%, 35%);
 		}
 	}
 }
@@ -244,9 +245,9 @@ $grey800: #424242;
 	-ms-transform: rotate(76deg) skew(60deg);
 	transform: rotate(76deg) skew(60deg);
 	a {
-		@include bgColor($grey500, 5%, 35%);
+		@include bgColor($blue100, 5%, 35%);
 		&:hover {
-			@include bgColor($grey600, 48%, 35%);
+			@include bgColor($blue300, 48%, 35%);
 		}
 	}
 }
@@ -257,9 +258,9 @@ $grey800: #424242;
 	-ms-transform: rotate(108deg) skew(60deg);
 	transform: rotate(108deg) skew(60deg);
 	a {
-		@include bgColor($grey500, 5%, 35%);
+		@include bgColor($blue100, 5%, 35%);
 		&:hover {
-			@include bgColor($grey600, 48%, 35%);
+			@include bgColor($blue300, 48%, 35%);
 		}
 	}
 }
@@ -270,9 +271,9 @@ $grey800: #424242;
 	-ms-transform: rotate(140deg) skew(60deg);
 	transform: rotate(140deg) skew(60deg);
 	a {
-		@include bgColor($grey500, 5%, 35%);
+		@include bgColor($blue100, 5%, 35%);
 		&:hover {
-			@include bgColor($grey600, 48%, 35%);
+			@include bgColor($blue300, 48%, 35%);
 		}
 	}
 }
@@ -283,9 +284,9 @@ $grey800: #424242;
 	-ms-transform: rotate(172deg) skew(60deg);
 	transform: rotate(172deg) skew(60deg);
 	a {
-		@include bgColor($grey500, 5%, 35%);
+		@include bgColor($blue100, 5%, 35%);
 		&:hover {
-			@include bgColor($grey600, 48%, 35%);
+			@include bgColor($blue300, 48%, 35%);
 		}
 	}
 }
