@@ -56,9 +56,9 @@ body {
 
 .storyPage, .bugPage {
 	overflow: hidden;
+	height: 100%;
 	.searchBox {
 		position: absolute;
-	    top: 80px;
 	    right: 0;
 		.searchButton {
 		    border: 0;
