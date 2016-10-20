@@ -6,6 +6,7 @@ injectTapEventPlugin()
 import Root from './core/containers/Root'
 import configureStore from './store/configureStore'
 import './styles/main.scss'
+import './styles/circle-menu.scss'
 import { browserHistory } from 'react-router'
 import { syncHistoryWithStore } from 'react-router-redux'
 

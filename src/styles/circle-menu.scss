@@ -1,3 +1,4 @@
+
 * {
 	position: relative;
 	-moz-box-sizing: border-box;
@@ -141,10 +142,6 @@
 	width: 14.5em;
 	height: 14.5em;
 	border-radius: 50%;
-	background: #429a67;
-	background: -webkit-radial-gradient(transparent 35%, #429a67 35%);
-	background: -moz-radial-gradient(transparent 35%, #429a67 35%);
-	background: radial-gradient(transparent 35%, #429a67 35%);
 	color: #fff;
 	text-align: center;
 	text-decoration: none;
@@ -185,11 +182,34 @@
 	transition: all .3s ease .3s;
 }
 
+@mixin bgColor($color, $transparentPercent, $colorPercent) {
+	background: $color;
+	background: -webkit-radial-gradient(transparent $transparentPercent, $color $colorPercent);
+	background: -moz-radial-gradient(transparent $transparentPercent, $color $colorPercent);
+	background: radial-gradient(transparent $transparentPercent, $color $colorPercent);
+}
+
+$grey100: #F5F5F5;
+$grey200: #EEEEEE;
+$grey300: #E0E0E0;
+$grey400: #BDBDBD;
+$grey500: #9E9E9E;
+$grey600: #757575;
+$grey700: #616161;
+$grey800: #424242;
+
+
 .csstransforms .opened-nav li:first-child {
 	-webkit-transform: rotate(-20deg) skew(60deg);
 	-moz-transform: rotate(-20deg) skew(60deg);
 	-ms-transform: rotate(-20deg) skew(60deg);
 	transform: rotate(-20deg) skew(60deg);
+	a {
+		@include bgColor($grey500, 5%, 35%);
+		&:hover {
+			@include bgColor($grey600, 48%, 35%);
+		}
+	}
 }
 
 .csstransforms .opened-nav li:nth-child(2) {
@@ -197,6 +217,12 @@
 	-moz-transform: rotate(12deg) skew(60deg);
 	-ms-transform: rotate(12deg) skew(60deg);
 	transform: rotate(12deg) skew(60deg);
+	a {
+		@include bgColor($grey500, 5%, 35%);
+		&:hover {
+			@include bgColor($grey600, 48%, 35%);
+		}
+	}
 }
 
 .csstransforms .opened-nav  li:nth-child(3) {
@@ -204,6 +230,12 @@
 	-moz-transform: rotate(44deg) skew(60deg);
 	-ms-transform: rotate(44deg) skew(60deg);
 	transform: rotate(44deg) skew(60deg);
+	a {
+		@include bgColor($grey500, 5%, 35%);
+		&:hover {
+			@include bgColor($grey600, 48%, 35%);
+		}
+	}
 }
 
 .csstransforms .opened-nav li:nth-child(4) {
@@ -211,6 +243,12 @@
 	-moz-transform: rotate(76deg) skew(60deg);
 	-ms-transform: rotate(76deg) skew(60deg);
 	transform: rotate(76deg) skew(60deg);
+	a {
+		@include bgColor($grey500, 5%, 35%);
+		&:hover {
+			@include bgColor($grey600, 48%, 35%);
+		}
+	}
 }
 
 .csstransforms .opened-nav li:nth-child(5) {
@@ -218,6 +256,12 @@
 	-moz-transform: rotate(108deg) skew(60deg);
 	-ms-transform: rotate(108deg) skew(60deg);
 	transform: rotate(108deg) skew(60deg);
+	a {
+		@include bgColor($grey500, 5%, 35%);
+		&:hover {
+			@include bgColor($grey600, 48%, 35%);
+		}
+	}
 }
 
 .csstransforms .opened-nav li:nth-child(6) {
@@ -225,6 +269,12 @@
 	-moz-transform: rotate(140deg) skew(60deg);
 	-ms-transform: rotate(140deg) skew(60deg);
 	transform: rotate(140deg) skew(60deg);
+	a {
+		@include bgColor($grey500, 5%, 35%);
+		&:hover {
+			@include bgColor($grey600, 48%, 35%);
+		}
+	}
 }
 
 .csstransforms .opened-nav li:nth-child(7) {
@@ -232,9 +282,15 @@
 	-moz-transform: rotate(172deg) skew(60deg);
 	-ms-transform: rotate(172deg) skew(60deg);
 	transform: rotate(172deg) skew(60deg);
+	a {
+		@include bgColor($grey500, 5%, 35%);
+		&:hover {
+			@include bgColor($grey600, 48%, 35%);
+		}
+	}
 }
 
-.no-csstransforms .cn-wrapper {
+.o7-csstransforms .cn-wrapper {
 	overflow: hidden;
 	margin: 10em auto;
 	padding: .5em;

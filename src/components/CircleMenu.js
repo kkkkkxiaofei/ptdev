@@ -1,5 +1,5 @@
 import React from 'react'
-import '../styles/circle-menu.css'
+// import '../styles/circle-menu.scss'
 import { Link } from 'react-router'
 export default class CircleMenu extends React.Component {
 	
