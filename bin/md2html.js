@@ -3,7 +3,7 @@ console.log('Converting Start ...');
 	
 	var showdown  = require('showdown'),
 		fs = require('fs'),
-	  converter = new showdown.Converter(),
+	  converter = new showdown.Converter({tables: true}),
 	  mdDir = 'src/mds',
 	  viewDir = 'src/views',
 	  mdStructure = {};
