@@ -149,7 +149,7 @@ body {
 .simplePage {
 	max-height: calc(100% - 64px);
 	overflow: hidden;
-
+	padding: 40px;
 	iframe {
 		width: 100%;
 		height: 100%;
@@ -203,4 +203,12 @@ body {
 	ul li:first-child {
 		transform: rotate(-20deg) skew(60deg);
 	}
+}
+
+.sticker {
+	text-decoration: none;
+    color: #757575;
+    font-size: 12px;
+    margin-top: 10px;
+    display: block;
 }
