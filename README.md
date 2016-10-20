@@ -2,7 +2,7 @@
 
 `Dashboard`是由C1团队一起构思并开发的一款看板管理工具，其中合成了 `PT(Pivotal Tracker)`的部分功能，它能够帮助敏捷团队更好的进行`IPM(Iteration Plan Meeting)`，`Retrospection`，`Tech Sharing`。 它包含了许多功能点，如`Stroy Analysis`, `Stroy Transition`和`Story Category`等。
 
-[在线版请戳这里](http://www.flypursue.com/ptpro)
+[在线版请戳这里](https://flypursue.github.io)
 
 # Pivotal Tracker API
 
@@ -60,7 +60,7 @@ https://www.pivotaltracker.com/n/projects/${project id}/stories/${story id}
 
 # 技术栈
 
-这个工具是用`React`+`Redux`进行开发，利用`Webpack`进行打包，使用`Babel`编译`ES6`，最终利用`Github Page`发布在线版本，因此发布版是一个没有路由的纯前端的单页面App。
+这个工具是用`React`+`Redux`进行开发，利用`Webpack`进行打包，使用`Babel`编译`ES6`，最终利用`Github Page`发布在线版本，因此发布版是一个只有前端路由的单页面App。
 
 推荐以下参考资料：
 
@@ -99,7 +99,7 @@ https://www.pivotaltracker.com/n/projects/${project id}/stories/${story id}
 ```
 
 对于`Session列表`，`Retro结果`，`技术手册`等需要编辑的页面，可以利用markdown编辑器编写后转成html再挂在到页面上。
-例如，我现在要做添加10月份的Session列表，首先在/src/md/session文件夹下建立名为`xxx.md`的文件，编写好后在项目路径下执行：
+例如，我现在要做添加9月份的Session列表，首先在/src/md/session文件夹下建立名为`xxx.md`的文件，编写好后在项目路径下执行：
 
 ```
 $  npm run html
