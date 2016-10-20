@@ -19,7 +19,7 @@ console.log('Converting Start ...');
 				var html = converter.makeHtml(mdContent);
 				var wrapper = fs.readFileSync(viewDir + '/' + 'wrapper.html').toString();
 				var newFileName = fileName.replace('.md', '');
-				var result = wrapper.replace('{$content}', html).replace('{$title}', newFileName);
+				var result = wrapper.replace('{$content}', html).replace(/{\$title}/g, newFileName);
 				var viewPath = viewDir + '/' + type + '/' + newFileName + '.html';
 				console.log(viewPath);
 				fs.writeFile(viewPath, result, function(err) {

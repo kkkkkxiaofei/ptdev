@@ -3,10 +3,23 @@
 <head>
 	<meta charset="utf-8">
 	<title>{$title}</title>
+	<style type="text/css">
+		body {
+			width: 60%;
+		    margin: 0 auto;
+		    padding: 10px;
+		    box-sizing: border-box;
+		}
+		.title {
+			font-size: 4em;
+		}
+	</style>
 	<link rel="stylesheet" type="text/css" href="../../styles/github-md.css">
-
 </head>
-<body class="markdown-body">
-	{$content}
+<body>
+	<h1 class="title">{$title}</h1>
+	<div class="markdown-body">
+		{$content}
+	</div>
 </body>
 </html>
