@@ -3,16 +3,129 @@
 <head>
 	<meta charset="utf-8">
 	<title>Session For test</title>
+	<style type="text/css">
+		body {
+			width: 60%;
+		    margin: 0 auto;
+		    padding: 10px;
+		    box-sizing: border-box;
+		}
+		.title {
+			font-size: 4em;
+		}
+	</style>
 	<link rel="stylesheet" type="text/css" href="../../styles/github-md.css">
-
 </head>
-<body class="markdown-body">
-	<h1 id="asdasd">asdasd</h1>
+<body>
+	<h1 class="title">Session For test</h1>
+	<div class="markdown-body">
+		<h1 id="dashboard">Dashboard</h1>
 
-<h1 id="sss">sss</h1>
+<p><code>Dashboard</code>是由C1团队一起构思并开发的一款看板管理工具，其中合成了 <code>PT(Pivotal Tracker)</code>的部分功能，它能够帮助敏捷团队更好的进行<code>IPM(Iteration Plan Meeting)</code>，<code>Retrospection</code>，<code>Tech Sharing</code>。 它包含了许多功能点，如<code>Stroy Analysis</code>, <code>Stroy Transition</code>和<code>Story Category</code>等。</p>
 
-<h1 id="12313">12313</h1>
+<p><a href="http://www.flypursue.com/ptpro">在线版请戳这里</a></p>
 
-<h4 id="12313-1">12313</h4>
+<h1 id="pivotaltrackerapi">Pivotal Tracker API</h1>
+
+<p><a href="https://www.pivotaltracker.com/help/api">API Document</a></p>
+
+<p>在这里，你可以查询PT提供的API。</p>
+
+<h1 id="">安装</h1>
+
+<pre><code>1.git clone git@github.com:kkkkkxiaofei/ptdev.git &amp; cd ptdev
+</code></pre>
+
+<pre><code>2.npm install
+</code></pre>
+
+<pre><code>3.npm run dev
+</code></pre>
+
+<pre><code>4.go to http://127.0.0.1:8080/webpack-dev-server/
+</code></pre>
+
+<h1 id="-1">测试</h1>
+
+<pre><code>npm run test
+</code></pre>
+
+<h1 id="-2">使用</h1>
+
+<p>在主界面中，输入自己的<code>project id</code>和<code>API Token</code>和一个<code>limit count</code>点击确认，即可初始化基本信息。（<code>limit count</code>为最大API请求数据量）</p>
+
+<p>或利用url进行自动配置：</p>
+
+<pre><code>http://127.0.0.1:8080/?p={project id}&amp;t={token}&amp;l={limit count}
+</code></pre>
+
+<h2 id="projectid">如何获取project id</h2>
+
+<p>进入自己的PT，url中即可找到对应的project id，如：</p>
+
+<pre><code>https://www.pivotaltracker.com/n/projects/${project id}/stories/${story id}
+</code></pre>
+
+<h2 id="apitoken">如何获取API Token</h2>
+
+<p>进入自己PT的profie，页面的最下方，即可看到自己的API Token</p>
+
+<blockquote>
+  <p><strong>⚠注意：Token信息等同于自己的账号密码，请妥善保管，请勿上传</strong></p>
+</blockquote>
+
+<h1 id="-3">技术栈</h1>
+
+<p>这个工具是用<code>React</code>+<code>Redux</code>进行开发，利用<code>Webpack</code>进行打包，使用<code>Babel</code>编译<code>ES6</code>，最终利用<code>Github Page</code>发布在线版本，因此发布版是一个没有路由的纯前端的单页面App。</p>
+
+<p>推荐以下参考资料：</p>
+
+<blockquote>
+  <p>1.<a href="https://facebook.github.io/react/">React</a>
+  MVVM已成往事，Web Component大行其道的当下，你不得不去看的React。</p>
+  
+  <p>2.<a href="http://redux.js.org">Redux</a>
+  为React量身打造，在原版Flux的基础上进行的重构。</p>
+  
+  <p>3.<a href="http://es6.ruanyifeng.com/">ES6</a>
+  ES6已经有段时间了，还没尝试过的小伙伴们快看看阮老师的博客吧（此人博客我跪服）。</p>
+  
+  <p>4.<a href="http://babeljs.io/repl/">Babel</a>
+  没有它，那还怎么愉快的和ES6玩耍。</p>
+  
+  <p>5.<a href="http://webpack.github.io/">Webpack</a>
+  新一代前端打包部署神器，请忘掉Browserify吧。</p>
+  
+  <p>6.<a href="https://developer.mozilla.org/en-US/docs/Mozilla/JavaScript_code_modules/Promise.jsm/Promise">Promise</a>
+  ES6原生支持Promise，有了它，地狱回调算神马，Ajax更没听过。</p>
+  
+  <p>7.<a href="http://www.material-ui.com/#/">material-ui</a>
+  根据Material UI的设计风格，全力打造的一套适用于React App的UI Components。</p>
+  
+  <p>8.<a href="https://github.com/codesuki/react-d3-components#examples">react-d3-components</a>
+  适用于React的d3 components，支持各种图表。</p>
+</blockquote>
+
+<h1 id="-4">贡献</h1>
+
+<p>欢迎大家一起开发，请提交<code>Pull Request</code>，有问题请建Issue。另外，请大家统一commit的格式。</p>
+
+<p><strong>example:</strong></p>
+
+<pre><code class="  language- ">[xf] #issue-num 'do something'
+</code></pre>
+
+<p>对于<code>Session列表</code>，<code>Retro结果</code>，<code>技术手册</code>等需要编辑的页面，可以利用markdown编辑器编写后转成html再挂在到页面上。
+例如，我现在要做添加10月份的Session列表，首先在/src/md/session文件夹下建立名为<code>xxx.md</code>的文件，编写好后在项目路径下执行：</p>
+
+<pre><code>$  npm run html
+</code></pre>
+
+<p>即可看到在/src/views/session下生成了xxx.html的页面。</p>
+
+<h1 id="license">License</h1>
+
+<p>C1-TW</p>
+	</div>
 </body>
 </html>
