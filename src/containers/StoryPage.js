@@ -18,7 +18,7 @@ export default class StoryPage extends React.Component {
     const stories = this.state.stories
     return (
       <MuiThemeProvider>
-        <div className="storyPage">
+        <div className="storyPage clear">
             <Search action={{setStories: this.setStories}} />
     	  		<div className="storyList" >
     			  	{stories.length ? (<StoryList stories={stories} storyType="feature" />) : ''}

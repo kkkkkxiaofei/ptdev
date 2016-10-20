@@ -52,7 +52,7 @@ export default class BugPage extends React.Component {
     const stories = this.state.stories
     if(stories.length > 0) {
       return (
-        <div>
+        <div className="clear">
           <div className="graphList">
             <div className="graphListContainer">
               {[this.bugTendencyAnalyse, this.bugSeverityAnalyse, this.bugCategoryAnalyse].map(method => {
