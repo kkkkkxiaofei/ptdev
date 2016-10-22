@@ -2,7 +2,7 @@ import React from 'react'
 import Progress from './Progress'
 import TextField from 'material-ui/TextField'
 import * as Analyse from '../utils/Analyse'
-import { asynCall, Schemas, getLimit } from '../middleware/api'
+import { ptAsynCall, Schemas, getLimit } from '../middleware/api'
 
 export default class Search extends React.Component {
 	constructor(props) {
@@ -24,13 +24,13 @@ export default class Search extends React.Component {
 			labelName = 'iteration' + iterationNum[0]
 		}
 		const setStories = this.props.action.setStories
-		asynCall(
+		ptAsynCall(
 		  '/stories/?with_label=' + labelName + '&limit=' + limit,
-		  Schemas.NO_FORMAT_ARRAY,
 		  null, 
 		  (response) => {
 				this.setState({isStroyFetching: false})
 		    const stories = Object.values(response)
+		    console.log(stories)
 		    setStories && setStories(stories)
 		  }
 		)

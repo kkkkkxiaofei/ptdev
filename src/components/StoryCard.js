@@ -13,7 +13,7 @@ import {
 } from 'material-ui/styles/colors'
 import StoryTransition from './StoryTransition'
 import * as Analyse from '../utils/Analyse'
-import { asynCall, Schemas } from '../middleware/api'
+import { ptAsynCall } from '../middleware/api'
 
 
 const styles = {
@@ -53,9 +53,8 @@ export default class StoryCard extends React.Component {
 
   analyse() {
     const storyId = this.props.story.id
-    asynCall(
+    ptAsynCall(
       '/stories/' + storyId + '/transitions',
-      Schemas.NO_FORMAT_ARRAY,
       null, 
       (response) => {
         const transitions = Object.values(response)

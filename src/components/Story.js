@@ -5,7 +5,7 @@ import { fetchStoryTransition } from '../actions/storyTransition'
 import StoryCard from './StoryCard'
 import {TableHeaderColumn, TableRow, TableRowColumn} from 'material-ui/Table';
 import * as Analyse from '../utils/Analyse'
-import { asynCall, Schemas } from '../middleware/api'
+import { ptAsynCall } from '../middleware/api'
 import StoryTransition from './StoryTransition'
 import classNames from 'classnames'
 import NotificationsIcon from 'material-ui/svg-icons/social/notifications';
@@ -26,9 +26,8 @@ class Story extends React.Component {
 	}
 
 	analyse(storyId) {
-	  asynCall(
+	  ptAsynCall(
 	    '/stories/' + storyId + '/transitions',
-	    Schemas.NO_FORMAT_ARRAY,
 	    null, 
 	    (response) => {
 	      const transitions = Object.values(response)

@@ -15,6 +15,34 @@ function createHeaders(token) {
     return headerOptions
 }
 
+export const asynCall = (url, param, callback) => {
+  return fetch(url, param).then(response =>
+    response.json().then(json => ({ json, response }))
+  ).then(({ json, response }) => {
+    if (!response.ok) {
+      return Promise.reject(json)
+    }
+    const data = Object.assign({}, json)
+    callback && callback(data)
+  }) 
+}
+
+export const ptAsynCall = (endpoint, hash, callback) => {
+  if(!securityHash) {
+    securityHash = hash
+  }
+  const fullUrl = API_ROOT + securityHash.projectId + endpoint
+  console.log(fullUrl)
+  const param = {
+    headers: createHeaders(securityHash.token) || {},
+    method: 'GET',
+    mode: 'cors'
+  }
+  return asynCall(fullUrl, param, callback)
+}
+
+
+
 // Fetches an API response and normalizes the result JSON according to schema.
 // This makes every API response have the same shape, regardless of how nested it was.
 function callApi(endpoint, schema, param) {
@@ -41,12 +69,6 @@ function callApi(endpoint, schema, param) {
     return Object.assign({},
       normalize(camelizedJson, schema)
     )
-  })
-}
-
-export const asynCall = (endpoint, schema, param, callback) => {
-  callApi(endpoint, schema, param).then(response => {
-    callback && callback(response);
   })
 }
 
