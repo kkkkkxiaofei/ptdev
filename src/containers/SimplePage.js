@@ -3,6 +3,7 @@ import 'isomorphic-fetch'
 import { browserHistory, Link } from 'react-router'
 import Paper from 'material-ui/Paper';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import { asynCall } from '../middleware/api'
 
 const style = {
   height: 100,
@@ -19,13 +20,7 @@ export default class SimplePage extends React.Component {
   }
 
   componentWillMount() {
-    return fetch('/md.json').then(response =>
-      response.json().then(json => ({ json, response }))
-    ).then(({ json, response }) => {
-      console.log(response.ok,mdStructure);
-      if (!response.ok) {
-        return Promise.reject(json)
-      }
+    asynCall('/md.json', null, (json) => {
       var mdStructure = Object.assign({}, json)
       var type = this.props.params.type
       this.setState({mds: mdStructure[type]})
