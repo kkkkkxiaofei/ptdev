@@ -44,7 +44,6 @@ class Nav extends React.Component {
     return (
       <div>
         <AppBar title="C1 Dashboard" onTouchTap={this.handleToggle} />
-        {this.state.indexPath ? (<CircleMenu />) : (<div></div>)}
       </div>
     );
   }
