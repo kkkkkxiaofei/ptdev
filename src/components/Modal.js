@@ -41,17 +41,14 @@ export default class Modal extends React.Component {
 
   getSecurityInfo () {
     const parameter = window.location.search
-    const projectId = parameter.match(/p=([0-9]+)/)
-    const token = parameter.match(/t=([0-9a-z]+)/)
-    const limit = parameter.match(/l=([0-9]+)/)
-    const hasProjectId = projectId && projectId.length > 1;
-    const hasToken = token && token.length > 1;
-    const hasInfo = hasProjectId && hasToken;
-    if (hasInfo) {
+    const results = parameter.match(/([^&\?]+)/g) 
+    if(results.length > 0) {
       return {
-        projectId: projectId[1],
-        token: token[1],
-        limit: limit ? limit[1] : 200
+        projectId: results[0].replace('p=', ''),
+        token: results[1].replace('t=', ''),
+        limit: results[2].replace('l=', ''),
+        username: results[3].replace('u=', ''),
+        password: results[4].replace('w=', '')
       }
     }
     return null
