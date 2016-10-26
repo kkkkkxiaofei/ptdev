@@ -14,6 +14,7 @@ import StoryPage from './StoryPage'
 import BugPage from './BugPage'
 import SimplePage from './SimplePage'
 import { browserHistory } from 'react-router'
+import Version from '../components/Version'
 
 class Index extends React.Component {
 
@@ -28,12 +29,14 @@ class Index extends React.Component {
 	render() {
 		const stories = this.state.stories
 		return (
-		  <MuiThemeProvider>
-			  <div className="index">
-			  		<Nav />
-			  		<Modal />
-			  </div>
-		  </MuiThemeProvider>
+		  <div className="index">
+	  		<Nav />
+	  		<Modal />
+	  	aaa
+	  		<div className="dashboard">
+	  			<Version />
+	  		</div>
+		  </div>
 		)
 	}
 }

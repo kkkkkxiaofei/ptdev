@@ -24,7 +24,8 @@ export const asynCall = (url, param, callback) => {
     }
     const data = Object.assign({}, json)
     callback && callback(data)
-  }) 
+  })
+
 }
 
 export const ptAsynCall = (endpoint, hash, callback) => {
@@ -41,7 +42,16 @@ export const ptAsynCall = (endpoint, hash, callback) => {
   return asynCall(fullUrl, param, callback)
 }
 
-
+export const asynFileCall = (url, param, callback) => {
+  return fetch(url, param).then(response =>
+    response.text().then(text => ({ text, response }))
+  ).then(({ text, response }) => {
+    if (!response.ok) {
+      return Promise.reject(text)
+    }
+    callback && callback(text)
+  })
+}
 
 // Fetches an API response and normalizes the result JSON according to schema.
 // This makes every API response have the same shape, regardless of how nested it was.

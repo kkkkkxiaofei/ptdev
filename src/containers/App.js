@@ -3,6 +3,7 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
 import Progress from '../components/Progress'
 import Modal from '../components/Modal'
 import Nav from '../components/Nav'
+import Version from '../components/Version'
 
 export default class App extends React.Component {
   render() {
@@ -14,6 +15,9 @@ export default class App extends React.Component {
 	  		<Nav />
 	  		<Modal />	
 	  		<Progress />
+        <div className="dashboard">
+          <Version />
+        </div>
 		  </div>
 		</MuiThemeProvider>
         {children}
