@@ -54,13 +54,13 @@ export const asynVersionCall = (url, param, callback) => {
 }
 
 const xhr = new XMLHttpRequest();
-export const asynCICall = (url, param, callback) => {
+export const asynCICall = (url, callback) => {
   if(securityHash) {
-    xhr.open("GET", "http://go.intra.livetext.com:8153/go/api/pipelines/C1/stages.xml", true, securityHash.username, securityHash.password);
+    xhr.open("GET", url, true, securityHash.username, securityHash.password);
     xhr.onreadystatechange = function() {
       if (xhr.readyState == 4) {
         var res = xhr.responseText;
-        console.log('res',res);
+        callback && callback(res)
       }
     }
     return xhr.send();

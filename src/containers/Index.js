@@ -15,6 +15,7 @@ import BugPage from './BugPage'
 import SimplePage from './SimplePage'
 import { browserHistory } from 'react-router'
 import Version from '../components/Version'
+import CI from '../components/CI'
 
 class Index extends React.Component {
 
@@ -32,7 +33,6 @@ class Index extends React.Component {
 		  <div className="index">
 	  		<Nav />
 	  		<Modal />
-	  	aaa
 	  		<div className="dashboard">
 	  			<Version />
 	  		</div>

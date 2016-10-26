@@ -9,7 +9,6 @@ import SimplePage from './containers/SimplePage'
 
 export default (
   <Route path="/" component={App}>
-
     <Route path="/home" component={HomePage} />
     <Route path="/story" component={StoryPage} />
     <Route path="/bug" component={BugPage} />

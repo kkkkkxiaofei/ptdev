@@ -36,8 +36,7 @@ export default class Version extends React.Component {
 
 	render() {
 		return (
-			<div className={classNames("statusBlock", "bgBlue", {"bgRed": !this.state.isEqual})}>
-
+			<div className={classNames("version statusBlock", "bgBlue", {"bgRed": !this.state.isEqual})}>
 			</div>
 		)
 	}
