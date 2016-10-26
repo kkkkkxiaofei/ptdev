@@ -12,11 +12,13 @@ export default class Version extends React.Component {
 	}
 
 	componentDidMount() {
-		asynFileCall(
-			"https://www.livetext.com/assets/version.txt", 
-			null, 
-			res => this.compareVersion(res)
-		)
+		setInterval(() => {
+			asynFileCall(
+				"https://www.livetext.com/assets/version.txt", 
+				null, 
+				res => this.compareVersion(res)
+			)
+		}, 30000)
 	}
 
 	compareVersion(res) {
