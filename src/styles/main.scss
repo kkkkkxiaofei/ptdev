@@ -233,3 +233,26 @@ body {
   padding: 15px 0;
   text-align: center;
 }
+
+.step {
+	width: 80%;
+	margin: 0 auto;
+	> div {
+		display: inline-block;
+		width: 70%;
+	}
+	.ending {
+		display: inline-block;
+		width: 160px;
+		font-size: 14px;
+		height: 20px;
+		color: #fff;
+		font-weight: bolder;
+		border-radius: 10px;
+		line-height: 20px;
+		text-align: center;
+		vertical-align: top;
+		margin-top: 25px;
+		margin-left: 10px;
+	}
+}

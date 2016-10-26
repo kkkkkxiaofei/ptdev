@@ -4,6 +4,7 @@ import Progress from '../components/Progress'
 import Modal from '../components/Modal'
 import Nav from '../components/Nav'
 import Version from '../components/Version'
+import Milestone from '../components/Milestone'
 
 export default class App extends React.Component {
   render() {
@@ -17,6 +18,7 @@ export default class App extends React.Component {
 	  		<Progress />
         <div className="dashboard">
           <Version />
+          <Milestone />
         </div>
 		  </div>
 		</MuiThemeProvider>
