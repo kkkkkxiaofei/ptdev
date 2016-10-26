@@ -7,7 +7,8 @@ export default class Version extends React.Component {
 		super(props)
 		this.compareVersion = this.compareVersion.bind(this)
 		this.state = {
-			isEqual: true
+			isEqual: true,
+			reference: ""
 		}
 	}
 
@@ -25,7 +26,10 @@ export default class Version extends React.Component {
 		let VERSION = localStorage["VERSION"]
 		if(VERSION) {
 			let versionOject = JSON.parse(VERSION)
-			this.setState({isEqual: versionOject.content == res})
+			this.setState({
+				isEqual: versionOject.content == res,
+				reference: versionOject.content.match(/misk5[_][0-9|\.]+/)[0]
+			})
 		} else {
 			localStorage["VERSION"] = JSON.stringify({
 				date: new Date(),
@@ -36,7 +40,8 @@ export default class Version extends React.Component {
 
 	render() {
 		return (
-			<div className={classNames("version statusBlock", "bgBlue", {"bgRed": !this.state.isEqual})}>
+			<div className={classNames("version statusBlock", "bgGrey", {"bgRed": !this.state.isEqual})}>
+				{this.state.reference}
 			</div>
 		)
 	}

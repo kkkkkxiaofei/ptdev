@@ -42,7 +42,7 @@ class Nav extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className="nav">
         <AppBar title="C1 Dashboard" onTouchTap={this.handleToggle} />
       </div>
     );
