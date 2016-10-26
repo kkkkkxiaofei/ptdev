@@ -1,5 +1,5 @@
 import React from 'react'
-import { asynFileCall } from '../middleware/api'
+import { asynVersionCall } from '../middleware/api'
 import classNames from 'classnames'
 
 export default class Version extends React.Component {
@@ -13,7 +13,7 @@ export default class Version extends React.Component {
 
 	componentDidMount() {
 		setInterval(() => {
-			asynFileCall(
+			asynVersionCall(
 				"https://www.livetext.com/assets/version.txt", 
 				null, 
 				res => this.compareVersion(res)

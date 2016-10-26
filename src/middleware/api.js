@@ -42,7 +42,7 @@ export const ptAsynCall = (endpoint, hash, callback) => {
   return asynCall(fullUrl, param, callback)
 }
 
-export const asynFileCall = (url, param, callback) => {
+export const asynVersionCall = (url, param, callback) => {
   return fetch(url, param).then(response =>
     response.text().then(text => ({ text, response }))
   ).then(({ text, response }) => {
@@ -52,6 +52,22 @@ export const asynFileCall = (url, param, callback) => {
     callback && callback(text)
   })
 }
+
+const xhr = new XMLHttpRequest();
+export const asynCICall = (url, param, callback) => {
+  if(securityHash) {
+    xhr.open("GET", "http://go.intra.livetext.com:8153/go/api/pipelines/C1/stages.xml", true, securityHash.username, securityHash.password);
+    xhr.onreadystatechange = function() {
+      if (xhr.readyState == 4) {
+        var res = xhr.responseText;
+        console.log('res',res);
+      }
+    }
+    return xhr.send();
+  }
+}
+
+
 
 // Fetches an API response and normalizes the result JSON according to schema.
 // This makes every API response have the same shape, regardless of how nested it was.
