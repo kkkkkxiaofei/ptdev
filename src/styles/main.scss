@@ -68,6 +68,10 @@ body {
 	z-index: -1;
 }
 
+.hidden {
+	display: none;
+}
+
 .storyPage, .bugPage {
 	height: 100%;
 	.searchBox {
@@ -325,11 +329,14 @@ body {
 .menu {
 	position: fixed;
 	width: 120px;
-	height: 224px;
+	height: 228px;
 	right: 0;
 	top: 30%;
 	.type {
-		color: #BDBDBD;
+		a {
+			color: #BDBDBD;
+			text-decoration: none;
+		}
 		&:hover {
 			cursor: pointer;
 			background-color: #E8E8E8;
@@ -344,3 +351,4 @@ body {
 		font-weight: bolder;
 	}
 }
+

@@ -7,25 +7,28 @@ import Version from '../components/Version'
 import WallList from '../components/WallList'
 import Milestone from '../components/Milestone'
 import Menu from '../components/Menu'
+import classNames from 'classnames'
 
 export default class App extends React.Component {
+  
   render() {
+    const isIndexPage = window.location.pathname == "/"
     const {children} = this.props
     return (
       <div>
-		<MuiThemeProvider>
-		  <div className="index">
-	  		<Nav />
-	  		<Modal />	
-	  		<Progress />
-        <div className="dashboard">
-          <Version />
-          <WallList />
-          <Milestone />
-          <Menu />
-        </div>
-		  </div>
-		</MuiThemeProvider>
+    		<MuiThemeProvider>
+    		  <div className="index">
+    	  		<Nav />
+    	  		<Modal />	
+    	  		<Progress />
+            <div className={classNames("dashboard", {"hidden": !isIndexPage})}>
+              <Version />
+              <WallList />
+              <Milestone />
+              <Menu />
+            </div>
+    		  </div>
+    		</MuiThemeProvider>
         {children}
       </div>
     )
