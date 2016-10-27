@@ -1,3 +1,16 @@
+const getOwners = (ownerIds) => {
+  const owner = {
+    '1899170': 'JS',
+    '2023503': 'DX',
+    '1462606': 'ZZ',
+    '1657956': 'XF',
+    '1462614': 'JY',
+    '1819914': 'YC'
+  }
+  const owners = ownerIds.map(ownerId => owner[ownerId] || 'Unknow' )
+  return owners.join('&')
+}
+
 const filterStoriesByState = (stories, currentState) => stories.filter(story => story.current_state == currentState) 
 
 const filterStoriesByType = (stories, stroyType) => stories.filter(story => story.story_type == stroyType) 
@@ -161,5 +174,6 @@ export {
 	generateTendencyByType,
 	generateSeverity,
 	generateBugCategory,
-	getAllPoints
+	getAllPoints,
+	getOwners
 }

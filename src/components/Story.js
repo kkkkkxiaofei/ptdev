@@ -37,19 +37,6 @@ class Story extends React.Component {
 	  )
 	}
 
-	getOwners(ownerIds) {
-	  const owner = {
-	    '1899170': 'JS',
-	    '2023503': 'DX',
-	    '1462606': 'ZZ',
-	    '1657956': 'XF',
-	    '1462614': 'JY',
-	    '1819914': 'YC'
-	  }
-	  const owners = ownerIds.map(ownerId => owner[ownerId] || 'Unknow' )
-	  return owners.join('&')
-	}
-
 	render() {
 		const story = this.props.story
 		const transitionData = this.state.transitionData
@@ -63,7 +50,7 @@ class Story extends React.Component {
 					}
 					{story.name}
 				</TableRowColumn>
-				<TableRowColumn style={{width: "100px"}}>{this.getOwners(story.owner_ids)}</TableRowColumn>
+				<TableRowColumn style={{width: "100px"}}>{Analyse.getOwners(story.owner_ids)}</TableRowColumn>
 				<TableRowColumn style={{width: "100px"}}>{story.estimate}</TableRowColumn>
 				<TableRowColumn style={{width: "100px"}}>{story.current_state}</TableRowColumn>
 				<TableRowColumn>
