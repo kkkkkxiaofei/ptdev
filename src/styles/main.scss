@@ -266,6 +266,41 @@ body {
 			width: 15%;
 			display: inline-block;
 			vertical-align: top;
+			margin: 10px;
+			.title {
+				text-align: center;
+			}
 		}
+	}
+}
+
+.paper {
+	color: rgba(0, 0, 0, 0.870588);
+	background-color: rgb(255, 255, 255);
+	transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms;
+	box-sizing: border-box;
+	font-family: Roboto, sans-serif;
+	-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+	box-shadow: rgba(0, 0, 0, 0.188235) 0px 10px 30px, rgba(0, 0, 0, 0.227451) 0px 6px 10px;
+	border-radius: 2px;
+	height: 100px;
+	width: 100px;
+	margin: 20px;
+	display: inline-block;
+	font-size: 10px;
+	padding: 5px;
+	.paperTitle {
+		font-size: 12px;
+    	font-weight: bolder;
+	}
+	.paperContent {
+		display: block;
+	    height: 62px;
+	    max-height: 62px;
+	    overflow: hidden;
+	}
+	.paperFooter {
+		text-align: right;
+		font-size: 12px;
 	}
 }

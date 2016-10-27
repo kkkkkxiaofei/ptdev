@@ -15,7 +15,7 @@ class WallList extends React.Component {
 	}
 
 	componentWillMount() {
-		setInterval(() => {
+		setTimeout(() => {
 			ptAsynCall(
 			  '/stories/?with_label=iteration70&limit=200',
 			  null, 
@@ -24,7 +24,7 @@ class WallList extends React.Component {
 			    this.setStories(stories)
 			  }
 			)
-		}, 1000*60)
+		}, 1000)
 	}
 
 	setStories(stories) {
