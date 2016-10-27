@@ -6,6 +6,7 @@ import Nav from '../components/Nav'
 import Version from '../components/Version'
 import WallList from '../components/WallList'
 import Milestone from '../components/Milestone'
+import Menu from '../components/Menu'
 
 export default class App extends React.Component {
   render() {
@@ -21,6 +22,7 @@ export default class App extends React.Component {
           <Version />
           <WallList />
           <Milestone />
+          <Menu />
         </div>
 		  </div>
 		</MuiThemeProvider>
