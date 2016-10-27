@@ -1,13 +1,13 @@
 import React from 'react'
 import classNames from 'classnames'
-import {yellow100, green100} from 'material-ui/styles/colors'
+import {grey100, yellow100, blueGrey100, orange100 ,green100} from 'material-ui/styles/colors'
 
 const COLOR = {
-	"unscheduled": "",
-	"started": green100,
-	"finished": "For QA",
-	"delivered": "UAT",
-	"accepted": "Done"
+	"unscheduled": grey100,
+	"started": yellow100,
+	"finished": blueGrey100,
+	"delivered": orange100,
+	"accepted": green100
 }
 
 class Paper extends React.Component {
@@ -18,7 +18,7 @@ class Paper extends React.Component {
 	render() {
 		const {story} = this.props
 		return (
-			<div className="paper">
+			<div className="paper" style={{backgroundColor: COLOR[story.current_state]}}>
 				<div className="paperTitle">{story.estimate + " Points"}</div>
 				<a className="paperContent">{story.name}</a>
 				<div className="paperFooter">
