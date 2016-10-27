@@ -4,6 +4,7 @@ import Progress from '../components/Progress'
 import Modal from '../components/Modal'
 import Nav from '../components/Nav'
 import Version from '../components/Version'
+import WallList from '../components/WallList'
 import Milestone from '../components/Milestone'
 
 export default class App extends React.Component {
@@ -18,6 +19,7 @@ export default class App extends React.Component {
 	  		<Progress />
         <div className="dashboard">
           <Version />
+          <WallList />
           <Milestone />
         </div>
 		  </div>

@@ -256,3 +256,11 @@ body {
 		margin-left: 10px;
 	}
 }
+
+.wallList {
+	height: calc(100% - 160px);
+	.wallListContainer {
+		max-height: 100%;
+		overflow-y: scroll;
+	}
+}
