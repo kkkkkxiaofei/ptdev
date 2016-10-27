@@ -9,11 +9,11 @@ class Wall extends React.Component {
 	}
 
 	render() {
-		const {stories, type} = this.props
+		const {stories, state} = this.props
 		console.log('123', stories)
 		return (
 			<div className="wall">
-				<h1 className="title">{type}</h1>
+				<h1 className="title">{state}</h1>
 				{stories.map(story => (<div>{story.name}</div>))}	
 			</div>
 		)

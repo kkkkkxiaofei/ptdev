@@ -17,7 +17,7 @@ class WallList extends React.Component {
 	componentWillMount() {
 		setTimeout(() => {
 			ptAsynCall(
-			  '/stories/?with_label=iteration68&limit=200',
+			  '/stories/?with_label=iteration69&limit=200',
 			  null, 
 			  (response) => {
 			    const stories = Object.values(response)
@@ -35,7 +35,9 @@ class WallList extends React.Component {
 		return (
 			<div className="wallList">
 				<div className="wallListContainer">
-						<Wall stories={Analyse.filterStoriesByState(this.state.stories, 'started')} type="started" />
+						{["unscheduled", "started", "finished", "delivered", "accepted"].map((state) => {
+							return(<Wall stories={Analyse.filterStoriesByState(this.state.stories, state)} state={state} />)
+						})}
 				</div>	
 			</div>
 		)

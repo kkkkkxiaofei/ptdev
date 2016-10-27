@@ -262,5 +262,10 @@ body {
 	.wallListContainer {
 		max-height: 100%;
 		overflow-y: scroll;
+		.wall {
+			width: 15%;
+			display: inline-block;
+			vertical-align: top;
+		}
 	}
 }
