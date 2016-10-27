@@ -235,11 +235,11 @@ body {
 }
 
 .step {
-	width: 80%;
+	width: 90%;
 	margin: 0 auto;
 	> div {
 		display: inline-block;
-		width: 70%;
+		width: 85%;
 	}
 	.ending {
 		display: inline-block;
@@ -260,12 +260,15 @@ body {
 .wallList {
 	height: calc(100% - 160px);
 	width: 80%;
+	display: inline-block;
+	text-align: center;
+	margin-left: 5%;
 	.wallListContainer {
 		max-height: 100%;
 		overflow-y: scroll;
 		.wall {
 			text-align: center;
-			width: 15%;
+			width: 18%;
 			display: inline-block;
 			vertical-align: top;
 			margin: 10px;
