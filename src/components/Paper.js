@@ -21,7 +21,7 @@ class Paper extends React.Component {
 		return (
 			<div className="paper" style={{backgroundColor: COLOR[story.current_state]}}>
 				<div className="paperTitle">{story.estimate + " Points"}</div>
-				<a target="blank" href={story.url} className="paperContent">{story.name}</a>
+				<a target="blank" title={story.name} href={story.url} className="paperContent">{story.name}</a>
 				<div className="paperFooter">
 					{Analyse.getOwners(story.owner_ids)}
 				</div>	

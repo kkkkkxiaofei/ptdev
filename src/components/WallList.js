@@ -17,7 +17,7 @@ class WallList extends React.Component {
 	componentWillMount() {
 		setTimeout(() => {
 			ptAsynCall(
-			  '/stories/?with_label=iteration69&limit=200',
+			  '/stories/?with_label=iteration70&limit=200',
 			  null, 
 			  (response) => {
 			    const stories = Object.values(response)
