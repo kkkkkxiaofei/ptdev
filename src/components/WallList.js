@@ -25,7 +25,8 @@ class WallList extends React.Component {
 			  }
 			)
 		}
-		setTimeout(() => storyCall(), 30000)
+		storyCall()
+		setInterval(() => storyCall(), 30000)
 	}
 
 	setStories(stories) {

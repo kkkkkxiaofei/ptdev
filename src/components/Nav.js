@@ -5,6 +5,7 @@ import AppBar from 'material-ui/AppBar'
 import * as Analyse from '../utils/Analyse'
 import { browserHistory} from 'react-router'
 import CircleMenu from './CircleMenu'
+import { securityHash } from '../middleware/api'
 
 class Nav extends React.Component {
   constructor(props) {
@@ -41,9 +42,10 @@ class Nav extends React.Component {
   }
 
   render() {
+    let title = securityHash["iteration"] ? "Iteration " + securityHash["iteration"] : "C1 Dashboard"
     return (
       <div className="nav">
-        <AppBar title="C1 Dashboard" onTouchTap={this.handleToggle} />
+        <AppBar title={title} onTouchTap={this.handleToggle} />
       </div>
     );
   }

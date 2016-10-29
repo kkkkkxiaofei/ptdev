@@ -3,5 +3,11 @@ export default {
 	"started": "In Dev",
 	"finished": "For QA",
 	"delivered": "UAT",
-	"accepted": "Done"
+	"accepted": "Done",
+	"p": "projectId",
+	"t": "token",
+	"l": "limit",
+	"u": "username",
+	"w": "password",
+	"i": "iteration"
 }

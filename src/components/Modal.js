@@ -3,7 +3,7 @@ import Dialog from 'material-ui/Dialog'
 import FlatButton from 'material-ui/FlatButton'
 import TextField from 'material-ui/TextField'
 import { setSecurityInfo } from '../middleware/api'
-
+import Glossary from '../utils/Glossary'
 
 export default class Modal extends React.Component {
   constructor(props) {
@@ -41,15 +41,15 @@ export default class Modal extends React.Component {
 
   getSecurityInfo () {
     const parameter = window.location.search
-    const results = parameter.match(/([^&\?]+)/g) 
+    const results = parameter.match(/([^&\?]+)/g)
     if(results.length > 0) {
-      return {
-        projectId: results[0].replace('p=', ''),
-        token: results[1].replace('t=', ''),
-        limit: results[2].replace('l=', ''),
-        username: results[3].replace('u=', ''),
-        password: results[4].replace('w=', '')
-      }
+      let securityInfo = {}
+      for(let index in results) {
+        let values = results[index].split('=')
+        const key = Glossary[values[0]]
+        securityInfo[key] = values[1]
+      } 
+      return securityInfo
     }
     return null
   }

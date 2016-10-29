@@ -18,8 +18,8 @@ export default class App extends React.Component {
       <div>
     		<MuiThemeProvider>
     		  <div className="index">
-    	  		<Nav />
     	  		<Modal />	
+            <Nav />
     	  		<Progress />
             <div className={classNames("dashboard", {"hidden": !isIndexPage})}>
               <Version />

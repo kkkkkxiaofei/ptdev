@@ -3,8 +3,8 @@ import { camelizeKeys } from 'humps'
 import 'isomorphic-fetch'
 
 const API_ROOT = 'https://www.pivotaltracker.com/services/v5/projects/'
-let securityHash = null
 
+export let securityHash = null
 export const setSecurityInfo = securityParam => securityHash = securityParam
 export const getLimit = () => securityHash ? securityHash.limit : 200
 
