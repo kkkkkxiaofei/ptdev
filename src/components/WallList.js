@@ -15,16 +15,17 @@ class WallList extends React.Component {
 	}
 
 	componentWillMount() {
-		setTimeout(() => {
+		const storyCall = () => {
 			ptAsynCall(
-			  '/stories/?with_label=iteration70&limit=200',
+			  '/stories/?with_label=iteration67&limit=200',
 			  null, 
 			  (response) => {
 			    const stories = Object.values(response)
 			    this.setStories(stories)
 			  }
 			)
-		}, 1000)
+		}
+		setTimeout(() => storyCall(), 30000)
 	}
 
 	setStories(stories) {

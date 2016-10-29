@@ -13,13 +13,15 @@ export default class Version extends React.Component {
 	}
 
 	componentDidMount() {
-		setInterval(() => {
+		const versionCall = () => {
 			asynVersionCall(
 				"https://www.livetext.com/assets/version.txt", 
 				null, 
 				res => this.compareVersion(res)
 			)
-		}, 30000)
+		}
+		versionCall();
+		setInterval(() => versionCall(), 30000)
 	}
 
 	compareVersion(res) {
