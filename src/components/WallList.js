@@ -4,6 +4,7 @@ import * as Analyse from '../utils/Analyse'
 import {green50, green100,green800} from 'material-ui/styles/colors'
 import { ptAsynCall, Schemas, getLimit } from '../middleware/api'
 import Wall from './Wall'
+import { securityHash } from '../middleware/api'
 
 class WallList extends React.Component {
 	constructor(props) {
@@ -15,15 +16,18 @@ class WallList extends React.Component {
 	}
 
 	componentWillMount() {
+		const iteration = securityHash["iteration"]
 		const storyCall = () => {
-			ptAsynCall(
-			  '/stories/?with_label=iteration67&limit=200',
-			  null, 
-			  (response) => {
-			    const stories = Object.values(response)
-			    this.setStories(stories)
-			  }
-			)
+			if(iteration) {
+				ptAsynCall(
+				  '/stories/?with_label=iteration' + iteration + '&limit=200',
+				  null, 
+				  (response) => {
+				    const stories = Object.values(response)
+				    this.setStories(stories)
+				  }
+				)
+			}
 		}
 		storyCall()
 		setInterval(() => storyCall(), 30000)
