@@ -21,7 +21,7 @@ export default class Version extends React.Component {
 			)
 		}
 		versionCall();
-		setInterval(() => versionCall(), 30000)
+		setInterval(() => versionCall(), 1000*45)
 	}
 
 	compareVersion(res) {

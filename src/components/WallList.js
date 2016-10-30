@@ -30,7 +30,7 @@ class WallList extends React.Component {
 			}
 		}
 		storyCall()
-		setInterval(() => storyCall(), 30000)
+		setInterval(() => storyCall(), 30*1000)
 	}
 
 	setStories(stories) {
