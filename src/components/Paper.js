@@ -20,7 +20,9 @@ class Paper extends React.Component {
 		const {story} = this.props
 		return (
 			<div className="paper" style={{backgroundColor: COLOR[story.current_state]}}>
-				<div className="paperTitle">{story.estimate + " Points"}</div>
+				<div className="paperTitle">{story.estimate + " Points "}
+					<span>{"#" + story.id}</span>
+				</div>
 				<a target="blank" title={story.name} href={story.url} className="paperContent">{story.name}</a>
 				<div className="paperFooter">
 					{Analyse.getOwners(story.owner_ids)}
