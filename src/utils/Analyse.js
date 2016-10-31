@@ -146,7 +146,10 @@ const generateBugCategory = (stories, storyType) => {
 }
 function getAllPoints(stories, type) {
 	var allPoints = 0;
-	const featureStories = filterStoriesByType(stories, type)
+	var featureStories = stories;
+	if(type) {
+		featureStories = filterStoriesByType(stories, type)
+	}
 	featureStories.forEach(story => {
 		allPoints += story.estimate
 	});
