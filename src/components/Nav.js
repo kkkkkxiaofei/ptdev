@@ -4,7 +4,6 @@ import MenuItem from 'material-ui/MenuItem'
 import AppBar from 'material-ui/AppBar'
 import * as Analyse from '../utils/Analyse'
 import { browserHistory} from 'react-router'
-import CircleMenu from './CircleMenu'
 import { securityHash } from '../middleware/api'
 
 class Nav extends React.Component {
