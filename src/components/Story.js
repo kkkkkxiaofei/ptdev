@@ -48,7 +48,7 @@ class Story extends React.Component {
 						<NotificationsIcon color = {pinkA200}/>
 						</div>) : ''
 					}
-					{story.name}
+					<span title={story.name}>{story.name}</span>
 				</TableRowColumn>
 				<TableRowColumn style={{width: "100px"}}>{Analyse.getOwners(story.owner_ids)}</TableRowColumn>
 				<TableRowColumn style={{width: "100px"}}>{story.estimate}</TableRowColumn>
