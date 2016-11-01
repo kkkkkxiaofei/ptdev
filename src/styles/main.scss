@@ -218,15 +218,19 @@ body {
 }
 
 .sticker {
-	text-decoration: none;
-	color: #757575;
-	font-size: 16px;
-	display: block;
-	font-style: italic;
 	width: 140px;
 	height: 140px;
 	margin: 5px;
-	line-height: 140px;
+	display: table;
+	a {
+		color: #757575;
+		font-size: 16px;
+		display: block;
+		font-style: italic;
+		display: table-cell;
+		text-decoration: none;
+		vertical-align: middle;
+	}
 }
 
 .statusBlock {
