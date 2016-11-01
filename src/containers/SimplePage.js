@@ -15,6 +15,16 @@ const style = {
   backgroundColor: green100
 };
 
+const externalResources = {
+  tech: [
+    {
+      title: "Javascript中apply()的用法",
+      url: "http://flypursue.com/jekyll/update/2015/05/12/js-call-apply.html"
+    }
+  ]
+
+}
+
 export default class SimplePage extends React.Component {
   constructor(props) {
     super(props)
@@ -23,14 +33,16 @@ export default class SimplePage extends React.Component {
 
   componentWillMount() {
     asynCall('/md.json', null, (json) => {
-      var mdStructure = Object.assign({}, json)
-      var type = this.props.params.type
+      let mdStructure = Object.assign({}, json)
+      let type = this.props.params.type
       this.setState({mds: mdStructure[type]})
     })
   }
 
   render() {
-    const mds = this.state.mds || []
+    let mds = this.state.mds || []
+    let type = this.props.params.type
+    mds = mds.concat(externalResources[type] || [])
     return (
       <MuiThemeProvider>
         <div className="simplePage">
@@ -39,7 +51,9 @@ export default class SimplePage extends React.Component {
               mds.map(
                 md => (
                   <Paper style={style} zDepth={3}>
-                    <a className="sticker" target="blank" href={'/' + md.src}>{md.title.replace('.md', '')}</a>
+                    <div className="sticker">
+                      <a target="blank" href={md.url || '/' + md.src}>{md.title.replace('.md', '')}</a>
+                    </div>
                   </Paper>
                 )
               )
