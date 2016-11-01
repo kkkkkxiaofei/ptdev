@@ -1,15 +1,5 @@
 import React from 'react'
 import classNames from 'classnames'
-import {grey100, yellow100, blueGrey100, orange100 ,green100} from 'material-ui/styles/colors'
-import * as Analyse from '../utils/Analyse'
-
-const COLOR = {
-	"unscheduled": grey100,
-	"started": yellow100,
-	"finished": blueGrey100,
-	"delivered": orange100,
-	"accepted": green100
-}
 
 class Paper extends React.Component {
 	constructor(props) {
@@ -17,15 +7,15 @@ class Paper extends React.Component {
 	}
 
 	render() {
-		const {story} = this.props
+		const {bgColor, title, description, url, footer} = this.props.params
 		return (
-			<div className="paper" style={{backgroundColor: COLOR[story.current_state]}}>
-				<div className="paperTitle">{story.estimate + " Points "}
-					<span>{"#" + story.id}</span>
+			<div className="paper" style={{backgroundColor: bgColor}}>
+				<div className="paperTitle">
+					{title}
 				</div>
-				<a target="blank" title={story.name} href={story.url} className="paperContent">{story.name}</a>
+				<a target="blank" title={description} href={url} className="paperContent">{description}</a>
 				<div className="paperFooter">
-					{Analyse.getOwners(story.owner_ids)}
+					{footer}
 				</div>	
 			</div>
 		)
