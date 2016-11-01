@@ -9,7 +9,7 @@ class Menu extends React.Component {
 
 	render() {
 		return (
-			<div className="menu bgLtBlue">
+			<div className="menu">
 				<div className="type">
 					<Link to="/story">
 						<span><i className="material-icons">assignment</i></span>
