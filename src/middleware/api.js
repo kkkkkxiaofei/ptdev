@@ -33,7 +33,6 @@ export const ptAsynCall = (endpoint, hash, callback) => {
     securityHash = hash
   }
   const fullUrl = API_ROOT + securityHash.projectId + endpoint
-  console.log(fullUrl)
   const param = {
     headers: createHeaders(securityHash.token) || {},
     method: 'GET',

@@ -28,9 +28,8 @@ export default class Search extends React.Component {
 		  '/stories/?with_label=' + labelName + '&limit=' + limit,
 		  null, 
 		  (response) => {
-				this.setState({isStroyFetching: false})
+			this.setState({isStroyFetching: false})
 		    const stories = Object.values(response)
-		    console.log(stories)
 		    setStories && setStories(stories)
 		  }
 		)
