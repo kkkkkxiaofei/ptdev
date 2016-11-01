@@ -39,7 +39,7 @@ export default class SimplePage extends React.Component {
               mds.map(
                 md => (
                   <Paper style={style} zDepth={3}>
-                    <a className="sticker" target="blank" href={'/' + md.src}>{md.title}</a>
+                    <a className="sticker" target="blank" href={'/' + md.src}>{md.title.replace('.md', '')}</a>
                   </Paper>
                 )
               )
