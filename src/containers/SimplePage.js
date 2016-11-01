@@ -4,13 +4,15 @@ import { browserHistory, Link } from 'react-router'
 import Paper from 'material-ui/Paper';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import { asynCall } from '../middleware/api'
+import {green100} from 'material-ui/styles/colors'
 
 const style = {
-  height: 100,
-  width: 100,
+  height: 150,
+  width: 150,
   margin: 20,
   textAlign: 'center',
   display: 'inline-block',
+  backgroundColor: green100
 };
 
 export default class SimplePage extends React.Component {
