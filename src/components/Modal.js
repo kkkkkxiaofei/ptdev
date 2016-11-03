@@ -40,8 +40,11 @@ export default class Modal extends React.Component {
   }
 
   getSecurityInfo () {
-    const parameter = window.location.search
-    const results = parameter.match(/([^&\?]+)/g)
+    const params = window.location.search || localStorage["SECURITY"]
+    if(params) {
+      localStorage["SECURITY"] = params
+    }
+    const results = params.match(/([^&\?]+)/g)
     if(results.length > 0) {
       let securityInfo = {}
       for(let index in results) {
