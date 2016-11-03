@@ -3,7 +3,7 @@ import classNames from 'classnames'
 import Glossary from '../utils/Glossary'
 import Paper from './Paper'
 import * as Analyse from '../utils/Analyse'
-import {grey100, yellow100, blueGrey100, orange100 ,green100} from 'material-ui/styles/colors'
+import {grey100, yellow100, blueGrey100, orange100 ,green100, red100} from 'material-ui/styles/colors'
 
 const COLOR = {
 	"unscheduled": grey100,
@@ -20,7 +20,7 @@ class Wall extends React.Component {
 
 	getParams(story) {
 		return {
-			bgColor: COLOR[story.current_state],
+			bgColor: story.story_type == "feature" ? COLOR[story.current_state] : red100,
 			title: story.estimate + " Points " + "#" + story.id,
 			description: story.name,
 			url: story.url,
