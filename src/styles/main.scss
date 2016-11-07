@@ -235,17 +235,16 @@ body {
 
 .statusBlock {
 	width: 170px;
-    height: 30px;
-    position: fixed;
-    top: 17px;
-    right: 20px;
-    border-radius: 5px;
-    font-size: 20px;
-    line-height: 30px;
-    font-weight: bolder;
-    color: #BDBDBD;
-    text-align: center;
-    z-index: 9999;
+	height: 64px;
+	position: fixed;
+	top: 0;
+	right: 0;
+	font-size: 20px;
+	line-height: 64px;
+	font-weight: bolder;	
+	color: #bdbdbd;
+	text-align: center;
+	z-index: 9999;
 }
 
 .step {
