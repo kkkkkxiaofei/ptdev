@@ -11,7 +11,12 @@ const getOwners = (ownerIds) => {
   return owners.join('&')
 }
 
-const filterStoriesByState = (stories, currentState) => stories.filter(story => story.current_state == currentState) 
+const filterStoriesByState = (stories, currentState) => stories.filter(story => {
+	if(currentState.length > 0) {
+		return currentState.indexOf(story.current_state) != -1
+	}
+	return story.current_state == current_state
+}) 
 
 const filterStoriesByType = (stories, stroyType) => stories.filter(story => story.story_type == stroyType) 
 

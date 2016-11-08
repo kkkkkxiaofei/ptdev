@@ -41,7 +41,7 @@ class WallList extends React.Component {
 		return (
 			<div className="wallList">
 				<div className="wallListContainer">
-						{["unscheduled", "started", "finished", "delivered", "accepted"].map((state) => {
+						{[["unscheduled", "planned"], "started", "finished", "delivered", "accepted"].map((state) => {
 							return(<Wall stories={Analyse.filterStoriesByState(this.state.stories, state)} state={state} />)
 						})}
 				</div>	

@@ -34,7 +34,7 @@ class Wall extends React.Component {
 		const points = Analyse.getAllPoints(stories)
 		return (
 			<div className="wall">
-				<h1 className="title">{Glossary[state]} 
+				<h1 className="title">{Glossary[state] || "Backlog"} 
 					<span className="points">({points + "Points "})</span>
 				</h1>
 				{stories.map(story => (<Paper params={this.getParams(story)} />) )}	
