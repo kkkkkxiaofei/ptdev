@@ -16,11 +16,11 @@ class WallList extends React.Component {
 	}
 
 	componentWillMount() {
-		const iteration = securityHash["iteration"]
+		const scope = securityHash["scope"]
 		const storyCall = () => {
-			if(iteration) {
+			if(scope) {
 				ptAsynCall(
-				  '/stories/?with_label=iteration' + iteration + '&limit=200',
+				  '/stories/?with_label=' + scope + '&limit=200',
 				  null, 
 				  (response) => {
 				    const stories = Object.values(response)

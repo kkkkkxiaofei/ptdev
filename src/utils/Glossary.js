@@ -9,5 +9,5 @@ export default {
 	"l": "limit",
 	"u": "username",
 	"w": "password",
-	"i": "iteration"
+	"s": "scope"
 }
