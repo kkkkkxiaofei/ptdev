@@ -41,7 +41,7 @@ class Nav extends React.Component {
   }
 
   render() {
-    let title = securityHash["iteration"] ? "Iteration " + securityHash["iteration"] : "C1 Dashboard"
+    let title = securityHash["scope"] ? securityHash["scope"].toUpperCase() : "C1 Dashboard"
     return (
       <div className="nav">
         <AppBar title={title} onTouchTap={this.handleToggle} />
