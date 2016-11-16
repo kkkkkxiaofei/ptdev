@@ -248,8 +248,8 @@ body {
 }
 
 .step {
-	width: 80%;
-	margin: 0 auto;
+	width: calc(100% - 200px);
+	margin: 20px;
 	> div {
 		display: inline-block;
 		width: 85%;
@@ -272,15 +272,14 @@ body {
 
 .wallList {
 	height: calc(100% - 160px);
-    width: 80%;
+    width: calc(100% - 140px);
     text-align: center;
-    margin: 0 auto;
 	.wallListContainer {
 		max-height: 100%;
 		overflow-y: scroll;
 		.wall {
 			text-align: center;
-			width: 18%;
+			width: 23%;
 			display: inline-block;
 			vertical-align: top;
 			margin: 10px;
@@ -307,7 +306,7 @@ body {
 	-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 	box-shadow: rgba(0, 0, 0, 0.188235) 0px 10px 30px, rgba(0, 0, 0, 0.227451) 0px 6px 10px;
 	border-radius: 2px;
-	height: calc(100vw*.8*.15*.7);
+	height: calc((100vw - 140px)*.7*.25);
 	width: 70%;
 	margin: 20px;
 	display: inline-block;
@@ -327,7 +326,7 @@ body {
 	    overflow: hidden;
 	    text-decoration: none;
 	    color: #000000;
-	    font-size: 16px;
+	    font-size: 24px;
 	    margin-bottom: 2px;
 	}
 	.paperFooter {
