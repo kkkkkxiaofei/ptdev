@@ -93,7 +93,7 @@ https://www.pivotaltracker.com/n/projects/${project id}/stories/${story id}
 
 欢迎大家一起开发，请提交`Pull Request`，有问题请建Issue。另外，请大家统一commit的格式。
 
-**example:**
+**Example:**
 ``` 
 [xf] #issue-num 'do something'
 ```
