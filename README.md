@@ -41,7 +41,7 @@ npm run test
 或利用url进行自动配置：
 
 ```
-http://127.0.0.1:8080/?p={project id}&t={token}&l={limit count}&u={username}&w={password}&i={iteration}
+http://127.0.0.1:8080/?p={project id}&t={token}&l={limit count}&u={username}&w={password}&i={iteration}&s={scope}
 ```
 
 ## 如何获取project id
